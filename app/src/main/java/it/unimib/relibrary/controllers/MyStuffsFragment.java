@@ -23,7 +23,6 @@ import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import it.unimib.relibrary.R;
 import it.unimib.relibrary.common.view.SlidingTabLayout;
@@ -33,7 +32,7 @@ import it.unimib.relibrary.common.view.SlidingTabLayout;
  * to display a custom {@link ViewPager} title strip which gives continuous feedback to the user
  * when scrolling.
  */
-public class SlidingTabsBasicFragment extends Fragment {
+public class MyStuffsFragment extends Fragment {
 
     /**
      * A custom {@link ViewPager} title strip which looks much like Tabs present in Android v4.0 and
@@ -53,7 +52,7 @@ public class SlidingTabsBasicFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_sample, container, false);
+        return inflater.inflate(R.layout.mystuffs_fragment, container, false);
     }
 
     // BEGIN_INCLUDE (fragment_onviewcreated)
@@ -70,14 +69,14 @@ public class SlidingTabsBasicFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         // BEGIN_INCLUDE (setup_viewpager)
         // Get the ViewPager and set it's PagerAdapter so that it can display items
-        mViewPager = (ViewPager) view.findViewById(R.id.viewpager);
+        mViewPager = (ViewPager) view.findViewById(R.id.viewpager_stuffs);
         mViewPager.setAdapter(new SamplePagerAdapter());
         // END_INCLUDE (setup_viewpager)
 
         // BEGIN_INCLUDE (setup_slidingtablayout)
         // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
         // it's PagerAdapter set.
-        mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+        mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs_stuffs);
         mSlidingTabLayout.setViewPager(mViewPager);
         // END_INCLUDE (setup_slidingtablayout)
     }

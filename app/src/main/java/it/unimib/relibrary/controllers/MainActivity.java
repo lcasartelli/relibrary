@@ -40,13 +40,17 @@ public class MainActivity extends SampleActivityBase {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
 
         if (savedInstanceState == null) {
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            SlidingTabsBasicFragment fragment = new SlidingTabsBasicFragment();
-            transaction.replace(R.id.sample_content_fragment, fragment);
+            //MyStuffsFragment fragment = new MyStuffsFragment();
+            MainFragment fragment = new MainFragment();
+            transaction.replace(R.id.main_content_fragment, fragment);
             transaction.commit();
         }
     }
+
+
 }
