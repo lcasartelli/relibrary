@@ -24,6 +24,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+
 import it.unimib.relibrary.R;
 import it.unimib.relibrary.common.view.SlidingTabLayout;
 
@@ -92,11 +94,23 @@ public class MainFragment extends Fragment {
      */
     class SamplePagerAdapter extends FragmentPagerAdapter {
 
-        private final String[] MENU_LABELS = new String[]{"Home", "Le mie cose", "Notifiche"};
-
+        private ArrayList<String> TITLES;
+        private ArrayList<String> FRAGMENTS_CLASSES;
 
         public SamplePagerAdapter(FragmentManager fm) {
             super(fm);
+
+            TITLES = new ArrayList<String>();
+            FRAGMENTS_CLASSES = new ArrayList<String>();
+
+            FRAGMENTS_CLASSES.add(HomeFragment.class.getName());
+            TITLES.add(HomeFragment.getTitle());
+
+            FRAGMENTS_CLASSES.add(MyStuffsFragment.class.getName());
+            TITLES.add(MyStuffsFragment.getTitle());
+
+            FRAGMENTS_CLASSES.add(NotificationsFragment.class.getName());
+            TITLES.add(NotificationsFragment.getTitle());
         }
 
         /**
@@ -104,7 +118,7 @@ public class MainFragment extends Fragment {
          */
         @Override
         public int getCount() {
-            return MENU_LABELS.length;
+            return FRAGMENTS_CLASSES.size();
         }
 
         /**
@@ -114,20 +128,13 @@ public class MainFragment extends Fragment {
 
         @Override
         public CharSequence getPageTitle(int position) {
-            return MENU_LABELS[position];
+
+            return TITLES.get(position);
         }
-        // END_INCLUDE (pageradapter_getpagetitle)
-
-        /**
-         * Instantiate the {@link View} which should be displayed at {@code position}. Here we
-         * inflate a layout from the apps resources and then change the text view to signify the position.
-         */
-
 
         @Override
         public Fragment getItem(int position) {
-            return Fragment.instantiate(getActivity().getBaseContext(), MyStuffsFragment.class.getName());
-
+            return Fragment.instantiate(getActivity().getBaseContext(), FRAGMENTS_CLASSES.get(position));
         }
 
     }

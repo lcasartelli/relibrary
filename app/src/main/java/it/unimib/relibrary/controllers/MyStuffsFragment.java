@@ -32,18 +32,22 @@ import it.unimib.relibrary.common.view.SlidingTabLayout;
  * to display a custom {@link ViewPager} title strip which gives continuous feedback to the user
  * when scrolling.
  */
-public class MyStuffsFragment extends Fragment {
+public class MyStuffsFragment extends REFragment {
 
+    public static final String TITLE = "Le mie cose";
     /**
      * A custom {@link ViewPager} title strip which looks much like Tabs present in Android v4.0 and
      * above, but is designed to give continuous feedback to the user when scrolling.
      */
     private SlidingTabLayout mSlidingTabLayout;
-
     /**
      * A {@link ViewPager} which will be used in conjunction with the {@link SlidingTabLayout} above.
      */
     private ViewPager mViewPager;
+
+    public static String getTitle() {
+        return TITLE;
+    }
 
     /**
      * Inflates the {@link View} which will be displayed by this {@link Fragment}, from the app's
@@ -80,6 +84,7 @@ public class MyStuffsFragment extends Fragment {
         mSlidingTabLayout.setViewPager(mViewPager);
         // END_INCLUDE (setup_slidingtablayout)
     }
+
     // END_INCLUDE (fragment_onviewcreated)
 
     /**
