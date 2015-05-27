@@ -21,7 +21,9 @@ import android.os.Build;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
+import android.view.Display;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,11 +69,13 @@ public class SlidingTabLayout extends HorizontalScrollView {
     private static final int TITLE_OFFSET_DIPS = 24;
     private static final int TAB_VIEW_PADDING_DIPS = 16;
     private static final int TAB_VIEW_TEXT_SIZE_SP = 12;
+    private static final int NUMBER_OF_TAB_FOR_VIEW = 3;
 
     private final int mTitleOffset;
 
     private int mTabViewLayoutId;
     private int mTabViewTextViewId;
+    private int mNumberOfTabsForView;
 
     private ViewPager mViewPager;
     private ViewPager.OnPageChangeListener mViewPagerPageChangeListener;
@@ -96,7 +100,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
 
         mTitleOffset = (int) (TITLE_OFFSET_DIPS * getResources().getDisplayMetrics().density);
 
+        mNumberOfTabsForView = NUMBER_OF_TAB_FOR_VIEW;
+
         mTabStrip = new SlidingTabStrip(context);
+
         addView(mTabStrip, LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
     }
 
@@ -109,6 +116,10 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     public void setCustomTabColorizer(TabColorizer tabColorizer) {
         mTabStrip.setCustomTabColorizer(tabColorizer);
+    }
+
+    public void setNumberOfTabsForView(int n) {
+        mNumberOfTabsForView = n;
     }
 
     /**
@@ -169,6 +180,11 @@ public class SlidingTabLayout extends HorizontalScrollView {
      */
     protected TextView createDefaultTabView(Context context) {
         TextView textView = new TextView(context);
+
+        DisplayMetrics metrics = getContext().getResources().getDisplayMetrics();
+        int tabWidth =  metrics.widthPixels / mNumberOfTabsForView;
+        textView.setWidth(tabWidth);
+
         textView.setGravity(Gravity.CENTER);
         textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, TAB_VIEW_TEXT_SIZE_SP);
         textView.setTypeface(Typeface.DEFAULT_BOLD);

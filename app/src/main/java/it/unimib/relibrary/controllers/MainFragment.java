@@ -81,7 +81,9 @@ public class MainFragment extends Fragment {
         // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
         // it's PagerAdapter set.
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs);
+        mSlidingTabLayout.setNumberOfTabsForView(3);
         mSlidingTabLayout.setViewPager(mViewPager);
+
         // END_INCLUDE (setup_slidingtablayout)
     }
     // END_INCLUDE (fragment_onviewcreated)

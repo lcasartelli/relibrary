@@ -81,6 +81,7 @@ public class MyStuffsFragment extends REFragment {
         // Give the SlidingTabLayout the ViewPager, this must be done AFTER the ViewPager has had
         // it's PagerAdapter set.
         mSlidingTabLayout = (SlidingTabLayout) view.findViewById(R.id.sliding_tabs_stuffs);
+        mSlidingTabLayout.setNumberOfTabsForView(4);
         mSlidingTabLayout.setViewPager(mViewPager);
         // END_INCLUDE (setup_slidingtablayout)
     }
