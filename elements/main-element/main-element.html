@@ -1,0 +1,56 @@
+
+<dom-module id="main-element">
+  <style>
+    /* CSS rules for your element */
+  </style>
+  <template>
+    <paper-header-panel mode="waterfall-tall" class="flex">
+      <!-- Main Toolbar -->
+      <paper-toolbar role="toolbar" elevation="1">
+        <!-- Toolbar icons -->
+
+        <!-- Application name -->
+        <!-- <div class="appname bottom paper-font-display2">Polymer Starter Kit</div> -->
+
+        <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
+          <paper-tab>Home</paper-tab>
+          <paper-tab>Le mie cose</paper-tab>
+          <paper-tab>Notifiche</paper-tab>
+        </paper-tabs>
+
+      </paper-toolbar>
+
+      <iron-pages selected="{{pageSelected}}">
+
+        <div id='home'>
+          <p>Home</p>
+        </div>
+
+        <div>
+          <mystuffs-element></mystuffs-element>
+        </div>
+
+        <div>Page 3</div>
+      </iron-pages>
+
+
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "main-element",
+
+    // add properties and methods on the element's prototype
+
+    properties: {
+      // declare properties for the element's public API
+      pageSelected: {
+        type: String,
+        value: "0"
+      }
+    }
+  });
+</script>

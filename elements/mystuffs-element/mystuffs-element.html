@@ -1,0 +1,57 @@
+
+<dom-module id="mystuffs-element">
+  <style>
+    /* CSS rules for your element */
+  </style>
+  <template>
+  	<div>
+	    <paper-tabs class='flex' selected="{{pageSelected}}">
+	      <paper-tab>Libri</paper-tab>
+	      <paper-tab>Liste</paper-tab>
+	      <paper-tab>Librerie</paper-tab>
+	      <paper-tab>Prestiti</paper-tab>
+	    </paper-tabs>
+
+			<iron-pages selected="{{pageSelected}}">
+				<div>
+					<paper-material class='page-card-temp' elevation="1">
+			      <h1>I miei libri</h1>
+			    </paper-material>
+				</div>
+				<div>
+					<paper-material class='page-card-temp' elevation="1">
+			      <h1>Le mie liste</h1>
+			    </paper-material>
+				</div>
+				<div>
+					<paper-material class='page-card-temp' elevation="1">
+			      <h1>Le mie librerie</h1>
+			    </paper-material>
+				</div>
+				<div>
+					<paper-material class='page-card-temp' elevation="1">
+			      <h1>I miei prestiti</h1>
+			    </paper-material>
+				</div>
+			</iron-pages>
+
+	  </div>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "mystuffs-element",
+
+    // add properties and methods on the element's prototype
+
+    properties: {
+      // declare properties for the element's public API
+      pageSelected: {
+        type: String,
+        value: "0"
+      }
+    }
+  });
+</script>
