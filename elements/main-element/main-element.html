@@ -9,13 +9,13 @@
 
   </style>
   <template>
-    <paper-header-panel mode="waterfall-tall" class="flex">
+    <paper-header-panel mode="waterfall">
       <!-- Main Toolbar -->
       <paper-toolbar role="toolbar" elevation="1">
         <!-- Toolbar icons -->
 
         <!-- Application name -->
-        <!-- <div class="appname bottom paper-font-display2">Polymer Starter Kit</div> -->
+        <div class="">Clara Brambilla</div>
 
         <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
           <paper-tab>Home</paper-tab>
@@ -25,7 +25,7 @@
 
       </paper-toolbar>
 
-      <iron-pages selected="{{pageSelected}}">
+      <iron-pages selected="{{pageSelected}}" style='height: 100%'>
 
         <div id='home'>
           <paper-material class='page-card-temp stream' elevation="1">

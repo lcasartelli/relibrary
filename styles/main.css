@@ -13,6 +13,15 @@ body {
     color: #333;
 }
 
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+paper-header-panel {
+  height: 100%;
+}
+
 main-element {
   height: 100%;
 }
@@ -24,7 +33,17 @@ main-element {
 
 
 paper-fab {
-    position: absolute;
-    bottom: 35px;
-    right: 35px;
+  position: fixed;
+  z-index: 4;
+  bottom: 35px;
+  right: 35px;
+}
+
+
+paper-toolbar {
+  height: 100px;
+}
+
+#mainContainer {
+  /*height: 100%;*/
 }
