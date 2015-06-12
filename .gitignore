@@ -25,3 +25,6 @@ local.properties
 proguard/
 
 *.log
+
+bower_components
+node_modules
