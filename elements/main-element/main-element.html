@@ -1,7 +1,12 @@
 
 <dom-module id="main-element">
   <style>
-    /* CSS rules for your element */
+
+    .stream .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
+
   </style>
   <template>
     <paper-header-panel mode="waterfall-tall" class="flex">
@@ -23,14 +28,18 @@
       <iron-pages selected="{{pageSelected}}">
 
         <div id='home'>
-          <p>Home</p>
+          <paper-material class='page-card-temp stream' elevation="1">
+            <home-list-item-element class="list-item"></home-list-item-element>
+          </paper-material>
         </div>
 
         <div>
           <mystuffs-element></mystuffs-element>
         </div>
 
-        <div>Page 3</div>
+        <div>
+          <notifications-element></notifications-element>
+        </div>
       </iron-pages>
 
 

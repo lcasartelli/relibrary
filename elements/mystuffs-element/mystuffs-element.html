@@ -1,7 +1,10 @@
 
 <dom-module id="mystuffs-element">
   <style>
-    /* CSS rules for your element */
+    .my-books .list-item, .my-liste .list-item, .my-library .list-item, .my-loans .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
   </style>
   <template>
   	<div>
@@ -14,24 +17,24 @@
 
 			<iron-pages selected="{{pageSelected}}">
 				<div>
-					<paper-material class='page-card-temp' elevation="1">
-			      <h1>I miei libri</h1>
-            <booklist-element></booklist-element>
+					<paper-material class='page-card-temp my-books' elevation="1">
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
 			    </paper-material>
 				</div>
 				<div>
-					<paper-material class='page-card-temp' elevation="1">
-			      <h1>Le mie liste</h1>
+					<paper-material class='page-card-temp my-liste' elevation="1">
+            <liste-list-item-element class="list-item"></liste-list-item-element>
 			    </paper-material>
 				</div>
 				<div>
-					<paper-material class='page-card-temp' elevation="1">
-			      <h1>Le mie librerie</h1>
+					<paper-material class='page-card-temp my-library' elevation="1">
+            <library-list-item-element class="list-item"></library-list-item-element>
 			    </paper-material>
 				</div>
 				<div>
-					<paper-material class='page-card-temp' elevation="1">
-			      <h1>I miei prestiti</h1>
+					<paper-material class='page-card-temp my-loans' elevation="1">
+            <loan-list-item-element class="list-item"></loan-list-item-element>
 			    </paper-material>
 				</div>
 			</iron-pages>
