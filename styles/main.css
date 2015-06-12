@@ -21,3 +21,10 @@ main-element {
   margin: 30px;
   padding: 20px;
 }
+
+
+paper-fab {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+}
