@@ -17,8 +17,12 @@ main-element {
   height: 100%;
 }
 
-
 .page-card-temp {
   margin: 30px;
   padding: 20px;
+}
+
+paper-material {
+  width: 100%;
+  float: left;
 }
