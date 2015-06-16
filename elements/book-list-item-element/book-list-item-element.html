@@ -18,6 +18,11 @@
     .container-info {
       width: 70%;
     }
+
+    paper-ripple {
+      z-index: 100;
+    }
+
   </style>
   <template>
     <div class='book-item'>
@@ -35,7 +40,9 @@
           Score: 4/5
         </p>
       </div>
+      <paper-ripple class='recenteringTouch' fit></paper-ripple>
     </div>
+
   </template>
 </dom-module>
 

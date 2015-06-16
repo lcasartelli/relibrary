@@ -7,6 +7,21 @@
       width: 100%;
     }
 
+    .header-profile {
+      padding-top: 30px;
+      vertical-align: middle;
+    }
+
+    .header-profile p {
+      margin-left:10px;
+      display: inline-block;
+      font-size: 120%;
+    }
+
+    .header-profile * {
+      vertical-align: middle;
+    }
+
   </style>
   <template>
     <paper-header-panel mode="waterfall">
@@ -15,7 +30,10 @@
         <!-- Toolbar icons -->
 
         <!-- Application name -->
-        <div class="">Clara Brambilla</div>
+        <div class="middle header-profile">
+          <div class="circular"></div>
+          <p>Clara Brambilla</p>
+        </div>
 
         <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
           <paper-tab>Home</paper-tab>

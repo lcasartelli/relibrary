@@ -18,6 +18,9 @@
     .container-info {
       width: 70%;
     }
+    paper-ripple {
+      z-index: 100;
+    }
   </style>
   <template>
     <div class='book-item'>
@@ -29,6 +32,7 @@
           Libreria Grande
         </p>
       </div>
+      <paper-ripple class='recenteringTouch' fit></paper-ripple>
     </div>
   </template>
 </dom-module>
