@@ -1,17 +1,12 @@
 
-<dom-module id="edit-button-element">
+<dom-module id="box-library-element">
   <style>
-    .btn-edit {
-      /* TO DO: style the button*/
-    }
   </style>
   <template>
+    <edit-button-element></edit-button-element>
     <div class='row'>
-      <div class='col-xs-12 text-right'>
-        <button class='btn btn-edit btn-xs'>
-          Modifica
-          <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-        </button>
+      <div class='col-xs-12'>
+        <h4>È nella libreria: Libreria grande</h4>
       </div>
     </div>
   </template>
@@ -20,7 +15,7 @@
 <script>
   // element registration
   Polymer({
-    is: "edit-button-element",
+    is: "box-library-element",
 
     // // add properties and methods on the element's prototype
     //
