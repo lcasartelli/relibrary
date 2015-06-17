@@ -1,7 +1,9 @@
 
 <dom-module id="box-my-list-element">
   <style>
-
+    .container-default-list {
+      padding: 5px 10px 10px 5px;
+    }
   </style>
   <template>
     <div class='row'>
@@ -10,6 +12,18 @@
       </div>
       <div class='col-xs-4 text-right'>
         <more-button-element></more-button-element>
+      </div>
+    </div>
+    <default-list-element></default-list-element>
+    <div class='row'>
+      <div class='col-xs-4'>
+        <single-list-element></single-list-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-list-element></single-list-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-list-element></single-list-element>
       </div>
     </div>
   </template>

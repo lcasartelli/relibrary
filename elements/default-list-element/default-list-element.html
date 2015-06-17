@@ -1,0 +1,42 @@
+
+<dom-module id="default-list-element">
+  <style>
+    /* CSS rules for your element */
+    .container-button {
+      padding: 0px 3px;
+    }
+    paper-button {
+      width: 100%;
+    }
+  </style>
+  <template>
+    <div class='row container-default-list'>
+      <div class='col-xs-4 container-button'>
+        <paper-button raised>Letti</paper-button>
+      </div>
+      <div class='col-xs-4 container-button'>
+        <paper-button raised>Da Leggere</paper-button>
+      </div>
+      <div class='col-xs-4 container-button'>
+        <paper-button raised>Acquistati</paper-button>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "default-list-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>
