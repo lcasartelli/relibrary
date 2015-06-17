@@ -2,7 +2,7 @@
 <dom-module id="liste-list-item-element">
   <style>
     /* CSS rules for your element */
-    .book-item {
+    .lista-item {
       width: 100%;
       display: block;
       position: relative;
@@ -18,22 +18,28 @@
     .container-info {
       width: 70%;
     }
+    a.lista-item-container {
+      text-decoration: none;
+      color: #000;
+    }
     paper-ripple {
       z-index: 100;
     }
   </style>
   <template>
-    <div class='book-item'>
-      <div class='container-img'>
-        <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
+    <a class='lista-item-container' href='/lista/detail'>
+      <div class='lista-item'>
+        <div class='container-img'>
+          <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
+        </div>
+        <div class='container-info'>
+          <p>
+            Romanzi preferiti
+          </p>
+        </div>
+        <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
-      <div class='container-info'>
-        <p>
-          Romanzi preferiti
-        </p>
-      </div>
-      <paper-ripple class='recenteringTouch' fit></paper-ripple>
-    </div>
+    </a>
   </template>
 </dom-module>
 

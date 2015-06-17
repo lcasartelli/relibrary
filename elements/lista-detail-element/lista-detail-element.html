@@ -1,0 +1,71 @@
+
+<dom-module id="lista-detail-element">
+  <style>
+    .stream .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .header-profile p {
+      margin-left:10px;
+      display: inline-block;
+      font-size: 120%;
+    }
+
+    .header-profile * {
+      vertical-align: middle;
+    }
+
+    paper-toolbar {
+      vertical-align: middle;
+    }
+
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <a class='back' href='/'>
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </a>
+        <p>Lista: Romanzi preferiti</p>
+      </paper-toolbar>
+
+      <div class='container'>
+        <!-- BOOK COVER -->
+        <div class='row'>
+          <!-- BOOK INFO -->
+          <div class='col-xs-12'>
+            <h3 class='title'>Romanzi preferiti</h3>
+            <p>Lista dei romanzi preferiti del 2015 suggeriti da Marco</p>
+          </div>
+        </div>
+        <hr />
+        <box-books-element></box-books-element>
+        <hr />
+        <remove-book-button-element></remove-book-button-element>
+      </div>
+      <paper-fab icon="create"></paper-fab>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "lista-detail-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>
