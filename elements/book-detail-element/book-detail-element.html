@@ -1,41 +1,44 @@
 
 <dom-module id="book-detail-element">
   <style>
+    .stream .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
 
-  .stream .list-item  {
-    display: inline-block;
-    width: 100%;
-  }
+    .header-profile {
+      padding-top: 30px;
+      vertical-align: middle;
+    }
 
-  .header-profile {
-    padding-top: 30px;
-    vertical-align: middle;
-  }
+    .header-profile p {
+      margin-left:10px;
+      display: inline-block;
+      font-size: 120%;
+    }
 
-  .header-profile p {
-    margin-left:10px;
-    display: inline-block;
-    font-size: 120%;
-  }
+    .header-profile * {
+      vertical-align: middle;
+    }
 
-  .header-profile * {
-    vertical-align: middle;
-  }
+    paper-toolbar {
+      vertical-align: middle;
+    }
 
-  paper-toolbar {
-    vertical-align: middle;
-  }
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
 
-  paper-toolbar p {
-    margin: 0;
-    padding: 0;
-  }
-
+    a.back {
+      text-decoration: none;
+      color: #fff;
+    }
   </style>
   <template>
     <paper-header-panel flex>
       <paper-toolbar role="toolbar" elevation="1">
-        <a href='/'>
+        <a class='back' href='/'>
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </a>
         <p>Harry Potter e la pietra filosofale</p>
