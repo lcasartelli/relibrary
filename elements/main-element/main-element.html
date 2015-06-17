@@ -1,0 +1,89 @@
+
+<dom-module id="main-element">
+  <style>
+
+    .stream .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .header-profile {
+      padding-top: 30px;
+      vertical-align: middle;
+    }
+
+    .header-profile p {
+      margin-left:10px;
+      display: inline-block;
+      font-size: 120%;
+    }
+
+    .header-profile * {
+      vertical-align: middle;
+    }
+
+    paper-toolbar {
+      height: 140px;
+    }
+
+  </style>
+  <template>
+    <paper-header-panel mode="waterfall">
+      <!-- Main Toolbar -->
+      <paper-toolbar role="toolbar" elevation="1">
+        <!-- Toolbar icons -->
+
+        <!-- Application name -->
+        <a href='/profile/me'>
+          <div class="middle header-profile">
+            <div class="circular"></div>
+            <p>Clara Brambilla</p>
+          </div>
+        </a>
+
+        <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
+          <paper-tab>Home</paper-tab>
+          <paper-tab>Le mie cose</paper-tab>
+          <paper-tab>Notifiche</paper-tab>
+        </paper-tabs>
+
+      </paper-toolbar>
+
+      <iron-pages selected="{{pageSelected}}" style='height: 100%'>
+
+        <div id='home'>
+          <paper-material class='page-card-temp stream' elevation="1">
+            <home-list-item-element class="list-item"></home-list-item-element>
+          </paper-material>
+        </div>
+
+        <div>
+          <mystuffs-element></mystuffs-element>
+        </div>
+
+        <div>
+          <notifications-element></notifications-element>
+        </div>
+      </iron-pages>
+
+
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "main-element",
+
+    // add properties and methods on the element's prototype
+
+    properties: {
+      // declare properties for the element's public API
+      pageSelected: {
+        type: String,
+        value: "0"
+      }
+    }
+  });
+</script>

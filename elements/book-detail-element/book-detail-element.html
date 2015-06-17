@@ -1,0 +1,110 @@
+
+<dom-module id="book-detail-element">
+  <style>
+    .stream .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
+
+    .header-profile {
+      padding-top: 30px;
+      vertical-align: middle;
+    }
+
+    .header-profile p {
+      margin-left:10px;
+      display: inline-block;
+      font-size: 120%;
+    }
+
+    .header-profile * {
+      vertical-align: middle;
+    }
+
+    paper-toolbar {
+      vertical-align: middle;
+    }
+
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <a class='back' href='/'>
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </a>
+        <p>Harry Potter e la pietra filosofale</p>
+      </paper-toolbar>
+
+      <div class='container'>
+        <!-- BOOK COVER -->
+        <div class='row'>
+          <div class='col-xs-4'> <!-- width:100%; height: 200px;  -->
+            <!--<iron-image class='col-xs-12' style="background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/130/200"></iron-image>-->
+            <img src="http://lorempixel.com/130/200" class="img-responsive"/>
+          </div>
+          <!-- BOOK INFO -->
+          <div class='col-xs-8'>
+            <h3 class='title'>Harry Potter e la pietra Filosofale</h3>
+            <small class='author'>J.K. Rowling</small>
+            <p class='rating' style='color: red'>TODO Valutazione</p>
+          </div>
+        </div>
+        <hr />
+        <div class='row'>
+          <!--BADGES -->
+          <div class='col-xs-12'>
+            <p style='color: red'>TODO Badge</p>
+          </div>
+        </div>
+        <hr />
+        <!-- TRAMA -->
+        <div class='row'>
+          <div class='col-xs-12'>
+            <h4>Trama</h4>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <p class='trama-content'>1º novembre 1981. A Little Whinging, in Inghilterra, è il giorno in cui uno strano e anziano signore di nome Albus Silente (preside della scuola di magia e stregoneria di Hogwarts) lascia un neonato di un anno, di nome Harry Potter, sulla porta di casa degli zii Vernon e Petunia Dursley. Silente lascia anche una lettera in cui spiega che i genitori del bambino sono morti e in cui chiede di prendersi cura del piccolo.Harry cresce infelice in casa Dursley, tormentato dalle angherie del cugino Dudley e degli zii, che non perdono occasione per punirlo e mortificarlo: lo fanno dormire nel ripostiglio pieno di ragni sotto le scale, lo vestono solo con gli enormi vestiti smessi di Dudley, lo privano dei giochi e non gli permettono mai di divertirsi o di essere felice in qualsiasi modo...
+              <!--Harry inoltre è talvolta protagonista di alcuni strani episodi di cui afferma non essere responsabile, come il fatto di essere saltato fin sul tetto della scuola per sfuggire a Dudley e ai suoi amici bulli, il fatto di aver fatto sparire il vetro di una teca contenente un serpente allo zoo, permettendo al serpente stesso di spaventare a morte il cugino, o il fatto di essersi fatto ricrescere i capelli in una notte, dopo che la zia Petunia li aveva tagliati in malo modo perché crescevano in modo disordinato.-->
+            </p>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <p class='text-center'>Leggi di più</p>
+          </div>
+        </div>
+        <hr />
+        <loan-button-element></loan-button-element>
+        <hr />
+        <box-list-element></box-list-element>
+        <hr />
+        <box-library-element></box-library-element/>
+        <hr />
+        <remove-book-button-element></remove-book-button-element>
+      </div>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "book-detail-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>

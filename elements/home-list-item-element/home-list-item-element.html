@@ -1,0 +1,51 @@
+
+<dom-module id="home-list-item-element">
+  <style>
+    /* CSS rules for your element */
+    .book-item {
+      width: 100%;
+      display: block;
+      position: relative;
+      float: left;
+    }
+    .container-img, .container-info {
+      float: left;
+      display: block;
+    }
+    .container-img {
+      width: 30%;
+    }
+    .container-info {
+      width: 70%;
+    }
+  </style>
+  <template>
+    <div class='book-item'>
+      <div class='container-img'>
+        <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
+      </div>
+      <div class='container-info'>
+        <p>
+          J.K. Rowling ha pubblicato Harry Potter e la pietra filosofale.
+        </p>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "home-list-item-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>

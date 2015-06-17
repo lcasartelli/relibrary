@@ -1,0 +1,79 @@
+
+<dom-module id="mystuffs-element">
+  <style>
+    .my-books .list-item, .my-liste .list-item, .my-library .list-item, .my-loans .list-item  {
+      display: inline-block;
+      width: 100%;
+    }
+  </style>
+  <template>
+  	<div>
+      
+	    <paper-tabs selected="{{pageSelected}}">
+	      <paper-tab>Libri</paper-tab>
+	      <paper-tab>Liste</paper-tab>
+	      <paper-tab>Librerie</paper-tab>
+	      <paper-tab>Prestiti</paper-tab>
+	    </paper-tabs>
+
+			<iron-pages selected="{{pageSelected}}">
+				<div>
+					<paper-material class='page-card-temp my-books' elevation="1">
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+            <book-list-item-element class="list-item"></book-list-item-element>
+			    </paper-material>
+          <paper-fab icon="add"></paper-fab>
+
+				</div>
+				<div>
+					<paper-material class='page-card-temp my-liste' elevation="1">
+            <liste-list-item-element class="list-item"></liste-list-item-element>
+			    </paper-material>
+          <paper-fab icon="add"></paper-fab>
+				</div>
+				<div>
+					<paper-material class='page-card-temp my-library' elevation="1">
+            <library-list-item-element class="list-item"></library-list-item-element>
+			    </paper-material>
+          <paper-fab icon="add"></paper-fab>
+				</div>
+				<div>
+					<paper-material class='page-card-temp my-loans' elevation="1">
+            <loan-list-item-element class="list-item"></loan-list-item-element>
+			    </paper-material>
+          <paper-fab icon="add"></paper-fab>
+				</div>
+			</iron-pages>
+
+	  </div>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "mystuffs-element",
+
+    // add properties and methods on the element's prototype
+
+    properties: {
+      // declare properties for the element's public API
+      pageSelected: {
+        type: String,
+        value: "0"
+      }
+    }
+  });
+</script>
