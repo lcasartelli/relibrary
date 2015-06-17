@@ -3,20 +3,7 @@
   <style>
     /* CSS rules for your element */
     .book-item {
-      width: 100%;
-      display: block;
       position: relative;
-      float: left;
-    }
-    .container-img, .container-info {
-      float: left;
-      display: block;
-    }
-    .container-img {
-      width: 30%;
-    }
-    .container-info {
-      width: 70%;
     }
 
     paper-ripple {
@@ -25,11 +12,12 @@
 
   </style>
   <template>
-    <div class='book-item'>
-      <div class='container-img'>
-        <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
+    <div class='book-item row'>
+      <div class='col-xs-3'>
+        <!--<iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>-->
+        <img src="http://lorempixel.com/130/200" class='img-responsive'/>
       </div>
-      <div class='container-info'>
+      <div class='col-xs-9'>
         <p>
           Orgoglio e pregiudizio
         </p>
