@@ -9,46 +9,54 @@
     }
   </style>
   <template>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-xs-4'>
-          <profile-image-element></profile-image-element>
-        </div>
-        <div class='col-xs-8 container-social-detail'>
-          <div class='row'>
-            <div class='col-xs-4'>
-              <h3>10</h3>
-              <h5>Amici</h5>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <a class='back' href='/'>
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </a>
+        <p>Clara Brambilla</p>
+      </paper-toolbar>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <profile-image-element></profile-image-element>
+          </div>
+          <div class='col-xs-8 container-social-detail'>
+            <div class='row'>
+              <div class='col-xs-4'>
+                <h3>10</h3>
+                <h5>Amici</h5>
+              </div>
+              <div class='col-xs-4'>
+                <h3>100</h3>
+                <h5>Segue</h5>
+              </div>
+              <div class='col-xs-4'>
+                <h3>253</h3>
+                <h5>Libri</h5>
+              </div>
             </div>
-            <div class='col-xs-4'>
-              <h3>100</h3>
-              <h5>Segue</h5>
-            </div>
-            <div class='col-xs-4'>
-              <h3>253</h3>
-              <h5>Libri</h5>
+            <div class='row'>
+              <div class='col-xs-12'>
+                <button class='btn btn-block'>Modifica profilo</button>
+              </div>
             </div>
           </div>
-          <div class='row'>
-            <div class='col-xs-12'>
-              <button class='btn btn-block'>Modifica profilo</button>
-            </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <h4>
+              Clara Brambilla
+              <p><small>17 Nov 1993</small></p>
+            </h4>
           </div>
         </div>
+        <hr />
+        <box-actually-reading-element></box-actually-reading-element>
+        <hr />
+        <box-my-list-element></box-my-list-element>
       </div>
-      <div class='row'>
-        <div class='col-xs-12'>
-          <h4>
-            Clara Brambilla
-            <p><small>17 Nov 1993</small></p>
-          </h4>
-        </div>
-      </div>
-      <hr />
-      <box-actually-reading-element></box-actually-reading-element>
-      <hr />
-      <box-my-list-element></box-my-list-element>
-    </div>
+    </paper-header-panel>
   </template>
 </dom-module>
 
