@@ -22,11 +22,14 @@ paper-header-panel {
   height: 100%;
 }
 
-main-element, book-detail-element, router-element {
+.route {
   height: 100%;
 }
 
-
+paper-toolbar a {
+  text-decoration: none;
+  color: #fff;
+}
 
 .page-card-temp {
   margin: 30px;
