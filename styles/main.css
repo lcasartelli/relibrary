@@ -22,9 +22,11 @@ paper-header-panel {
   height: 100%;
 }
 
-main-element {
+main-element, book-detail-element, router-element {
   height: 100%;
 }
+
+
 
 .page-card-temp {
   margin: 30px;
@@ -39,13 +41,12 @@ paper-fab {
   right: 35px;
 }
 
-
-paper-toolbar {
-  height: 140px;
+.hide {
+  display: none;
 }
 
-#mainContainer {
-  /*height: 100%;*/
+.show {
+  display: block;
 }
 
 

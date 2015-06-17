@@ -10,19 +10,32 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 <script src="../bower_components/page/page.js"></script>
 <script>
+
+	var _showRoute = function (routeName) {
+		var r = document.querySelectorAll('.route');
+		for (var i = 0; i < r.length; ++i) {
+			var classL = r[i].classList;
+			if (r[i].id === routeName) {
+				classL.remove('hide');
+				classL.add('show');
+			} else {
+				classL.add('hide');
+				classL.remove('show');
+			}
+		};
+	};
+
   window.addEventListener('WebComponentsReady', function() {
 
     // We use Page.js for routing. This is a Micro
     // client-side router inspired by the Express router
     // More info: https://visionmedia.github.io/page.js/
     page('/', function () {
-			document.querySelector('#detail').style.display =  'none';
-			document.querySelector('#main').style.display =  'block';
+			_showRoute('main');
     });
 
     page('/book/detail', function () {
-			document.querySelector('#detail').style.display =  'block';
-			document.querySelector('#main').style.display =  'none';
+			_showRoute('book-detail');
     });
     // add #! before urls
     page({
