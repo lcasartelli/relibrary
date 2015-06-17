@@ -1,0 +1,46 @@
+
+<dom-module id="box-my-library-element">
+  <style>
+    .container-default-list {
+      padding: 5px 10px 10px 5px;
+    }
+  </style>
+  <template>
+    <div class='row'>
+      <div class='col-xs-8'>
+        <h4>Librerie</h4>
+      </div>
+      <div class='col-xs-4 text-right'>
+        <more-button-element></more-button-element>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-4'>
+        <single-library-element></single-library-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-library-element></single-library-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-library-element></single-library-element>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "box-my-library-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>
