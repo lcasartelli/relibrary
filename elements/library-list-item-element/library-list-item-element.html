@@ -18,21 +18,24 @@
     .container-info {
       width: 70%;
     }
+    .container-info p {
+      color: black;
+    }
     paper-ripple {
       z-index: 100;
     }
   </style>
   <template>
     <div class='book-item'>
-      <div class='container-img'>
-        <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
-      </div>
-      <div class='container-info'>
-        <p>
-          Libreria Grande
-        </p>
-      </div>
-      <paper-ripple class='recenteringTouch' fit></paper-ripple>
+      <a href='/library/code'>
+        <div class='container-img'>
+          <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
+        </div>
+        <div class='container-info'>
+          <p>Libreria Grande</p>
+        </div>
+        <paper-ripple class='recenteringTouch' fit></paper-ripple>
+      </a>
     </div>
   </template>
 </dom-module>
