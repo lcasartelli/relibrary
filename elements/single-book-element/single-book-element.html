@@ -1,0 +1,31 @@
+
+<dom-module id="single-book-element">
+  <style>
+    a .book-name {
+      color: #000;
+    }
+  </style>
+  <template>
+    <a href='/book/detail'>
+      <img src="http://lorempixel.com/130/200" class="img-responsive"/>
+      <p class='text-center book-name'>Orgoglio e pregiudizio</p>
+    </a>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "single-book-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>

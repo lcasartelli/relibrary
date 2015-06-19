@@ -1,0 +1,115 @@
+
+<dom-module id="library-detail-element">
+  <style>
+    .container-privacy p {
+      margin: 0px;
+    }
+    .container-name > * {
+      margin-top: 0px;
+    }
+
+    .container-spec .spec-title {
+      font-weight: bold;
+      margin: 0px;
+    }
+    .container-spec .spec-content {
+      color: darkgrey;
+    }
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <a class='back' href='/'>
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </a>
+        <p>Libreria grande</p>
+      </paper-toolbar>
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-12 container-name'>
+            <h3>Libreria grande</h3>
+          </div>
+        </div>
+        <div class='row container-spec'>
+          <div class='col-xs-6'>
+            <div class='row'>
+              <div class='col-xs-6'>
+                <p class='spec-title'>Posizione:</p>
+              </div>
+              <div class='col-xs-6'>
+                <p class='spec-content'>Salotto</p>
+              </div>
+            </div>
+            <div class='row'>
+              <div class='col-xs-6'>
+                <p class='spec-title'>Ordinata per:</p>
+              </div>
+              <div class='col-xs-6'>
+                <p class='spec-content'>Genere</p>
+              </div>
+            </div>
+          </div>
+          <div class='col-xs-6'>
+            <div class='row'>
+              <div class='col-xs-6'>
+                <p class='spec-title'>Visibilità:</p>
+              </div>
+              <div class='col-xs-6'>
+                <p class='spec-content'>Privata</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr class='transparent-divider'/>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+        </div>
+        <paper-fab icon="create"></paper-fab>
+      </div>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "library-detail-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>

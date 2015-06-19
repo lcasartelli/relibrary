@@ -65,3 +65,8 @@ paper-fab {
   background-position: center;
   background-size: cover;
 	}
+
+
+.transparent-divider {
+  border: 0px;
+}
