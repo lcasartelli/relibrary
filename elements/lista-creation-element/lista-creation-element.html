@@ -1,0 +1,84 @@
+
+<dom-module id="lista-creation-element">
+  <style>
+
+    paper-input, paper-input-container {
+      color: #000;
+    }
+    paper-toolbar {
+      vertical-align: middle;
+    }
+
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
+
+    .add-books-label {
+      position: fixed;
+      z-index: 110;
+      bottom: 42px;
+      right: 107px;
+    }
+
+
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <div class='back' on-click="goBack">
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </div>
+        <p>Creazione nuova lista</p>
+      </paper-toolbar>
+
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <paper-input label="Nome della lista"></paper-input>
+          </div>
+          <div class='col-xs-12'>
+            <paper-textarea label="Descrizione"></paper-textarea>
+          </div>
+          <div class='col-xs-12'>
+            <p>Visibilità della lista</p>
+            <span>Lista pubblica</span>
+            <paper-toggle-button id="visibility" on-change="visibilityChanged"></paper-toggle-button>
+            <div>
+              <small hidden$="{{visibilityValue}}">Lista pubblica. I tuoi amici potranno vedere la tua vista in qualunque momento.</small>
+              <small hidden$="{{!visibilityValue}}">Lista privata. La lista è visibile solo a te.</small>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class='add-books-label'>Aggiungi libri alla lista</p>
+      <paper-fab icon="add"></paper-fab>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "lista-creation-element",
+
+    properties: {
+      // declare properties for the element's public API
+      visibilityValue: {
+        type: Boolean,
+        value: false
+      }
+    },
+
+    goBack: function () {
+      this.async(function () {
+        page.redirect('/');
+      }, 100);
+    },
+
+    visibilityChanged: function (toggle) {
+      this.visibilityValue = this.$.visibility.checked;
+    }
+
+  });
+</script>
