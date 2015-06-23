@@ -2,22 +2,6 @@
 <dom-module id="liste-list-item-element">
   <style>
     /* CSS rules for your element */
-    .lista-item {
-      width: 100%;
-      display: block;
-      position: relative;
-      float: left;
-    }
-    .container-img, .container-info {
-      float: left;
-      display: block;
-    }
-    .container-img {
-      width: 30%;
-    }
-    .container-info {
-      width: 70%;
-    }
     a.lista-item-container {
       text-decoration: none;
       color: #000;
@@ -27,7 +11,7 @@
     }
   </style>
   <template>
-    <a class='lista-item-container' href='/lista/detail'>
+    <a class='lista-item-container' href='/lista/:code'>
       <div class='row' style='position: relative;'>
         <div class='col-xs-4'>
           <img src="http://lorempixel.com/80/80" class='img-responsive' />
