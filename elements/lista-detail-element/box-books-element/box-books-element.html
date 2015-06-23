@@ -1,0 +1,51 @@
+
+<dom-module id="box-books-element">
+  <style>
+  </style>
+  <template>
+    <div class='row'>
+      <div class='col-xs-12'>
+        <h4>Libri della lista</h4>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+    </div>
+    <div class='row'>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+      <div class='col-xs-4'>
+        <single-book-element></single-book-element>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "box-books-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>
