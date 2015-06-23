@@ -5,6 +5,7 @@
     paper-input, paper-input-container {
       color: #000;
     }
+
     paper-toolbar {
       vertical-align: middle;
     }
@@ -53,7 +54,7 @@
 
       </div>
       <p class='add-books-label'>Aggiungi libri alla lista</p>
-      <paper-fab icon="add"></paper-fab>
+      <paper-fab icon="add" on-click="addBooks"></paper-fab>
     </paper-header-panel>
   </template>
 </dom-module>
@@ -63,7 +64,6 @@
     is: "lista-creation-element",
 
     properties: {
-      // declare properties for the element's public API
       visibilityValue: {
         type: Boolean,
         value: false
@@ -78,6 +78,12 @@
 
     visibilityChanged: function (toggle) {
       this.visibilityValue = this.$.visibility.checked;
+    },
+
+    addBooks: function () {
+      this.async(function () {
+        page.redirect('/new/lista/books');
+      }, 100);
     }
 
   });

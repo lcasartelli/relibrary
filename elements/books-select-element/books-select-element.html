@@ -1,0 +1,73 @@
+
+<dom-module id="books-select-element">
+  <style>
+
+    paper-input, paper-input-container {
+      color: #000;
+    }
+    paper-toolbar {
+      vertical-align: middle;
+    }
+
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
+
+
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <div class='back' on-click="goBack">
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </div>
+        <p>Scelta libri per "<span>{{listTitle}}</span>"</p>
+      </paper-toolbar>
+
+      <div class='container'>
+        <div class='row'>
+          <div class='col-xs-12'>
+          </div>
+        </div>
+
+      </div>
+
+      <paper-fab icon="done" on-click='saveLista'></paper-fab>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "books-select-element",
+
+    properties: {
+      visibilityValue: {
+        type: Boolean,
+        value: false
+      },
+      listTitle: {
+        type: String,
+        value: "Romanzi preferiti"
+      }
+    },
+
+    goBack: function () {
+      this.async(function () {
+        page.redirect('/new/lista');
+      }, 100);
+    },
+
+    saveLista: function () {
+      this.async(function () {
+        page.redirect('/lista/detail');
+      }, 100);
+    },
+
+    visibilityChanged: function (toggle) {
+      this.visibilityValue = this.$.visibility.checked;
+    }
+
+  });
+</script>
