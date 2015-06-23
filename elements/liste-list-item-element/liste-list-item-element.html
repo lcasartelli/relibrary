@@ -2,7 +2,7 @@
 <dom-module id="liste-list-item-element">
   <style>
     /* CSS rules for your element */
-    .book-item {
+    .lista-item {
       width: 100%;
       display: block;
       position: relative;
@@ -18,28 +18,34 @@
     .container-info {
       width: 70%;
     }
+    a.lista-item-container {
+      text-decoration: none;
+      color: #000;
+    }
     paper-ripple {
       z-index: 100;
     }
   </style>
   <template>
-    <div class='row'>
-      <div class='col-xs-4'>
-        <img src="http://lorempixel.com/80/80" class='img-responsive' />
+    <a class='lista-item-container' href='/lista/detail'>
+      <div class='row' style='position: relative;'>
+        <div class='col-xs-4'>
+          <img src="http://lorempixel.com/80/80" class='img-responsive' />
+        </div>
+        <div class='col-xs-8'>
+          <div class='col-xs-12'>
+            <p>Romanzi preferiti</p>
+          </div>
+          <div class='col-xs-12'>
+            <small>22 Libri</small>
+          </div>
+          <div class='col-xs-12 text-right'>
+            <small>Privata</small>
+          </div>
+        </div>
+        <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
-      <div class='col-xs-8'>
-        <div class='col-xs-12'>
-          <p>Romanzi preferiti</p>
-        </div>
-        <div class='col-xs-12'>
-          <small>22 Libri</small>
-        </div>
-        <div class='col-xs-12 text-right'>
-          <small>Privata</small>
-        </div>
-      </div>
-      <paper-ripple class='recenteringTouch' fit></paper-ripple>
-    </div>
+    </a>
   </template>
 </dom-module>
 
