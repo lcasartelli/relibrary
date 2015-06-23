@@ -11,7 +11,7 @@
     }
   </style>
   <template>
-    <a class='library-item-container' href='/library/detail'>
+    <div class='library-item-container' on-click="openLibraryDetail">
       <div class='row' style='position: relative;'>
         <div class='col-xs-4'>
           <img src="http://lorempixel.com/80/80" class='img-responsive' />
@@ -26,24 +26,19 @@
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
-    </a>
+    </div>
     <hr />
   </template>
 </dom-module>
 
 <script>
-  // element registration
   Polymer({
     is: "library-list-item-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openLibraryDetail: function () {
+      this.async(function () {
+        page.redirect('/library/detail');
+      }, 100);
+    }
   });
 </script>

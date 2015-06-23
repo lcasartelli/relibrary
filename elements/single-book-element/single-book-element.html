@@ -6,10 +6,10 @@
     }
   </style>
   <template>
-    <a href='/book/detail'>
+    <div on-click="openBookDetail">
       <img src="http://lorempixel.com/130/200" class="img-responsive"/>
       <p class='text-center book-name'>Orgoglio e pregiudizio</p>
-    </a>
+    </div>
   </template>
 </dom-module>
 
@@ -18,14 +18,10 @@
   Polymer({
     is: "single-book-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openBookDetail: function () {
+      this.async(function () {
+        page.redirect('/book/detail');
+      }, 100);
+    }
   });
 </script>

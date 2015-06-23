@@ -29,17 +29,13 @@
   </style>
   <template>
     <paper-header-panel mode="waterfall">
-      <!-- Main Toolbar -->
-      <paper-toolbar role="toolbar" elevation="1">
-        <!-- Toolbar icons -->
 
-        <!-- Application name -->
-        <a href='/profile/me'>
-          <div class="middle header-profile">
-            <div class="circular"></div>
-            <p>Clara Brambilla</p>
-          </div>
-        </a>
+      <paper-toolbar role="toolbar" elevation="1">
+
+        <div class="middle header-profile" on-click="openMyProfile">
+          <div class="circular"></div>
+          <p>Clara Brambilla</p>
+        </div>
 
         <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
           <paper-tab>Home</paper-tab>
@@ -106,6 +102,11 @@
         type: String,
         value: "0"
       }
+    },
+    openMyProfile: function () {
+      this.async(function () {
+        page.redirect('/profile/me');
+      }, 100);
     }
   });
 </script>

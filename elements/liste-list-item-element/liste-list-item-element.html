@@ -11,7 +11,7 @@
     }
   </style>
   <template>
-    <a class='lista-item-container' href='/lista/detail'>
+    <div class='lista-item-container' on-click="openListaDetail">
       <div class='row' style='position: relative;'>
         <div class='col-xs-4'>
           <img src="http://lorempixel.com/80/80" class='img-responsive' />
@@ -29,7 +29,7 @@
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
-    </a>
+    </div>
     <hr />
   </template>
 </dom-module>
@@ -39,14 +39,10 @@
   Polymer({
     is: "liste-list-item-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openListaDetail: function () {
+      this.async(function () {
+        page.redirect('/lista/detail');
+      }, 100);
+    }
   });
 </script>

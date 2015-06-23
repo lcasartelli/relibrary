@@ -22,7 +22,7 @@
     }
 
     .readmore a {
-      color:#000; 
+      color:#000;
     }
 
     paper-toolbar {
@@ -37,9 +37,9 @@
   <template>
     <paper-header-panel flex>
       <paper-toolbar role="toolbar" elevation="1">
-        <a class='back' href='/'>
+        <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
-        </a>
+        </div>
         <p>Harry Potter e la pietra filosofale</p>
       </paper-toolbar>
 
@@ -102,6 +102,12 @@
   // element registration
   Polymer({
     is: "book-detail-element",
+
+    goBack: function () {
+      this.async(function () {
+        page.redirect('/');
+      }, 100);
+    }
 
     // // add properties and methods on the element's prototype
     //

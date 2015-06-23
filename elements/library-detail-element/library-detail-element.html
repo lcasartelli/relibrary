@@ -19,9 +19,9 @@
   <template>
     <paper-header-panel flex>
       <paper-toolbar role="toolbar" elevation="1">
-        <a class='back' href='/'>
+        <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
-        </a>
+        </div>
         <p>Libreria grande</p>
       </paper-toolbar>
       <div class='container'>
@@ -101,6 +101,12 @@
   // element registration
   Polymer({
     is: "library-detail-element",
+
+    goBack: function () {
+      this.async(function () {
+        page.redirect('/');
+      }, 100);
+    }
 
     // // add properties and methods on the element's prototype
     //

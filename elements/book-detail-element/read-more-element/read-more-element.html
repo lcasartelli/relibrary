@@ -27,9 +27,9 @@
   <template>
     <paper-header-panel flex>
       <paper-toolbar role="toolbar" elevation="1">
-        <a class='back' href='/book/detail'>
+        <div class='back' on-click="openBookDetail">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
-        </a>
+        </div>
         <p>Harry Potter e la pietra filosofale</p>
       </paper-toolbar>
 
@@ -85,14 +85,10 @@
   Polymer({
     is: "read-more-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openBookDetail: function () {
+      this.async(function () {
+        page.redirect('/book/detail');
+      }, 100);
+    }
   });
 </script>
