@@ -1,32 +1,10 @@
-/local.properties
-
-/.idea/workspace.xml
-/.idea/libraries
-
 .DS_Store
-/captures
-
-*.apk
-*.ap_
-
-*.dex
-
-*.class
-
 bin/
-gen/
 
-.gradle/
 build/
 /*/build/
-
-local.properties
-
-proguard/
 
 *.log
 
 bower_components
 node_modules
-
-.DS_Store

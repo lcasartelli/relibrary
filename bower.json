@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "homepage": "https://github.com/lcasartelli/relibrary",
   "authors": [
-    "Luca Casartelli <lc.casartelli@gmail.com>"
+    "Luca Casartelli <lc.casartelli@gmail.com>",
+    "Giacomo Consonni <giacomo.consonni@gmail.com>"
   ],
   "license": "MIT",
   "ignore": [

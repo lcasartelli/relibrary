@@ -1,0 +1,23 @@
+{
+  "name": "Relibrary",
+  "version": "1.0.0",
+  "description": "ReLibrary manage your books, libraries and books loans.",
+  "main": "\"\"",
+  "scripts": {
+    "pre-install": "npm i -g http-server", 
+    "dev": "http-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lcasartelli/relibrary.git"
+  },
+  "authors": [
+    "Luca Casartelli <lc.casartelli@gmail.com>",
+    "Giacomo Consonni <giacomo.consonni@gmail.com>"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lcasartelli/relibrary/issues"
+  },
+  "homepage": "https://github.com/lcasartelli/relibrary"
+}
