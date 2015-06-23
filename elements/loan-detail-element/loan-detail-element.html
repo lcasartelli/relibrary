@@ -1,0 +1,73 @@
+
+<dom-module id="loan-detail-element">
+  <style>
+
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <a class='back' href='/'>
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </a>
+        <p>Dettaglio prestito</p>
+      </paper-toolbar>
+      <div class='container'>
+        <user-spec-element></user-spec-element>
+        <hr class='transparent-divider'/>
+        <div class='row'>
+          <!-- BOOK INFO -->
+          <div class='col-xs-12'>
+            <h3>Harry Potter e la pietra Filosofale</h3>
+            <small>J.K. Rowling</small>
+          </div>
+        </div>
+        <hr class='transparent-divider'/>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <h4>Note</h4>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <p>Il libro mi serve da restituire in biblioteca</p>
+          </div>
+        </div>
+        <hr class='transparent-divider'/>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <h4>Promemoria</h4>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <p>Riconsegna tra una settimana</p>
+          </div>
+        </div>
+        <hr class='transparent-divider'/>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <paper-button raised class='loan-button'>Archivia prestito</button>
+          </div>
+        </div>
+        <paper-fab icon="create"></paper-fab>
+      </div>
+    </paper-header-panel>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "loan-detail-element",
+
+    // // add properties and methods on the element's prototype
+    //
+    // properties: {
+    //   // declare properties for the element's public API
+    //   pageSelected: {
+    //     type: String,
+    //     value: "0"
+    //   }
+    // }
+  });
+</script>
