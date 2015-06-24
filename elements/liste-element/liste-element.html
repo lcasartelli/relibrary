@@ -1,0 +1,32 @@
+
+<dom-module id="liste-element">
+  <style>
+  </style>
+  <template>
+		<paper-material class='page-card-temp my-liste' elevation="1">
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+      <liste-list-item-element class="list-item"></liste-list-item-element>
+    </paper-material>
+    <paper-fab icon="add" on-click="newLista"></paper-fab>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "liste-element",
+
+    newLista: function () {
+      this.async(function () {
+        page.redirect('/new/lista');
+      }, 100);
+    }
+
+  });
+</script>

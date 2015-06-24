@@ -1,0 +1,127 @@
+
+<dom-module id="books-select-element">
+  <style>
+
+    paper-input, paper-input-container {
+      color: #000;
+    }
+    paper-toolbar {
+      vertical-align: middle;
+    }
+
+    paper-toolbar p {
+      margin: 0;
+      padding: 0;
+    }
+
+
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" elevation="1">
+        <div class='back' on-click="goBack">
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </div>
+        <p>Scelta libri per "<span>{{listTitle}}</span>"</p>
+      </paper-toolbar>
+
+      <div class='container'>
+        <div class='row'>
+          <!-- <div class='col-xs-12'>
+            <liste-list-item-element></liste-list-item-element>
+          </div> -->
+          <div class='col-xs-12'>
+            <paper-tabs selected="{{pageSelected}}">
+      	      <paper-tab>Libri già catalogati</paper-tab>
+      	      <paper-tab>Libri da GoodReads</paper-tab>
+      	    </paper-tabs>
+            <iron-pages selected="{{pageSelected}}">
+      				<div id='myCatalog'>
+                <book-checkbox-item-element></book-checkbox-item-element>
+                <book-checkbox-item-element></book-checkbox-item-element>
+              </div>
+              <div id='goodreadsCatalog'>
+                <book-checkbox-item-element></book-checkbox-item-element>
+                <book-checkbox-item-element></book-checkbox-item-element>
+                <book-checkbox-item-element></book-checkbox-item-element>
+                <book-checkbox-item-element></book-checkbox-item-element>
+              </div>
+            </iron-pages>
+          </div>
+        </div>
+
+      </div>
+
+      <paper-fab icon="done" on-click='saveLista'></paper-fab>
+    </paper-header-panel>
+
+    <paper-dialog id='noBooksAlert'>
+      <div>
+        Ops, non hai selezionato nessun libro.
+      </div>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Indietro</paper-button>
+        <paper-button dialog-confirm on-click='end'>Procedi comunque</paper-button>
+      </div>
+    </paper-dialog>
+
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "books-select-element",
+
+    properties: {
+      visibilityValue: {
+        type: Boolean,
+        value: false
+      },
+      listTitle: {
+        type: String,
+        value: "Romanzi preferiti"
+      },
+      pageSelected: {
+        type: Number,
+        value: 0
+      }
+    },
+
+    goBack: function () {
+      this.async(function () {
+        page.redirect('/new/lista');
+      }, 100);
+    },
+
+    end: function () {
+      this.async(function () {
+        page.redirect('/lista/detail');
+      }, 100);
+    },
+
+    saveLista: function () {
+      var scope = (this.pageSelected === 0) ? this.$.myCatalog : this.$.goodreadsCatalog;
+      var items = Polymer.dom(scope).querySelectorAll('book-checkbox-item-element');
+      var itemsSelected = [];
+      for (var i = 0; i < items.length; ++i) {
+        if (items[i].selected) {
+          itemsSelected.push(items[0])
+        }
+      }
+      console.log('itemSelected', itemsSelected);
+
+      if (itemsSelected.length === 0) {
+        // no book selected, show alert
+        this.$.noBooksAlert.open();
+      } else {
+        this.end();
+      }
+
+    },
+
+    visibilityChanged: function (toggle) {
+      this.visibilityValue = this.$.visibility.checked;
+    }
+
+  });
+</script>
