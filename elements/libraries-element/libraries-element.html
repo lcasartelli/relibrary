@@ -1,0 +1,36 @@
+
+<dom-module id="libraries-element">
+  <style>
+  </style>
+  <template>
+		<paper-material class='page-card-temp' elevation="1">
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+      <library-list-item-element class="list-item"></library-list-item-element>
+    </paper-material>
+    <paper-fab icon="add" on-click="newLibrary"></paper-fab>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "libraries-element",
+
+    newLibrary: function () {
+      this.async(function () {
+        page.redirect('/new/library');
+      }, 100);
+    }
+
+  });
+</script>
