@@ -2,10 +2,6 @@
 <dom-module id="book-list-item-element">
   <style>
     /* CSS rules for your element */
-    .book-item {
-      position: relative;
-    }
-
     paper-ripple {
       z-index: 100;
     }
@@ -18,21 +14,14 @@
   </style>
   <template>
     <div class='book-item-container' on-click="openBookDetail">
-      <div class='book-item row'>
-        <div class='col-xs-3'>
-          <!--<iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>-->
+      <div class='row' style='position: relative;'>
+        <div class='col-xs-4'>
           <img src="http://lorempixel.com/130/200" class='img-responsive'/>
         </div>
-        <div class='col-xs-9'>
-          <p>
-            Orgoglio e pregiudizio
-          </p>
-          <small>
-            Jane Austen
-          </small>
-          <p>
-            Score: 4/5
-          </p>
+        <div class='col-xs-8'>
+          <p>Orgoglio e pregiudizio</p>
+          <small>Jane Austen</small>
+          <p>Score: 4/5</p>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
