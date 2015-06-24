@@ -2,34 +2,29 @@
 <dom-module id="home-list-item-element">
   <style>
     /* CSS rules for your element */
-    .book-item {
-      width: 100%;
-      display: block;
-      position: relative;
-      float: left;
+    a.home-item-container {
+      text-decoration: none;
+      color: #000;
     }
-    .container-img, .container-info {
-      float: left;
-      display: block;
-    }
-    .container-img {
-      width: 30%;
-    }
-    .container-info {
-      width: 70%;
+    paper-ripple {
+      z-index: 100;
     }
   </style>
   <template>
-    <div class='book-item'>
-      <div class='container-img'>
-        <iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>
-      </div>
-      <div class='container-info'>
-        <p>
-          J.K. Rowling ha pubblicato Harry Potter e la pietra filosofale.
-        </p>
+    <div class='home-item-container' on-click="openUpdateDetail">
+      <div class='row' style='position: relative;'>
+        <div class='col-xs-4'>
+          <img src="http://lorempixel.com/80/80" class='img-responsive' />
+        </div>
+        <div class='col-xs-8'>
+          <div class='col-xs-12'>
+            <p>J.K. Rowling ha pubblicato Harry Potter e la pietra filosofale.</p>
+          </div>
+        </div>
+        <paper-ripple class='recenteringTouch' fit></paper-ripple>
       </div>
     </div>
+    <hr />
   </template>
 </dom-module>
 
@@ -38,14 +33,10 @@
   Polymer({
     is: "home-list-item-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openUpdateDetail: function () {
+      this.async(function () {
+        page.redirect('/book/1234');
+      }, 100);
+    }
   });
 </script>
