@@ -22,7 +22,7 @@
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
-        <p>Scelta libri per "<span>{{listTitle}}</span>"</p>
+        <p>Scelta libri per "<span>{{contentTitle}}</span>"</p>
       </paper-toolbar>
 
       <div class='container'>
@@ -52,7 +52,7 @@
 
       </div>
 
-      <paper-fab icon="done" on-click='saveLista'></paper-fab>
+      <paper-fab icon="done" on-click='saveBooks'></paper-fab>
     </paper-header-panel>
 
     <paper-dialog id='noBooksAlert'>
@@ -77,29 +77,43 @@
         type: Boolean,
         value: false
       },
-      listTitle: {
+      contentTitle: {
         type: String,
         value: "Romanzi preferiti"
       },
       pageSelected: {
         type: Number,
         value: 0
+      },
+      type: {
+        String: String
       }
     },
 
     goBack: function () {
+      var contentType = this.type;
       this.async(function () {
-        page.redirect('/new/lista');
+        if (contentType === 'library') {
+          page.redirect('/new/library');
+        } else {
+          page.redirect('/new/lista');
+        }
       }, 100);
     },
 
     end: function () {
+      var contentType = this.type;
       this.async(function () {
-        page.redirect('/lista/detail');
+        if (contentType === 'library') {
+          page.redirect('/library/detail');
+        } else {
+          page.redirect('/lista/detail');
+        }
+
       }, 100);
     },
 
-    saveLista: function () {
+    saveBooks: function () {
       var scope = (this.pageSelected === 0) ? this.$.myCatalog : this.$.goodreadsCatalog;
       var items = Polymer.dom(scope).querySelectorAll('book-checkbox-item-element');
       var itemsSelected = [];
@@ -121,6 +135,16 @@
 
     visibilityChanged: function (toggle) {
       this.visibilityValue = this.$.visibility.checked;
+    },
+
+    ready: function () {
+      console.log(this.type);
+
+      if (this.type === 'library') {
+        this.contentTitle = "Libreria Grande";
+      } else {
+        this.contentTitle = "Romanzi preferiti";
+      }
     }
 
   });
