@@ -14,6 +14,14 @@
       padding: 0;
     }
 
+    .fab-text-overlay {
+      position: fixed;
+      z-index: 110;
+      bottom: 42px;
+      right: 47px;
+      font-size: 86%;
+      color: #fff;
+    }
 
   </style>
   <template>
@@ -37,18 +45,14 @@
       	    </paper-tabs>
             <iron-pages selected="{{pageSelected}}">
       				<div id='myCatalog'>
-                <paper-radio-group>
-                  <book-radio-item-element></book-radio-item-element>
-                  <book-radio-item-element></book-radio-item-element>
-                </paper-radio-group>
+                <book-radio-item-element></book-radio-item-element>
+                <book-radio-item-element></book-radio-item-element>
               </div>
               <div id='goodreadsCatalog'>
-                <paper-radio-group>
-                  <book-radio-item-element></book-radio-item-element>
-                  <book-radio-item-element></book-radio-item-element>
-                  <book-radio-item-element></book-radio-item-element>
-                  <book-radio-item-element></book-radio-item-element>
-                </paper-radio-group>
+                <book-radio-item-element></book-radio-item-element>
+                <book-radio-item-element></book-radio-item-element>
+                <book-radio-item-element></book-radio-item-element>
+                <book-radio-item-element></book-radio-item-element>
               </div>
             </iron-pages>
           </div>
@@ -56,7 +60,8 @@
 
       </div>
 
-      <paper-fab icon="done" on-click='saveBooks' id='nextButton'></paper-fab>
+      <paper-fab icon="arrow-forward" on-click='saveBooks' id='nextButton'></paper-fab>
+      <!--<span class='fab-text-overlay'>Scegli</span>-->
     </paper-header-panel>
   </template>
 </dom-module>
