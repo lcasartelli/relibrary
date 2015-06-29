@@ -1,0 +1,36 @@
+
+<dom-module id="loans-element">
+  <style>
+  </style>
+  <template>
+		<paper-material class='page-card-temp' elevation="1">
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element class="list-item"></loan-list-item-element>
+    </paper-material>
+    <paper-fab icon="add" on-click="newLoan"></paper-fab>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "loans-element",
+
+    newLoan: function () {
+      this.async(function () {
+        page.redirect('/new/loan/books');
+      }, 100);
+    }
+
+  });
+</script>
