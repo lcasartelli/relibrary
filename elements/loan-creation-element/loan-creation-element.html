@@ -52,8 +52,8 @@
         </div>
 
       </div>
-      <p class='add-books-label'>Aggiungi libri alla libreria</p>
-      <paper-fab icon="add" on-click="addBooks"></paper-fab>
+      <p class='add-books-label'>Salva il prestito</p>
+      <paper-fab icon="add" on-click="saveLoan"></paper-fab>
     </paper-header-panel>
   </template>
 </dom-module>
@@ -71,7 +71,7 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page.redirect('/new/loan/books');
       }, 100);
     },
 
@@ -79,9 +79,9 @@
       this.visibilityValue = this.$.visibility.checked;
     },
 
-    addBooks: function () {
+    saveLoan: function () {
       this.async(function () {
-        page.redirect('/new/loan/books');
+        page.redirect('/loan/detail');
       }, 100);
     }
 
