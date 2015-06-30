@@ -48,7 +48,7 @@
         <hr />
         <remove-book-button-element></remove-book-button-element>
       </div>
-      <paper-fab icon="create"></paper-fab>
+      <paper-fab icon="create" on-click='editList'></paper-fab>
     </paper-header-panel>
   </template>
 </dom-module>
@@ -61,6 +61,12 @@
     goBack: function () {
       this.async(function () {
         page.redirect('/');
+      }, 100);
+    },
+
+    editList: function () {
+      this.async(function () {
+        page.redirect('/edit/lista');
       }, 100);
     }
 
