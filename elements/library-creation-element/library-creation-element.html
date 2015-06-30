@@ -30,22 +30,22 @@
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
-        <p>Creazione nuova libreria</p>
+        <p>{{ contentTitle }}</p>
       </paper-toolbar>
 
       <div class='container'>
         <div class='row'>
           <div class='col-xs-12'>
-            <paper-input label="Nome della libreria"></paper-input>
+            <paper-input label="Nome della libreria" value='{{ name }}'></paper-input>
           </div>
           <div class='col-xs-12'>
-            <paper-input label="Posizione"></paper-input>
+            <paper-input label="Posizione" value='{{ position }}'></paper-input>
           </div>
           <div class='col-xs-12'>
-            <paper-input label="Ordinamento"></paper-input>
+            <paper-input label="Ordinamento" value='{{ order }}'></paper-input>
           </div>
           <div class='col-xs-12'>
-            <paper-textarea label="Descrizione"></paper-textarea>
+            <paper-textarea label="Descrizione" value='{{ description }}'></paper-textarea>
           </div>
           <div class='col-xs-12'>
             <p>Visibilità della lista</p>
@@ -73,6 +73,28 @@
       visibilityValue: {
         type: Boolean,
         value: false
+      },
+      public: {
+        type: Boolean,
+      },
+      contentTitle: {
+        type: String,
+        value: ''
+      },
+      name: {
+        type: String
+      },
+      description: {
+        type: String
+      },
+      order: {
+        type: String
+      },
+      position: {
+        type: String
+      },
+      type: {
+        type: String
       }
     },
 
@@ -90,6 +112,22 @@
       this.async(function () {
         page.redirect('/new/library/books');
       }, 100);
+    },
+
+    ready: function () {
+
+      if (this.type === 'new') {
+        this.contentTitle = 'Creazione nuova libreria';
+      } else if (this.type === 'edit') {
+        this.contentTitle = 'Modifica libreria "' + this.name + '"';
+
+        var listVisibility = false;
+        if (typeof this.public !== 'undefined') {
+          listVisibility = true;
+        }
+        // set list visibility
+        this.$.visibility.checked = listVisibility;
+      }
     }
 
   });

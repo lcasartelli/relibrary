@@ -91,7 +91,7 @@
             <single-book-element></single-book-element>
           </div>
         </div>
-        <paper-fab icon="create"></paper-fab>
+        <paper-fab icon="create" on-click='editLibrary'></paper-fab>
       </div>
     </paper-header-panel>
   </template>
@@ -105,6 +105,12 @@
     goBack: function () {
       this.async(function () {
         page.redirect('/');
+      }, 100);
+    },
+
+    editLibrary: function () {
+      this.async(function () {
+        page.redirect('/edit/library');
       }, 100);
     }
 
