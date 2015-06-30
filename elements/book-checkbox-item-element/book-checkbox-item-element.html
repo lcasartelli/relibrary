@@ -45,7 +45,6 @@
 </dom-module>
 
 <script>
-  // element registration
   Polymer({
     is: "book-checkbox-item-element",
 
@@ -53,12 +52,21 @@
       selected: {
         type: Boolean,
         value: false
+      },
+      checked: {
+        type: Boolean
       }
     },
 
     selectedItem: function () {
       this.$.checkbox.checked = !this.$.checkbox.checked;
       this.selected = this.$.checkbox.checked;
+    },
+
+    ready: function() {
+      if (typeof this.checked !== 'undefined') {
+        this.$.checkbox.checked = true;
+      }
     }
   });
 </script>
