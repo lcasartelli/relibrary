@@ -45,14 +45,14 @@
       	    </paper-tabs>
             <iron-pages selected="{{pageSelected}}">
       				<div id='myCatalog'>
-                <book-radio-item-element></book-radio-item-element>
-                <book-radio-item-element></book-radio-item-element>
+                <template is="dom-repeat" items="{{booksFromMyCatalog}}">
+                  <book-radio-item-element id='{{item.id}}' radiohandler='{{radioHandler(item.id)}}'></book-radio-item-element>
+                </template>
               </div>
               <div id='goodreadsCatalog'>
-                <book-radio-item-element></book-radio-item-element>
-                <book-radio-item-element></book-radio-item-element>
-                <book-radio-item-element></book-radio-item-element>
-                <book-radio-item-element></book-radio-item-element>
+                <template is="dom-repeat" items="{{booksFromGoodreads}}">
+                  <book-radio-item-element id='{{item.id}}' radiohandler='{{radioHandler(item.id)}}'></book-radio-item-element>
+                </template>
               </div>
             </iron-pages>
           </div>
@@ -84,7 +84,25 @@
         value: 0
       },
       type: {
-        String: String
+        type: String
+      },
+      booksFromMyCatalog: {
+        type: Array,
+        value: [
+          { id: 'b1', name: 'Orgoglio e Pregiudizio' },
+          { id: 'b2', name: 'Orgoglio e Pregiudizio' },
+          { id: 'b3', name: 'Orgoglio e Pregiudizio' }
+        ]
+      },
+      booksFromGoodreads: {
+        type: Array,
+        value: [
+          { id: 'g1', name: 'Orgoglio e Pregiudizio' },
+          { id: 'g2', name: 'Orgoglio e Pregiudizio' },
+          { id: 'g3', name: 'Orgoglio e Pregiudizio' },
+          { id: 'g4', name: 'Orgoglio e Pregiudizio' },
+          { id: 'g5', name: 'Orgoglio e Pregiudizio' }
+        ]
       }
     },
 
@@ -127,12 +145,33 @@
       this.end();
     },
 
+    radioHandler: function (bookId) {
+      var that = this;
+
+      return function () {
+
+        var scope, catalog;
+        if (that.pageSelected === 0) {
+          scope = that.$.myCatalog;
+          catalog = that.booksFromMyCatalog;
+        } else {
+          scope = that.$.goodreadsCatalog;
+          catalog = that.booksFromGoodreads;
+        }
+
+        catalog.forEach(function (bookElement) {
+          if (bookElement.id !== bookId){
+            Polymer.dom(scope).querySelector('#' + bookElement.id).removeSelection();
+          }
+        })
+      };
+    },
+
     visibilityChanged: function (toggle) {
       this.visibilityValue = this.$.visibility.selected;
     },
 
     ready: function () {
-      console.log(this.type);
 
       if (this.type === 'loan') {
         this.contentTitle = "Nuovo prestito";

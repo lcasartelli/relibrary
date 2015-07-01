@@ -53,12 +53,21 @@
       selected: {
         type: Boolean,
         value: false
+      },
+      radiohandler: {
+        type: Function
       }
+    },
+
+    removeSelection: function () {
+      this.$.radio.checked = false;
+      this.selected = this.$.radio.checked;
     },
 
     selectedItem: function () {
       this.$.radio.checked = !this.$.radio.checked;
       this.selected = this.$.radio.checked;
+      this.radiohandler();
     }
   });
 </script>
