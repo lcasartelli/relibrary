@@ -3,7 +3,7 @@
   <style>
     /* CSS rules for your element */
     .container-button {
-      padding: 0px 3px;
+      padding: 0px 3px 3px 0px;
     }
     .container-default-list {
       padding: 0px 10px 10px 5px;
@@ -14,13 +14,13 @@
   </style>
   <template>
     <div class='row container-default-list'>
-      <div class='col-xs-4 container-button'>
+      <div class='col-xs-4 container-button' on-click="openListaDetail">
         <paper-button raised>Letti</paper-button>
       </div>
-      <div class='col-xs-4 container-button'>
+      <div class='col-xs-4 container-button' on-click="openListaDetail">
         <paper-button raised>Da Leggere</paper-button>
       </div>
-      <div class='col-xs-4 container-button'>
+      <div class='col-xs-4 container-button' on-click="openListaDetail">
         <paper-button raised>Acquistati</paper-button>
       </div>
     </div>
@@ -32,14 +32,10 @@
   Polymer({
     is: "default-list-element",
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    openListaDetail: function () {
+      this.async(function () {
+        page.redirect('/lista/detail');
+      }, 100);
+    }
   });
 </script>
