@@ -1,7 +1,7 @@
 
 <dom-module id="mystuffs-element">
   <style>
-    .my-books .list-item, .my-liste .list-item, .my-library .list-item, .my-loans .list-item  {
+    .my-books .list-item, .my-liste .list-item, .my-library .list-item, .my-loans .list-item, .my-books .list-item  {
       display: inline-block;
       width: 100%;
     }
@@ -18,25 +18,8 @@
 
 			<iron-pages selected="{{pageSelected}}">
 				<div>
-					<paper-material class='page-card-temp my-books' elevation="1">
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-            <book-list-item-element class="list-item"></book-list-item-element>
-			    </paper-material>
-          <paper-fab icon="add"></paper-fab>
-
-				</div>
+				  <books-element class='page-card-temp my-books'></books-element>
+        </div>
 				<div>
           <liste-element class='page-card-temp my-liste'></liste-element>
 				</div>

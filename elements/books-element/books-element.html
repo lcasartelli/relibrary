@@ -1,0 +1,38 @@
+
+<dom-module id="books-element">
+  <style>
+  </style>
+  <template>
+    <div class='container'>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+      <book-list-item-element class="list-item"></book-list-item-element>
+    </div>
+    <paper-fab icon="add"></paper-fab>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "books-element",
+
+    newLista: function () {
+      this.async(function () {
+        page.redirect('/new/lista');
+      }, 100);
+    }
+
+  });
+</script>
