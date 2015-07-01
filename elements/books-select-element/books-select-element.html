@@ -14,6 +14,11 @@
       padding: 0;
     }
 
+    .search {
+      margin: auto;
+      margin-right: 0px;
+    }
+
 
   </style>
   <template>
@@ -23,6 +28,9 @@
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
         <p>Scelta libri per "<span>{{contentTitle}}</span>"</p>
+        <div class='search' on-click="goSearch">
+          <paper-icon-button id="search" icon="search"></paper-icon-button>
+        </div>
       </paper-toolbar>
 
       <div class='container'>
