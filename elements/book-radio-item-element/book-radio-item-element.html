@@ -1,0 +1,73 @@
+
+<dom-module id="book-radio-item-element">
+  <style>
+    /* CSS rules for your element */
+    .book-item {
+      position: relative;
+    }
+
+    paper-ripple {
+      z-index: 100;
+    }
+
+    a.book-item-container {
+      text-decoration: none;
+      color: #000;
+    }
+
+  </style>
+  <template>
+    <div class='book-item-container'>
+      <div class='book-item row'>
+        <div class='col-xs-1'>
+          <paper-radio-button id='radio'></paper-radio-button>
+        </div>
+        <div class='col-xs-3'>
+          <!--<iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>-->
+          <img src="http://lorempixel.com/130/200" class='img-responsive'/>
+        </div>
+        <div class='col-xs-8'>
+          <p>
+            Orgoglio e pregiudizio
+          </p>
+          <small>
+            Jane Austen
+          </small>
+          <p>
+            Score: 4/5
+          </p>
+        </div>
+        <paper-ripple class='recenteringTouch' fit on-click='selectedItem'></paper-ripple>
+      </div>
+    </div>
+    <hr />
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "book-radio-item-element",
+
+    properties: {
+      selected: {
+        type: Boolean,
+        value: false
+      },
+      radiohandler: {
+        type: Function
+      }
+    },
+
+    removeSelection: function () {
+      this.$.radio.checked = false;
+      this.selected = this.$.radio.checked;
+    },
+
+    selectedItem: function () {
+      this.$.radio.checked = !this.$.radio.checked;
+      this.selected = this.$.radio.checked;
+      this.radiohandler();
+    }
+  });
+</script>
