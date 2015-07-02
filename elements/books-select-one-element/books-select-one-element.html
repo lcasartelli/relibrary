@@ -115,6 +115,8 @@
           page.redirect('/new/lista');
         } else if (contentType === 'loan') {
           page.redirect('/');
+        } else if (contentType === 'book') {
+          page.redirect('/');
         }
       }, 100);
     },
@@ -128,6 +130,8 @@
           page.redirect('/lista/detail');
         } else if (contentType === 'loan') {
           page.redirect('/new/loan');
+        } else if (contentType === 'book') {
+          page.redirect('/book/code');
         }
 
       }, 100);
