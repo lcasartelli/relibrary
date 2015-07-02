@@ -1,0 +1,39 @@
+
+<dom-module id="reating-element">
+  <style>
+    .active {
+      color: #FF5722;
+    }
+  </style>
+  <template>
+    <div class='row' id='row'>
+      <div class='col-xs-12'>
+        <i class="material-icons active" on-click='setRating' data-start='1'>star</i>
+        <i class="material-icons active" on-click='setRating' data-start='2'>star</i>
+        <i class="material-icons active" on-click='setRating' data-start='3'>star</i>
+        <i class="material-icons" on-click='setRating' data-start='4'>star</i>
+        <i class="material-icons" on-click='setRating' data-start='5'>star</i>
+      </div>
+    </div>
+	</template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "reating-element",
+
+    setRating: function(event) {
+      var allIcon = Polymer.dom(this.$.row).querySelectorAll('.material-icons');
+      var selected = event.target.dataset.start;
+      allIcon.forEach(function(icon) {
+        if(icon.dataset.start <= selected) {
+          icon.classList.add('active');
+        } else {
+          icon.classList.remove('active');
+        }
+      });
+    }
+
+  });
+</script>
