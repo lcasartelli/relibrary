@@ -27,6 +27,9 @@
       padding: 0px;
       text-align: right;
     }
+    .container-create-icon paper-button {
+      min-width: 3em;
+    }
   </style>
   <template>
     <paper-header-panel flex>
@@ -55,10 +58,10 @@
           <!--BADGES -->
           <div class='col-xs-12'>
             <div class='col-xs-9'>
-              <h4 style='float: left'>Stato del libro: <small>Letto</small></h4>
+              <h4>Stato del libro: <small>Letto</small></h4>
             </div>
             <div class='col-xs-3 container-create-icon'>
-              <paper-button raised class='edit-button'>
+              <paper-button raised class='edit-button' on-click='openStatusBookDialog'>
                  <iron-icon icon="create"></iron-icon>
               </paper-button>
             </div>
@@ -67,10 +70,10 @@
         <div class='row row-badges last'>
           <div class='col-xs-12'>
             <div class='col-xs-9'>
-              <h4 style='float: left'>Acquistato: <small>Sì</small></h4>
+              <h4>Acquistato: <small>Sì</small></h4>
             </div>
             <div class='col-xs-3 container-create-icon'>
-              <paper-button raised class='edit-button'>
+              <paper-button raised class='edit-button' on-click='openStatusBoughtDialog'>
                  <iron-icon icon="create"></iron-icon>
               </paper-button>
             </div>
@@ -105,6 +108,28 @@
         <hr />
         <remove-book-button-element></remove-book-button-element>
       </div>
+      <paper-dialog id='bookStatus'>
+        <div class='container' id='radioForStatus'>
+          <template is="dom-repeat" items="{{radioForStatus}}">
+            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForStatus")}}' text='{{item.text}}'></radio-status-book-element>
+          </template>
+        </div>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Annulla</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog>
+      <paper-dialog id='boughtStatus'>
+        <div class='container' id='radioForAcquistato'>
+          <template is="dom-repeat" items="{{radioForAcquistato}}">
+            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForAcquistato")}}' text='{{item.text}}'></radio-status-book-element>
+          </template>
+        </div>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Annulla</paper-button>
+          <paper-button dialog-confirm>OK</paper-button>
+        </div>
+      </paper-dialog>
     </paper-header-panel>
   </template>
 </dom-module>
@@ -113,21 +138,44 @@
   // element registration
   Polymer({
     is: "book-detail-element",
-
+    properties: {
+      radioForStatus: {
+        type: Array,
+        value: [
+          {id: 's1', text: 'Letto'},
+          {id: 's2', text: 'Da leggere'},
+          {id: 's3', text: 'Leggendo attualmente'}
+        ]
+      },
+      radioForAcquistato: {
+        type: Array,
+        value: [
+          {id: 'b1', text: 'Acquistato'},
+          {id: 'b2', text: 'Non acquistato'}
+        ]
+      }
+    },
     goBack: function () {
       this.async(function () {
         page.redirect('/');
       }, 100);
+    },
+    openStatusBookDialog: function() {
+      this.$.bookStatus.open();
+    },
+    openStatusBoughtDialog: function() {
+      this.$.boughtStatus.open();
+    },
+    radioHandler: function(id, dataSet) {
+      var that = this;
+      return function() {
+        var scope = that.$[dataSet];
+        that[dataSet].forEach(function (status) {
+          if (status.id !== id) {
+            Polymer.dom(scope).querySelector('#' + status.id).removeSelection();
+          }
+        });
+      }
     }
-
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
   });
 </script>
