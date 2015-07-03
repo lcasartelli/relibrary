@@ -29,7 +29,7 @@
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
-        <p>Creazione nuovo prestito</p>
+        <p>{{ contentTitle }}</p>
       </paper-toolbar>
 
       <div class='container'>
@@ -48,10 +48,10 @@
               <paper-radio-button name='da' class='col-xs-12'>Da</paper-radio-button>
               <paper-radio-button name='a' class='col-xs-12'>A</paper-radio-button>
             </paper-radio-group>
-            <paper-input label="Persona (FIX)"></paper-input>
+            <paper-input label="Persona (FIX)" value='{{ user }}'></paper-input>
           </div>
           <div class='col-xs-12'>
-            <paper-textarea label="Note"></paper-textarea>
+            <paper-textarea label="Note" value='{{ note }}'></paper-textarea>
           </div>
           <div class='col-xs-12'>
             <p>Promemoria</p>
@@ -75,9 +75,14 @@
     is: "loan-creation-element",
 
     properties: {
-      visibilityValue: {
-        type: Boolean,
-        value: false
+      note: {
+        type: String
+      },
+      user: {
+        type: String
+      },
+      type: {
+        type: String
       }
     },
 
@@ -87,14 +92,19 @@
       }, 100);
     },
 
-    visibilityChanged: function (toggle) {
-      this.visibilityValue = this.$.visibility.checked;
-    },
-
     saveLoan: function () {
       this.async(function () {
         page.redirect('/loan/detail');
       }, 100);
+    },
+
+    ready: function () {
+
+      if (this.type === 'new') {
+        this.contentTitle = 'Creazione nuovo prestito';
+      } else if (this.type === 'edit') {
+        this.contentTitle = 'Modifica prestito ';
+      }
     }
 
   });
