@@ -40,8 +40,8 @@ paper-toolbar a {
 paper-fab {
   position: fixed;
   z-index: 110;
-  bottom: 35px;
-  right: 35px;
+  bottom: 20px;
+  right: 20px;
 }
 
 .hide {
