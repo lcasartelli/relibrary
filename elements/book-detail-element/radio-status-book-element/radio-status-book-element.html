@@ -1,0 +1,35 @@
+
+<dom-module id="radio-status-book-element">
+  <style>
+    .row-radio-status-book {
+      padding: 10px 0px;
+    }
+  </style>
+  <template>
+    <div class='row row-radio-status-book' on-click='radiohandler'>
+      <div class='col-xs-12'>
+        <paper-radio-button id='radio'>{{text}}</paper-radio-button>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  // element registration
+  Polymer({
+    is: "radio-status-book-element",
+
+    properties: {
+      radiohandler: {
+        type: Function
+      },
+      text: {
+        type: String
+      }
+    },
+    removeSelection: function () {
+      this.$.radio.checked = false;
+      this.selected = this.$.radio.checked;
+    },
+  });
+</script>
