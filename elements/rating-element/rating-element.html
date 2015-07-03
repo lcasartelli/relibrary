@@ -19,11 +19,16 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "rating-element",
-
+    properties: {
+      toast: {
+        type: String
+      }
+    },
     setRating: function(event) {
+      window.showToast(document.querySelector('#' + this.toast));
       var allIcon = Polymer.dom(this.$.row).querySelectorAll('.material-icons');
       var selected = event.target.dataset.start;
       allIcon.forEach(function(icon) {

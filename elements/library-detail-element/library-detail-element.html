@@ -93,12 +93,14 @@
         </div>
         <paper-fab icon="create" on-click='editLibrary'></paper-fab>
       </div>
+      <paper-toast id="addLibrary" text="Ecco la tua nuova libreria!" class="" aria-hidden="true"></paper-toast>
+      <paper-toast id="editLibrary" text="Hai modificato la tua libreria!" class="" aria-hidden="true"></paper-toast>
     </paper-header-panel>
   </template>
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "library-detail-element",
 

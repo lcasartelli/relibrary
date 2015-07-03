@@ -98,7 +98,8 @@
 
     addBooks: function () {
       this.async(function () {
-        page.redirect('/new/lista/books');
+        var path = (this.type === 'new') ? '/new/lista/books' : '/edit/lista/books';
+        page.redirect(path);
       }, 100);
     },
 

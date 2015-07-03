@@ -26,13 +26,16 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     return _r_val;
   };
 
-  window.showToast = function() {
+  window.showToast = function(toast) {
+    if(toast !== undefined) {
+      toast.show();
+    }
+  };
+
+  window.showToastFromRedirect = function() {
     var queryStringValue = window.getQueryStringValue('toast');
     if(queryStringValue !== undefined) {
-      var toast = document.querySelector('#' + queryStringValue);
-      if(toast !== undefined) {
-        toast.show();
-      }
+      window.showToast(document.querySelector('#' + queryStringValue));
     }
   };
 

@@ -110,7 +110,9 @@
 
     addBooks: function () {
       this.async(function () {
-        page.redirect('/new/library/books');
+        console.log(this.type);
+        var path = (this.type === 'new') ? '/new/library/books' : '/edit/library/books';
+        page.redirect(path);
       }, 100);
     },
 

@@ -94,7 +94,8 @@
 
     saveLoan: function () {
       this.async(function () {
-        page.redirect('/loan/detail');
+        var toast = (this.type === 'new') ? 'addLoan' : 'editLoan';
+        page.redirect('/loan/detail?toast=' + toast);
       }, 100);
     },
 
