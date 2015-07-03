@@ -8,16 +8,21 @@
   <template>
     <div class='row'>
       <div class='col-xs-12 text-center'>
-        <paper-button raised class='loan-button'>Presta questo libro</button>
+        <paper-button raised class='loan-button' on-click='loanThisBook'>Presta questo libro</button>
       </div>
     </div>
   </template>
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "loan-button-element",
+    loanThisBook: function() {
+      this.async(function () {
+        page.redirect('/new/loan');
+      }, 100);
+    }
 
     // // add properties and methods on the element's prototype
     //
