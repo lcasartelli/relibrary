@@ -65,19 +65,41 @@
         <hr class='transparent-divider'/>
         <div class='row'>
           <div class='col-xs-12'>
-            <paper-button raised class='loan-button'>Archivia prestito</button>
+            <paper-button raised class='loan-button' on-click='archiveLoan'>Archivia prestito</button>
           </div>
         </div>
         <paper-fab icon="create" on-click='editLoan'></paper-fab>
       </div>
+
+      <paper-dialog id='archiveAlert' style='height: auto; max-height: 500px;'>
+        <h2>{{ dialogTitle }}</h2>
+        <div>{{ dialogMessage }}</div>
+        <div class="buttons">
+          <paper-button dialog-dismiss>Indietro</paper-button>
+          <paper-button dialog-confirm on-click='end'>Archivia</paper-button>
+        </div>
+      </paper-dialog>
+
     </paper-header-panel>
   </template>
 </dom-module>
 
 <script>
-  // element registration
   Polymer({
     is: "loan-detail-element",
+
+    properties: {
+      loanType: {
+        type: String,
+        value: 'da',
+      },
+      type: {
+        type: String
+      },
+      dialogMessage: {
+        type: String
+      }
+    },
 
     goBack: function () {
       this.async(function () {
@@ -89,16 +111,20 @@
       this.async(function () {
         page.redirect('/edit/loan');
       }, 100);
-    }
+    },
 
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    archiveLoan: function () {
+      this.$.archiveAlert.open();
+    },
+
+    ready: function () {
+      if (this.loanType == 'da') {
+        this.dialogTitle = 'Hai riconsegnato il libro?';
+        this.dialogMessage = 'Archivia il prestito solo dopo averlo riposto nella libreria, per essere certo di non dimenticartene!';
+      } else {
+        this.dialogTitle = 'Ti è stato ricosegnato il libro?';
+        this.dialogMessage = 'Archivia il prestito solo dopo averlo ricosegnato al tuo gentile amico, così sarai certo di non dimenticarlo per sbaglio in casa!';
+      }
+    }
   });
 </script>
