@@ -88,13 +88,13 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/new/loan/books');
+        page('/new/loan/books');
       }, 100);
     },
 
     saveLoan: function () {
       this.async(function () {
-        page.redirect('/loan/detail');
+        page('/loan/detail');
       }, 100);
     },
 

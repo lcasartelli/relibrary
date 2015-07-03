@@ -100,7 +100,7 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     },
 
@@ -110,7 +110,7 @@
 
     addBooks: function () {
       this.async(function () {
-        page.redirect('/new/library/books');
+        page('/new/library/books');
       }, 100);
     },
 

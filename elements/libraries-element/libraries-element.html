@@ -22,13 +22,13 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "libraries-element",
 
     newLibrary: function () {
       this.async(function () {
-        page.redirect('/new/library');
+        page('/new/library');
       }, 100);
     }
 

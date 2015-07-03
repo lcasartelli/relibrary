@@ -102,9 +102,9 @@
       var contentType = this.type;
       this.async(function () {
         if (contentType === 'library') {
-          page.redirect('/new/library');
+          page('/new/library');
         } else {
-          page.redirect('/new/lista');
+          page('/new/lista');
         }
       }, 100);
     },
@@ -113,9 +113,9 @@
       var contentType = this.type;
       this.async(function () {
         if (contentType === 'library') {
-          page.redirect('/library/detail');
+          page('/library/detail');
         } else {
-          page.redirect('/lista/detail');
+          page('/lista/detail');
         }
 
       }, 100);

@@ -61,13 +61,13 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     },
 
     editList: function () {
       this.async(function () {
-        page.redirect('/edit/lista');
+        page('/edit/lista');
       }, 100);
     }
   });

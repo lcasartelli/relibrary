@@ -103,13 +103,13 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     },
 
     editLoan: function () {
       this.async(function () {
-        page.redirect('/edit/loan');
+        page('/edit/loan');
       }, 100);
     },
 

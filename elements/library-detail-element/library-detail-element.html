@@ -104,13 +104,13 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     },
 
     editLibrary: function () {
       this.async(function () {
-        page.redirect('/edit/library');
+        page('/edit/library');
       }, 100);
     }
 

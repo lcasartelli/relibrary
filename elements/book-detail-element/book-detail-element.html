@@ -79,13 +79,13 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "book-detail-element",
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     }
 
