@@ -70,3 +70,8 @@ paper-fab {
 .transparent-divider {
   border: 0px;
 }
+
+div#offRadio {
+  width: 16px !important;
+  height: 16px !important;
+}
