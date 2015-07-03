@@ -68,7 +68,7 @@
             <paper-button raised class='loan-button'>Archivia prestito</button>
           </div>
         </div>
-        <paper-fab icon="create"></paper-fab>
+        <paper-fab icon="create" on-click='editLoan'></paper-fab>
       </div>
     </paper-header-panel>
   </template>
@@ -82,6 +82,12 @@
     goBack: function () {
       this.async(function () {
         page.redirect('/');
+      }, 100);
+    },
+
+    editLoan: function () {
+      this.async(function () {
+        page.redirect('/edit/loan');
       }, 100);
     }
 
