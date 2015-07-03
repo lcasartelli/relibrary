@@ -135,8 +135,6 @@
           itemsSelected.push(items[0])
         }
       }
-      console.log('itemSelected', itemsSelected);
-
       if (itemsSelected.length === 0) {
         // no book selected, show alert
         this.$.noBooksAlert.open();
@@ -151,8 +149,6 @@
     },
 
     ready: function () {
-      console.log(this.type);
-
       if (this.type === 'library') {
         this.contentTitle = "Libreria Grande";
       } else {
