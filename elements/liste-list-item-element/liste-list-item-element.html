@@ -1,13 +1,29 @@
 
 <dom-module id="liste-list-item-element">
   <style>
-    /* CSS rules for your element */
+    .lista-item-container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      background-color: #FCFCFC;
+    }
     a.lista-item-container {
       text-decoration: none;
       color: #000;
     }
     paper-ripple {
       z-index: 100;
+    }
+    hr {
+      margin: 0;
+    }
+    .title {
+      font-size: 120%;
+      font-weight: 500;
+      margin: 0 0 0px;
+    }
+    .visibility {
+      float: right;
+      font-size: 18px;
     }
   </style>
   <template>
@@ -18,13 +34,11 @@
         </div>
         <div class='col-xs-8'>
           <div class='col-xs-12'>
-            <p>Romanzi preferiti</p>
+            <i class="material-icons visibility">{{visibilityIcon}}</i>
+            <p class='title'>Romanzi preferiti</p>
           </div>
           <div class='col-xs-12'>
-            <small>22 Libri</small>
-          </div>
-          <div class='col-xs-12 text-right'>
-            <small>Privata</small>
+            <small>22 libri</small>
           </div>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
@@ -35,7 +49,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "liste-list-item-element",
 
@@ -43,6 +57,9 @@
       this.async(function () {
         page.redirect('/lista/detail');
       }, 100);
+    },
+    ready: function () {
+      this.visibilityIcon = (randomNumber = Math.random() >= 0.5) ? 'lock' : 'public';
     }
   });
 </script>
