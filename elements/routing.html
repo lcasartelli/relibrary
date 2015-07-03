@@ -37,6 +37,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
     page('/book/:code', function () {
 			_showRoute('book-detail');
+			window.showToastFromRedirect();
     });
 
 		page('/profile/:user', function () {
@@ -49,14 +50,17 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 		page('/library/:code', function () {
 			_showRoute('library');
+			window.showToastFromRedirect();
     });
 
 		page('/loan/:code', function () {
 			_showRoute('loan');
+			window.showToastFromRedirect();
 		});
 
 		page('/lista/:code', function () {
 			_showRoute('lista-detail');
+			window.showToastFromRedirect();
     });
 
 		page('/new/lista', function () {
@@ -69,6 +73,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 		page('/new/lista/books', function () {
 			_showRoute('lista-creation-books');
+    });
+
+		page('/edit/lista/books', function () {
+			_showRoute('lista-edit-books');
     });
 
 		page('/new/loan', function () {
@@ -99,7 +107,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			_showRoute('library-creation-books');
     });
 
-
+		page('/edit/library/books', function () {
+			_showRoute('library-edit-books');
+    });
 
     // add #! before urls
     page({

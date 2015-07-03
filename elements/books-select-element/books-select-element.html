@@ -95,7 +95,10 @@
       },
       type: {
         type: String
-      }
+      },
+      isnew: {
+        type: String
+      },
     },
 
     goBack: function () {
@@ -113,9 +116,11 @@
       var contentType = this.type;
       this.async(function () {
         if (contentType === 'library') {
-          page.redirect('/library/detail');
+          var toast = (this.isnew === 'true') ? 'addLibrary' : 'editLibrary'
+          page.redirect('/library/detail?toast=' + toast);
         } else {
-          page.redirect('/lista/detail');
+          var toast = (this.isnew === 'true') ? 'addList' : 'editList'
+          page.redirect('/lista/detail?toast=' + toast);
         }
 
       }, 100);

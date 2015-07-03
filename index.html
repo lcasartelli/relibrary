@@ -72,20 +72,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <!-- Libraries -->
   <library-detail-element class='route' id='library'></library-detail-element>
-  <library-creation-element class='route' id='library-creation'></library-creation-element>
-  <books-select-element class='route' id='library-creation-books' type='library'></books-select-element>
+  <library-creation-element class='route' id='library-creation' type='new'></library-creation-element>
+  <books-select-element class='route' id='library-creation-books' type='library' isnew='true'></books-select-element>
+  <books-select-element class='route' id='library-edit-books' type='library' isnew='false'></books-select-element>
   <library-creation-element class='route' id='library-edit' type='edit' name="Libreria grande" description="fjkajnfnankf afklnafnkla lfkalknf" position="Soggiorno" order="Ordine alfabetico" public></library-creation-element>
 
   <!-- Loans -->
   <loan-detail-element class='route' id='loan'></loan-detail-element>
-  <loan-creation-element class='route' id='loan-creation'></loan-creation-element>
+  <loan-creation-element class='route' id='loan-creation' type='new'></loan-creation-element>
   <loan-creation-element class='route' id='loan-edit' type='edit' note="fjkajnfnankf afklnafnkla lfkalknf" user="Marco Rossi"></loan-creation-element>
   <books-select-one-element class='route' id='loan-creation-books' type='loan'></books-select-one-element>
 
   <!-- Lists -->
   <lista-creation-element class='route' id='lista-creation' type='new'></lista-creation-element>
   <lista-creation-element class='route' id='lista-edit' type='edit' name="Romanzi preferiti" description="fjkajnfnankf afklnafnkla lfkalknf" public></lista-creation-element>
-  <books-select-element class='route' id='lista-creation-books' type='list'></books-select-element>
+  <books-select-element class='route' id='lista-creation-books' type='list' isnew='true'></books-select-element>
+  <books-select-element class='route' id='lista-edit-books' type='list' isnew='false'></books-select-element>
   <lista-detail-element class='route' id='lista-detail'></lista-detail-element>
 
   <!-- build:js scripts/app.js -->
