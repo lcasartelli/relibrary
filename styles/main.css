@@ -70,3 +70,18 @@ paper-fab {
 .transparent-divider {
   border: 0px;
 }
+
+
+/* spacers */
+
+.space-05 {
+  height: 5px;
+}
+
+.space-1 {
+  height: 10px;
+}
+
+.space-2 {
+  height: 20px;
+}
