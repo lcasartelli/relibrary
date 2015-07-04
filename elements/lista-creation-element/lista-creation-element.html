@@ -36,7 +36,7 @@
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
-        <p>{{ contentTitle }}</p>
+        <p>{{ headerTitle }}</p>
       </paper-toolbar>
 
       <div class='container'>
@@ -63,18 +63,18 @@
             <i class="material-icons">lock</i>
           </div>
           <div class='col-xs-10'>
-            <paper-radio-group on-change='radioListener'>
-              <paper-radio-button id='public' name='ltype2'>
+            <paper-radio-group on-change='radioVisibilityListener'>
+              <paper-radio-button id='public' name='visibility-public'>
                 Lista pubblica
               </paper-radio-button>
-              <paper-radio-button id='private' name='ltype1'>
+              <paper-radio-button id='private' name='visibility-private'>
                 Lista privata
               </paper-radio-button>
 
             </paper-radio-group>
             <div class='space-1'></div>
             <div>
-              <small hidden$="{{!isPublic }}">I tuoi amici potranno vedere la tua vista in qualunque momento.</small>
+              <small hidden$="{{!isPublic }}">I tuoi amici potranno vedere la tua lista in qualunque momento.</small>
               <small hidden$="{{ isPublic }}">La lista è visibile solo a te.</small>
             </div>
           </div>
@@ -103,28 +103,27 @@
     is: "lista-creation-element",
 
     properties: {
-      visibilityValue: {
-        type: Boolean,
-        value: false
-      },
       public: {
         type: Boolean,
       },
-      contentTitle: {
+      headerTitle: {
         type: String,
         value: ''
       },
       name: {
-        type: String
+        type: String,
+        value: ''
       },
       description: {
-        type: String
+        type: String,
+        value: ''
       },
       type: {
         type: String
       },
       isPublic: {
-        type: Boolean
+        type: Boolean,
+        value: false
       }
     },
 
@@ -134,18 +133,13 @@
       }, 100);
     },
 
-    visibilityChanged: function (toggle) {
-      this.visibilityValue = this.$.visibility.checked;
-    },
-
     addBooks: function () {
       this.async(function () {
         page('/new/lista/books');
       }, 100);
     },
 
-    radioListener: function (src) {
-      console.log('here', src);
+    radioVisibilityListener: function (src) {
       if (src.target.id === 'public') {
         this.isPublic = true;
       } else {
@@ -157,29 +151,27 @@
       var that = this;
 
       if (this.type === 'new') {
-        this.contentTitle = 'Creazione nuova lista';
+        this.headerTitle = 'Creazione nuova lista';
         that.$.public.click();
         this.isPublic = true;
       } else if (this.type === 'edit') {
-        this.contentTitle = 'Modifica lista "' + this.name + '"';
+        this.headerTitle = 'Modifica lista "' + this.name + '"';
 
-        var listVisibility = false;
+        this.isPublic = false;
         if (typeof this.public !== 'undefined') {
-          listVisibility = true;
+          this.isPublic = true;
         }
 
+        var _isPublic = this.isPublic;
+
         this.async(function () {
-          // set list visibility
-          if (listVisibility) {
+          if (_isPublic) {
             that.$.public.click();
           } else {
             that.$.private.click();
           }
 
         }, 100);
-
-
-
       }
     }
 
