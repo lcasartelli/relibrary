@@ -63,7 +63,7 @@
             <i class="material-icons">lock</i>
           </div>
           <div class='col-xs-10'>
-            <paper-radio-group>
+            <paper-radio-group on-change='radioListener'>
               <paper-radio-button id='public' name='ltype2'>
                 Lista pubblica
               </paper-radio-button>
@@ -74,8 +74,8 @@
             </paper-radio-group>
             <div class='space-1'></div>
             <div>
-              <small hidden$="{{visibilityValue}}">I tuoi amici potranno vedere la tua vista in qualunque momento.</small>
-              <small hidden$="{{!visibilityValue}}">La lista è visibile solo a te.</small>
+              <small hidden$="{{!isPublic }}">I tuoi amici potranno vedere la tua vista in qualunque momento.</small>
+              <small hidden$="{{ isPublic }}">La lista è visibile solo a te.</small>
             </div>
           </div>
           <div class='col-xs-12'>
@@ -122,6 +122,9 @@
       },
       type: {
         type: String
+      },
+      isPublic: {
+        type: Boolean
       }
     },
 
@@ -141,11 +144,22 @@
       }, 100);
     },
 
+    radioListener: function (src) {
+      console.log('here', src);
+      if (src.target.id === 'public') {
+        this.isPublic = true;
+      } else {
+        this.isPublic = false;
+      }
+    },
+
     ready: function () {
       var that = this;
 
       if (this.type === 'new') {
         this.contentTitle = 'Creazione nuova lista';
+        that.$.public.click();
+        this.isPublic = true;
       } else if (this.type === 'edit') {
         this.contentTitle = 'Modifica lista "' + this.name + '"';
 
@@ -154,17 +168,11 @@
           listVisibility = true;
         }
 
-
         this.async(function () {
           // set list visibility
           if (listVisibility) {
-
             that.$.public.click();
-            // that.$.public.checked = true;
-            // that.$.private.checked = false;
           } else {
-            //that.$.private.checked = true;
-            //that.$.public.checked = false;
             that.$.private.click();
           }
 
