@@ -2,12 +2,26 @@
 <dom-module id="book-checkbox-item-element">
   <style>
     /* CSS rules for your element */
+    .container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
     .book-item {
       position: relative;
     }
 
     paper-ripple {
       z-index: 100;
+    }
+
+    hr {
+      margin: 0;
+    }
+
+    .title {
+      font-size: 120%;
+      font-weight: 400;
+      margin: 0 0 0px;
     }
 
     a.book-item-container {
@@ -17,25 +31,20 @@
 
   </style>
   <template>
-    <div class='book-item-container'>
+    <div class='container'>
       <div class='book-item row'>
         <div class='col-xs-1'>
           <paper-checkbox id='checkbox'></paper-checkbox>
         </div>
         <div class='col-xs-3'>
-          <!--<iron-image style="width:50px; height:50px; background-color: lightgray;" sizing="cover" preload src="http://lorempixel.com/50/50"></iron-image>-->
           <img src="http://lorempixel.com/130/200" class='img-responsive'/>
         </div>
-        <div class='col-xs-8'>
-          <p>
-            Orgoglio e pregiudizio
-          </p>
-          <small>
-            Jane Austen
-          </small>
-          <p>
-            Score: 4/5
-          </p>
+        <div class='col-xs-7'>
+          <p class='title'>Orgoglio e pregiudizio</p>
+          <div class='space-05'></div>
+          <p>Jane Austen</p>
+          <div class='space-1'></div>
+          <rating-element></rating-element>
         </div>
         <paper-ripple class='recenteringTouch' fit on-click='selectedItem'></paper-ripple>
       </div>

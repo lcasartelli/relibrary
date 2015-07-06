@@ -2,35 +2,39 @@
 <dom-module id="books-select-one-element">
   <style>
 
-    paper-input, paper-input-container {
-      color: #000;
-    }
-    paper-toolbar {
-      vertical-align: middle;
-    }
+  paper-input, paper-input-container {
+    color: #000;
+  }
+  paper-toolbar {
+    vertical-align: middle;
+  }
 
-    paper-toolbar p {
-      margin: 0;
-      padding: 0;
-    }
+  paper-toolbar p {
+    margin: 0;
+    padding: 0;
+  }
 
-    .fab-text-overlay {
-      position: fixed;
-      z-index: 110;
-      bottom: 42px;
-      right: 47px;
-      font-size: 86%;
-      color: #fff;
-    }
+  .search {
+    margin: auto;
+    margin-right: 0px;
+  }
+  paper-toolbar {
+    height: 100px;
+  }
 
   </style>
   <template>
-    <paper-header-panel flex>
+    <paper-header-panel flex mode="waterfall">
       <paper-toolbar role="toolbar" elevation="1">
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
         <p>{{contentTitle}}</p>
+
+        <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" selected="{{pageSelected}}">
+          <paper-tab>Libri già catalogati</paper-tab>
+          <paper-tab>Libri da GoodReads</paper-tab>
+        </paper-tabs>
       </paper-toolbar>
 
       <div class='container'>
@@ -39,10 +43,7 @@
             <liste-list-item-element></liste-list-item-element>
           </div> -->
           <div class='col-xs-12'>
-            <paper-tabs selected="{{pageSelected}}">
-      	      <paper-tab>Libri già catalogati</paper-tab>
-      	      <paper-tab>Libri da GoodReads</paper-tab>
-      	    </paper-tabs>
+
             <iron-pages selected="{{pageSelected}}">
       				<div id='myCatalog'>
                 <template is="dom-repeat" items="{{booksFromMyCatalog}}">
