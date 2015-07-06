@@ -159,7 +159,11 @@
     },
     goBack: function () {
       this.async(function () {
-        page('/');
+        if(window.queryString !== '') {
+          page('/');
+        } else {
+          window.history.back();
+        }
       }, 100);
     },
     openStatusBookDialog: function() {

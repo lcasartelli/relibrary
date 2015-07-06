@@ -12,6 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script>
 
 	var _showRoute = function (routeName) {
+		window.deleteGlobal();
 		var r = document.querySelectorAll('.route');
 		for (var i = 0; i < r.length; ++i) {
 			var classL = r[i].classList;

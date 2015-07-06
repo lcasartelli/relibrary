@@ -125,7 +125,7 @@
     },
     goBack: function() {
       this.async(function () {
-        page('/');
+        window.history.back();
       }, 100);
     },
     onChangeSearchField: function() {
