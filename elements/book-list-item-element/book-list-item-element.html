@@ -2,6 +2,11 @@
 <dom-module id="book-list-item-element">
   <style>
     /* CSS rules for your element */
+
+    .book-item-container {
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
     paper-ripple {
       z-index: 100;
     }
@@ -11,16 +16,28 @@
       color: #000;
     }
 
+    hr {
+      margin: 0;
+    }
+
+    .title {
+      font-size: 120%;
+      font-weight: 400;
+      margin: 0 0 0px;
+    }
+
   </style>
   <template>
     <div class='book-item-container' on-click="openBookDetail">
       <div class='row' style='position: relative;'>
-        <div class='col-xs-4'>
+        <div class='col-xs-3'>
           <img src="http://lorempixel.com/130/200" class='img-responsive'/>
         </div>
         <div class='col-xs-8'>
-          <p>Orgoglio e pregiudizio</p>
-          <small>Jane Austen</small>
+          <p class='title'>Orgoglio e pregiudizio</p>
+          <div class='space-05'></div>
+          <p>Jane Austen</p>
+          <div class='space-1'></div>
           <rating-element></rating-element>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
@@ -31,13 +48,13 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "book-list-item-element",
 
     openBookDetail: function () {
       this.async(function () {
-        page.redirect('/book/detail');
+        page('/book/detail');
       }, 100);
     }
   });

@@ -8,9 +8,14 @@
     paper-tabs {
       position: fixed;
       width: 100%;
-      background-color: white;
-      z-index: 100;
+      background-color: #FFE3DA;
+      z-index: 200;
     }
+
+    paper-tabs.mystuffs-tabs {
+      box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
     iron-pages {
       position: absolute;
       top: 40px;
@@ -19,7 +24,7 @@
   <template>
   	<div>
 
-	    <paper-tabs selected="{{pageSelected}}">
+	    <paper-tabs class='mystuffs-tabs' selected="{{pageSelected}}">
 	      <paper-tab>Libri</paper-tab>
 	      <paper-tab>Liste</paper-tab>
 	      <paper-tab>Librerie</paper-tab>
@@ -46,7 +51,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "mystuffs-element",
 

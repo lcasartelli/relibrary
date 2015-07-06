@@ -1,31 +1,41 @@
-
 <dom-module id="main-element">
   <style>
-
     .stream .list-item  {
       display: inline-block;
       width: 100%;
     }
-
     .header-profile {
-      padding-top: 30px;
+      margin-top: 30px;
       vertical-align: middle;
+      padding-right: 30px;
     }
-
     .header-profile p {
-      margin-left:10px;
+      margin-left: 10px;
       display: inline-block;
       font-size: 120%;
     }
-
     .header-profile * {
       vertical-align: middle;
     }
-
     paper-toolbar {
-      height: 140px;
+      height: 130px;
     }
-
+    .circular {
+      display: inline-block;
+    	width: 60px;
+    	height: 60px;
+    	border-radius: 150px;
+    	-webkit-border-radius: 150px;
+    	-moz-border-radius: 150px;
+    	background: url(http://spi1uk.itvnet.lv/upload/articles/25/251818/images/_origin_Emma-Watson-Cartier-19.jpg) no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+    .search {
+      margin: auto;
+      margin-top: 20px;
+      margin-right: 0;
+    }
   </style>
   <template>
     <paper-header-panel mode="waterfall">
@@ -36,6 +46,8 @@
           <div class="circular"></div>
           <p>Clara Brambilla</p>
         </div>
+
+        <paper-icon-button class='middle search' icon="search"></paper-icon-button>
 
         <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
           <paper-tab>Home</paper-tab>
@@ -60,13 +72,12 @@
         </div>
       </iron-pages>
 
-
     </paper-header-panel>
   </template>
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "main-element",
 
@@ -81,7 +92,7 @@
     },
     openMyProfile: function () {
       this.async(function () {
-        page.redirect('/profile/me');
+        page('/profile/me');
       }, 100);
     }
   });

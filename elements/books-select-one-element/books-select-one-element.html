@@ -110,13 +110,13 @@
       var contentType = this.type;
       this.async(function () {
         if (contentType === 'library') {
-          page.redirect('/new/library');
+          page('/new/library');
         } else if (contentType === 'lista') {
-          page.redirect('/new/lista');
+          page('/new/lista');
         } else if (contentType === 'loan') {
-          page.redirect('/');
+          page('/');
         } else if (contentType === 'book') {
-          page.redirect('/');
+          page('/');
         }
       }, 100);
     },
@@ -125,13 +125,13 @@
       var contentType = this.type;
       this.async(function () {
         if (contentType === 'library') {
-          page.redirect('/library/detail');
+          page('/library/detail');
         } else if (contentType === 'lista') {
-          page.redirect('/lista/detail');
+          page('/lista/detail');
         } else if (contentType === 'loan') {
-          page.redirect('/new/loan');
+          page('/new/loan');
         } else if (contentType === 'book') {
-          page.redirect('/book/code?toast=addBook');
+          page('/book/code?toast=addBook');
         }
 
       }, 100);

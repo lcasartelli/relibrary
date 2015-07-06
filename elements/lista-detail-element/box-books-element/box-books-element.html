@@ -1,13 +1,11 @@
 
 <dom-module id="box-books-element">
   <style>
+    .title {
+      padding-bottom: 15px;
+    }
   </style>
   <template>
-    <div class='row'>
-      <div class='col-xs-12'>
-        <h4>Libri della lista</h4>
-      </div>
-    </div>
     <div class='row'>
       <div class='col-xs-4'>
         <single-book-element></single-book-element>
@@ -34,7 +32,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "box-books-element",
 

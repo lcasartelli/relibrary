@@ -1,19 +1,34 @@
 
 <dom-module id="library-detail-element">
   <style>
+  .container {
+    padding-bottom: 30px;
+  }
+    .title {
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    .title > p {
+      font-size: 170%;
+      font-weight: 400;
+    }
     .container-privacy p {
       margin: 0px;
     }
     .container-spec .spec-title {
       font-weight: bold;
       margin: 0px;
+      color: darkgrey;
     }
     .container-spec .spec-content {
-      color: darkgrey;
+      color: black;
     }
     paper-toolbar p {
       margin: 0;
       padding: 0;
+    }
+    .library-props-value {
+      font-weight: 400;
     }
   </style>
   <template>
@@ -26,38 +41,29 @@
       </paper-toolbar>
       <div class='container'>
         <div class='row'>
-          <div class='col-xs-12 container-name'>
-            <h3>Libreria grande</h3>
+          <div class='col-xs-12 title'>
+            <p>Libreria grande</p>
           </div>
-        </div>
-        <div class='row container-spec'>
-          <div class='col-xs-6'>
-            <div class='row'>
-              <div class='col-xs-6'>
-                <p class='spec-title'>Posizione:</p>
-              </div>
-              <div class='col-xs-6'>
-                <p class='spec-content'>Salotto</p>
-              </div>
-            </div>
-            <div class='row'>
-              <div class='col-xs-6'>
-                <p class='spec-title'>Ordinata per:</p>
-              </div>
-              <div class='col-xs-6'>
-                <p class='spec-content'>Genere</p>
-              </div>
-            </div>
+          <!-- posizione -->
+          <div class='col-xs-4 legend'>
+            Posizione
           </div>
-          <div class='col-xs-6'>
-            <div class='row'>
-              <div class='col-xs-6'>
-                <p class='spec-title'>Visibilità:</p>
-              </div>
-              <div class='col-xs-6'>
-                <p class='spec-content'>Privata</p>
-              </div>
-            </div>
+          <div class='col-xs-8 library-props-value'>
+            <p>Salotto</p>
+          </div>
+          <!-- ordinamento -->
+          <div class='col-xs-4 legend'>
+            Ordinamento
+          </div>
+          <div class='col-xs-8 library-props-value'>
+            <p>Per genere</p>
+          </div>
+          <!-- visibilità -->
+          <div class='col-xs-4 legend'>
+            Visibilità
+          </div>
+          <div class='col-xs-8 library-props-value'>
+            <p>Libreria privata</p>
           </div>
         </div>
         <hr class='transparent-divider'/>
@@ -106,13 +112,13 @@
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
     },
 
     editLibrary: function () {
       this.async(function () {
-        page.redirect('/edit/library');
+        page('/edit/library');
       }, 100);
     }
 

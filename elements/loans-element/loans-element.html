@@ -4,18 +4,11 @@
   </style>
   <template>
 		<div class='container'>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
-      <loan-list-item-element class="list-item"></loan-list-item-element>
+      <loan-list-item-element book="Harry Potter e la pietra filosofale" person="Marco Bianchi" reminder='10 giorni' class="list-item"></loan-list-item-element>
+      <loan-list-item-element book="Crypto" person="Susanna Crippa" reminder='2 mesi' class="list-item"></loan-list-item-element>
+      <loan-list-item-element book="Mangia, Prega, Ama" person="Beatrice Rossini" reminder='1 mese' class="list-item"></loan-list-item-element>
+    <loan-list-item-element book="Quiet" person="Francesco Mariani" reminder='15 giorni' class="list-item"></loan-list-item-element>
+      <loan-list-item-element book="L'uomo che sussurrava ai cavalli" person="Leonardo Pozzi" reminder='26 giorni' class="list-item"></loan-list-item-element>
     </div>
     <paper-fab icon="add" on-click="newLoan"></paper-fab>
 	</template>
@@ -28,7 +21,7 @@
 
     newLoan: function () {
       this.async(function () {
-        page.redirect('/new/loan/books');
+        page('/new/loan/books');
       }, 100);
     }
 

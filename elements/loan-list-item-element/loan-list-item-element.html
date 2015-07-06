@@ -9,6 +9,10 @@
     paper-ripple {
       z-index: 100;
     }
+    .book, .person {
+      font-weight: 400;
+      font-size: 110%;
+    }
   </style>
   <template>
     <div class='loan-item-container' on-click="openLoanDetail">
@@ -18,13 +22,16 @@
         </div>
         <div class='col-xs-8'>
           <div class='col-xs-12'>
-            <p>Harry Potter e la pietra filosofale</p>
+            <p class='book'>{{book}}</p>
           </div>
           <div class='col-xs-12'>
-            <p><span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" style='color: red'></span> Da Marco Bianchi</p>
+            <p>
+              <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true" style='color: red'></span>
+              Da <span class='person'>{{person}}</span>
+            </p>
           </div>
-          <div class='col-xs-12 text-right'>
-            <small>10 giorni fa</small>
+          <div class='col-xs-12'>
+            <p>Scadenza tra <span>{{reminder}}</span></p>
           </div>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
@@ -35,13 +42,25 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "loan-list-item-element",
 
+    properties: {
+      person: {
+        type: String
+      },
+      book: {
+        type: String
+      },
+      reminder: {
+        type: String
+      }
+    },
+
     openLoanDetail: function () {
       this.async(function () {
-        page.redirect('/loan/detail');
+        page('/loan/detail');
       }, 100);
     }
   });

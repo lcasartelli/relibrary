@@ -20,7 +20,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
   <!-- Chrome for Android theme color -->
-  <meta name="theme-color" content="#303F9F">
+  <meta name="theme-color" content="#FF5722">
 
   <!-- Web Application Manifest -->
   <link rel="manifest" href="manifest.json">
@@ -42,8 +42,6 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Tile icon for Win8 (144x144 + tile color) -->
   <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
 
-  <!-- build:css styles/main.css -->
-  <link rel="stylesheet" href="styles/main.css">
   <!-- endbuild-->
 
   <!-- build:js bower_components/webcomponentsjs/webcomponents.min.js -->
@@ -55,6 +53,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <!-- endreplace-->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
 </head>
 
 <body unresolved class="fullbleed layout vertical">
@@ -73,8 +74,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   <!-- Libraries -->
   <library-detail-element class='route' id='library'></library-detail-element>
   <library-creation-element class='route' id='library-creation' type='new'></library-creation-element>
+  
   <books-select-element class='route' id='library-creation-books' type='library' isnew='true'></books-select-element>
   <books-select-element class='route' id='library-edit-books' type='library' isnew='false'></books-select-element>
+
   <library-creation-element class='route' id='library-edit' type='edit' name="Libreria grande" description="fjkajnfnankf afklnafnkla lfkalknf" position="Soggiorno" order="Ordine alfabetico" public></library-creation-element>
 
   <!-- Loans -->
