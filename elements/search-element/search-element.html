@@ -1,0 +1,149 @@
+
+<dom-module id="search-element">
+  <style>
+    #searchToolbar {
+      background: white;
+    }
+    .back {
+      color: black;
+    }
+    .search {
+      margin: auto;
+      margin-top: 20px;
+      margin-right: 0;
+    }
+    .wrapper {
+      margin-top: 10px;
+    }
+    .row-title {
+      padding-bottom: 5px;
+    }
+    .container-input {
+      width: 100%;
+    }
+    hr {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+  <template>
+    <paper-header-panel flex>
+      <paper-toolbar role="toolbar" id='searchToolbar' elevation="1">
+        <div class='back' on-click="goBack">
+          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
+        </div>
+        <div class='container-input'>
+          <paper-input label="Ricerca..." value='{{query}}' no-label-float on-keyup='onChangeSearchField'></paper-input>
+        </div>
+      </paper-toolbar>
+      <div class='container wrapper' hidden$="{{isHidden}}">
+        <div class='row row-title'>
+          <div class='col-xs-8'>
+            <h4>Libri</h4>
+          </div>
+          <div class='col-xs-4 text-right'>
+            <more-button-element></more-button-element>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+          <div class='col-xs-4'>
+            <single-book-element></single-book-element>
+          </div>
+        </div>
+        <hr />
+        <div class='row row-title'>
+          <div class='col-xs-8'>
+            <h4>Autori</h4>
+          </div>
+          <div class='col-xs-4 text-right'>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <box-author-element></box-author-element>
+          </div>
+        </div>
+        <hr />
+        <div class='row row-title'>
+          <div class='col-xs-8'>
+            <h4>Liste</h4>
+          </div>
+          <div class='col-xs-4 text-right'>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <div class='col-xs-4' on-click='goList'>
+              <single-list-element></single-list-element>
+            </div>
+            <div class='col-xs-4' on-click='goList'>
+              <single-list-element></single-list-element>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class='row row-title'>
+          <div class='col-xs-8'>
+            <h4>Librerie</h4>
+          </div>
+          <div class='col-xs-4 text-right'>
+          </div>
+        </div>
+        <div class='row'>
+          <div class='col-xs-12'>
+            <div class='col-xs-4' on-click='goLibrary'>
+              <single-library-element></single-library-element>
+            </div>
+            <div class='col-xs-4' on-click='goLibrary'>
+              <single-library-element></single-library-element>
+            </div>
+          </div>
+        </div>
+      </div>
+    </paper-header-panel>
+	</template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: "search-element",
+    properties: {
+      isHidden: {
+        type: Boolean,
+        value: true
+      },
+      query: {
+        type: String
+      }
+    },
+    goBack: function() {
+      this.async(function () {
+        window.history.back();
+      }, 100);
+    },
+    goLibrary: function() {
+      this.async(function () {
+        page('/library/detail');
+      }, 100);
+    },
+    goList: function() {
+      this.async(function () {
+        page('/lista/detail');
+      }, 100);
+    },
+    onChangeSearchField: function() {
+      if(this.query.length > 0) {
+        this.isHidden = false;
+      } else {
+        this.isHidden = true;
+      }
+    }
+  });
+</script>

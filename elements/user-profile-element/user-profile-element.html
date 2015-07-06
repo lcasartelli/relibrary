@@ -71,24 +71,18 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "user-profile-element",
 
     goBack: function () {
       this.async(function () {
-        page('/');
+        if(window.queryString !== '') {
+          page('/');
+        } else {
+          window.history.back();
+        }
       }, 100);
     }
-
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
   });
 </script>
