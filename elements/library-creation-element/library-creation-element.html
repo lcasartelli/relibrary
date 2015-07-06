@@ -1,28 +1,27 @@
 
 <dom-module id="library-creation-element">
   <style>
-
+  .container {
+      margin-top: 20px;
+      padding-right: 40px;
+      padding-bottom: 30px;
+    }
     paper-input, paper-input-container {
       color: #000;
     }
-
     paper-toolbar {
       vertical-align: middle;
     }
-
     paper-toolbar p {
       margin: 0;
       padding: 0;
     }
-
-    .add-books-label {
-      position: fixed;
-      z-index: 110;
-      bottom: 42px;
-      right: 107px;
+    .info-section-icon, .position-section-icon {
+      padding-top: 27px;
     }
-
-
+    .visibility-section-icon {
+      padding-top: 10px;
+    }
   </style>
   <template>
     <paper-header-panel flex>
@@ -30,36 +29,77 @@
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
-        <p>{{ contentTitle }}</p>
+        <p>{{ headerTitle }}</p>
       </paper-toolbar>
 
       <div class='container'>
         <div class='row'>
-          <div class='col-xs-12'>
-            <paper-input label="Nome della libreria" value='{{ name }}'></paper-input>
+          <div class='col-xs-2 info-section-icon'>
+            <i class="material-icons">info</i>
           </div>
-          <div class='col-xs-12'>
-            <paper-input label="Posizione" value='{{ position }}'></paper-input>
-          </div>
-          <div class='col-xs-12'>
-            <paper-input label="Ordinamento" value='{{ order }}'></paper-input>
-          </div>
-          <div class='col-xs-12'>
-            <paper-textarea label="Descrizione" value='{{ description }}'></paper-textarea>
-          </div>
-          <div class='col-xs-12'>
-            <p>Visibilità della lista</p>
-            <span>Libreria pubblica</span>
-            <paper-toggle-button id="visibility" on-change="visibilityChanged"></paper-toggle-button>
+          <div class='col-xs-10'>
             <div>
-              <small hidden$="{{visibilityValue}}">Libreria pubblica. I tuoi amici potranno vedere la tua vista in qualunque momento.</small>
-              <small hidden$="{{!visibilityValue}}">Libreria privata. La lista è visibile solo a te.</small>
+              <paper-input label="Nome della libreria" value='{{ name }}'></paper-input>
             </div>
+            <div>
+              <paper-textarea label="Descrizione" value='{{ description }}'></paper-textarea>
+            </div>
+          </div>
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+          </div>
+          <div class='col-xs-2 position-section-icon'>
+            <i class="material-icons">pin_drop</i>
+          </div>
+          <div class='col-xs-10'>
+            <div>
+              <paper-input label="Posizione" value='{{ position }}'></paper-input>
+              <small>Dove è collocata? Ad Esempio salotto, camera da letto.</small>
+            </div>
+            <div>
+              <paper-input label="Ordinamento" value='{{ order }}'></paper-input>
+              <small>Come è ordinata? Ad esempio per ordine alfabetico, per genere.</small>
+            </div>
+          </div>
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
+          </div>
+          <div class='col-xs-2 visibility-section-icon'>
+            <i class="material-icons">lock</i>
+          </div>
+          <div class='col-xs-10'>
+            <paper-radio-group on-change='radioVisibilityListener'>
+              <paper-radio-button id='public' name='visibility-public'>
+                Libreria pubblica
+              </paper-radio-button>
+              <paper-radio-button id='private' name='visibility-private'>
+                Libreria privata
+              </paper-radio-button>
+            </paper-radio-group>
+            <div class='space-1'></div>
+            <div>
+              <small hidden$="{{!isPublic }}">I tuoi amici potranno vedere la tua libreria in qualunque momento.</small>
+              <small hidden$="{{ isPublic }}">La libreria è visibile solo a te.</small>
+            </div>
+          </div>
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
+          </div>
+          <div class='col-xs-2'>
+            <i class="material-icons">arrow_forward</i>
+          </div>
+          <div class='col-xs-10'>
+            Ora procedi con l'<strong>aggiunta dei libri</strong> toccando il bottone "+" in basso.
+          </div>
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
           </div>
         </div>
 
       </div>
-      <p class='add-books-label'>Aggiungi libri alla libreria</p>
       <paper-fab icon="add" on-click="addBooks"></paper-fab>
     </paper-header-panel>
   </template>
@@ -70,14 +110,10 @@
     is: "library-creation-element",
 
     properties: {
-      visibilityValue: {
-        type: Boolean,
-        value: false
+      type: {
+        type: String
       },
-      public: {
-        type: Boolean,
-      },
-      contentTitle: {
+      headerTitle: {
         type: String,
         value: ''
       },
@@ -93,41 +129,61 @@
       position: {
         type: String
       },
-      type: {
-        type: String
-      }
+      isPublic: {
+        type: Boolean,
+        value: false
+      },
+      public: {
+        type: Boolean,
+      },
+
     },
 
     goBack: function () {
       this.async(function () {
-        page.redirect('/');
+        page('/');
       }, 100);
-    },
-
-    visibilityChanged: function (toggle) {
-      this.visibilityValue = this.$.visibility.checked;
     },
 
     addBooks: function () {
       this.async(function () {
         var path = (this.type === 'new') ? '/new/library/books' : '/edit/library/books';
-        page.redirect(path);
+        page(path);
       }, 100);
     },
 
+    radioVisibilityListener: function (src) {
+      if (src.target.id === 'public') {
+        this.isPublic = true;
+      } else {
+        this.isPublic = false;
+      }
+    },
+
     ready: function () {
+      var that = this;
 
       if (this.type === 'new') {
-        this.contentTitle = 'Creazione nuova libreria';
+        this.headerTitle = 'Creazione nuova libreria';
+        that.$.public.click();
+        this.isPublic = true;
       } else if (this.type === 'edit') {
-        this.contentTitle = 'Modifica libreria "' + this.name + '"';
+        this.headerTitle = 'Modifica libreria "' + this.name + '"';
 
-        var listVisibility = false;
+        this.isPublic = false;
         if (typeof this.public !== 'undefined') {
-          listVisibility = true;
+          this.isPublic = true;
         }
-        // set list visibility
-        this.$.visibility.checked = listVisibility;
+
+        this.async(function () {
+
+          if (that.isPublic) {
+            that.$.public.click();
+          } else {
+            that.$.private.click();
+          }
+
+        }, 100);
       }
     }
 

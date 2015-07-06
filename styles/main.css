@@ -11,11 +11,17 @@ body {
     background: #fafafa;
     font-family: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: #333;
+    font-weight: 200;
 }
 
 html, body {
   height: 100%;
   margin: 0;
+}
+
+paper-button {
+  background-color: #FF5722;
+  color: #fff;
 }
 
 paper-header-panel {
@@ -40,8 +46,8 @@ paper-toolbar a {
 paper-fab {
   position: fixed;
   z-index: 110;
-  bottom: 35px;
-  right: 35px;
+  bottom: 20px;
+  right: 20px;
 }
 
 .hide {
@@ -52,23 +58,31 @@ paper-fab {
   display: block;
 }
 
-
-.circular {
-  display: inline-block;
-	width: 60px;
-	height: 60px;
-	border-radius: 150px;
-	-webkit-border-radius: 150px;
-	-moz-border-radius: 150px;
-
-	background: url(http://spi1uk.itvnet.lv/upload/articles/25/251818/images/_origin_Emma-Watson-Cartier-19.jpg) no-repeat;
-  background-position: center;
-  background-size: cover;
-	}
-
-
 .transparent-divider {
   border: 0px;
+}
+
+strong {
+  font-weight: 400;
+}
+
+paper-header-panel{
+  z-index: 200;
+}
+
+
+/* spacers */
+
+.space-05 {
+  height: 5px;
+}
+
+.space-1 {
+  height: 10px;
+}
+
+.space-2 {
+  height: 20px;
 }
 
 div#offRadio {

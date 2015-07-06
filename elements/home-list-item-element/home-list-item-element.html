@@ -18,7 +18,7 @@
         </div>
         <div class='col-xs-8'>
           <div class='col-xs-12'>
-            <p>J.K. Rowling ha pubblicato Harry Potter e la pietra filosofale.</p>
+            <p><span>{{author}}</span> ha pubblicato <strong>{{book}}</strong>.</p>
           </div>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
@@ -29,13 +29,22 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "home-list-item-element",
 
+    properties: {
+      author: {
+        type: String
+      },
+      book: {
+        type: String
+      }
+    },
+
     openUpdateDetail: function () {
       this.async(function () {
-        page.redirect('/book/1234');
+        page('/book/1234');
       }, 100);
     }
   });
