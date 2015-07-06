@@ -1,12 +1,16 @@
 
 <dom-module id="box-list-element">
   <style>
+    .title {
+      font-weight: 400;
+      font-size: 120%;
+    }
   </style>
   <template>
     <edit-button-element></edit-button-element>
     <div class='row'>
       <div class='col-xs-12'>
-        <h4>Le tue liste a cui appartiene</h4>
+        <p class='title'>Le tue liste a cui appartiene</p>
       </div>
     </div>
     <div class='row'>
@@ -35,7 +39,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "box-list-element",
 
