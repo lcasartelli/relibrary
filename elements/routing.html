@@ -35,9 +35,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			_showRoute('main');
     });
 
-    page('/book/:code', function () {
+    page('/book/:code', function (cxt) {
 			_showRoute('book-detail');
-			window.showToastFromRedirect();
+			window.showToastFromRedirect(cxt.querystring);
     });
 
 		page('/profile/:user', function () {

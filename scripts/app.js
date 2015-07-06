@@ -25,8 +25,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   };
 
-  window.showToastFromRedirect = function() {
-    var queryStringValue = window.getQueryStringValue('toast');
+  window.showToastFromRedirect = function(querystring) {
+    var queryStringValue = window.getQueryStringValue('toast', querystring);
     if(queryStringValue !== undefined) {
       window.showToast(document.querySelector('#' + queryStringValue));
     }
