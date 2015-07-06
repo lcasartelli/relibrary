@@ -47,7 +47,7 @@
           <p>Clara Brambilla</p>
         </div>
 
-        <paper-icon-button class='middle search' icon="search"></paper-icon-button>
+        <paper-icon-button class='middle search' icon="search" on-click='goSearch'></paper-icon-button>
 
         <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" role="tablist" selected="{{pageSelected}}">
           <paper-tab>Home</paper-tab>
@@ -93,6 +93,11 @@
     openMyProfile: function () {
       this.async(function () {
         page('/profile/me');
+      }, 100);
+    },
+    goSearch: function() {
+      this.async(function () {
+        page('/search');
       }, 100);
     }
   });

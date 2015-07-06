@@ -12,6 +12,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <script>
 
 	var _showRoute = function (routeName) {
+		window.deleteGlobal();
 		var r = document.querySelectorAll('.route');
 		for (var i = 0; i < r.length; ++i) {
 			var classL = r[i].classList;
@@ -109,6 +110,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 		page('/edit/library/books', function () {
 			_showRoute('library-edit-books');
+    });
+
+		page('/search', function () {
+			_showRoute('search');
     });
 
     // add #! before urls

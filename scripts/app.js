@@ -8,9 +8,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 (function(window) {
   'use strict';
-  window.getQueryStringValue = function(key, querystring) {
+  window.deleteGlobal = function() {
+    window.queryString = undefined;
+  };
+  window.setGloablQueryString = function(queryString) {
+    window.queryString = queryString;
+  };
+  window.getQueryStringValue = function(key, queryString) {
     var _r_val;
-    var pairs = querystring.split('=');
+    var pairs = queryString.split('=');
     pairs.forEach(function(val, index) {
       if(index % 2 === 0 && val === key) {
         _r_val = pairs[index + 1];
@@ -25,10 +31,11 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     }
   };
 
-  window.showToastFromRedirect = function(querystring) {
-    var queryStringValue = window.getQueryStringValue('toast', querystring);
+  window.showToastFromRedirect = function(queryString) {
+    var queryStringValue = window.getQueryStringValue('toast', queryString);
     if(queryStringValue !== undefined) {
       window.showToast(document.querySelector('#' + queryStringValue));
+      window.setGloablQueryString(queryString);
     }
   };
 
