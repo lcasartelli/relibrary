@@ -22,6 +22,10 @@
       height: 100px;
     }
 
+    #noBooksAlert {
+      z-index: 200;
+    }
+
 
   </style>
   <template>
@@ -68,13 +72,13 @@
       <paper-fab icon="done" on-click='saveBooks'></paper-fab>
     </paper-header-panel>
 
-    <paper-dialog id='noBooksAlert'>
-      <div>
-        Ops, non hai selezionato nessun libro.
-      </div>
+    <paper-dialog id='noBooksAlert' style='height: auto; max-height: 500px; z-index: 200 !important;'>
+        <p>
+          Ops, non hai selezionato nessun libro.
+        </p>
       <div class="buttons">
         <paper-button dialog-dismiss>Annulla</paper-button>
-        <paper-button dialog-confirm on-click='end'>Procedi comunque</paper-button>
+        <paper-button dialog-dismiss>Riprova</paper-button>
       </div>
     </paper-dialog>
 
