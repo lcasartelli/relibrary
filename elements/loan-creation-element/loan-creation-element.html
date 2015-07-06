@@ -39,35 +39,67 @@
         <div class='row'>
 
           <!-- BOOK INFO -->
-          <div class='col-xs-4'>
-            <img src='http://lorempixel.com/130/200' class='img-responsive' />
+          <div class='col-sx-12 book-info'>
+            <div class='col-xs-4'>
+              <img src='http://lorempixel.com/130/200' class='img-responsive' />
+            </div>
+            <div class='col-xs-8'>
+              <h4>Harry Potter e la pietra Filosofale</h4>
+            </div>
           </div>
-          <div class='col-xs-8'>
-            <h4>Harry Potter e la pietra Filosofale</h4>
+
+          <div class='col-xs-2 person-section-icon'>
+            <i class="material-icons">face</i>
+          </div>
+          <div class='col-xs-10'>
+            <paper-input label="Amico di lettura" value='{{ user }}'></paper-input>
+            <paper-radio-group>
+              <paper-radio-button name='da' class='col-xs-12'>Ti ha prestato un libro</paper-radio-button>
+              <paper-radio-button name='a' class='col-xs-12'>Ti deve restituire un libro</paper-radio-button>
+            </paper-radio-group>
+          </div>
+
+          <div class='col-xs-2 note-section-icon'>
+            <i class="material-icons">comment</i>
+          </div>
+          <div class='col-xs-10'>
+            <paper-textarea label="Note" value='{{ note }}'></paper-textarea>
           </div>
 
           <div class='col-xs-12'>
-            <paper-radio-group>
-              <paper-radio-button name='da' class='col-xs-12'>Da</paper-radio-button>
-              <paper-radio-button name='a' class='col-xs-12'>A</paper-radio-button>
-            </paper-radio-group>
-            <paper-input label="Persona (FIX)" value='{{ user }}'></paper-input>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
           </div>
-          <div class='col-xs-12'>
-            <paper-textarea label="Note" value='{{ note }}'></paper-textarea>
+
+          <div class='col-xs-2'>
+            <i class="material-icons">alarm</i>
           </div>
-          <div class='col-xs-12'>
-            <p>Promemoria</p>
-            <span>Imposta un promemoria per ricordare la data del prestito</span>
+          <div class='col-xs-10'>
+            <p>Imposta un promemoria per ricordare la data del prestito</p>
             <paper-button>1 settimana</paper-button>
             <paper-button>2 settimane</paper-button>
             <paper-button>1 mese</paper-button>
             <paper-button>Personalizzato</paper-button>
           </div>
+
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
+          </div>
+
+          <div class='col-xs-2'>
+            <i class="material-icons">arrow_forward</i>
+          </div>
+          <div class='col-xs-10'>
+            Ora procedi premi il bottone in basso a sinistra per <strong>salvare</strong>.
+          </div>
+          <div class='col-xs-12'>
+            <div class='space-2'></div>
+            <div class='space-2'></div>
+          </div>
         </div>
 
       </div>
-      <p class='add-books-label'>Salva il prestito</p>
       <paper-fab icon="done" on-click="saveLoan"></paper-fab>
     </paper-header-panel>
   </template>
