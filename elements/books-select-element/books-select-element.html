@@ -18,11 +18,14 @@
       margin: auto;
       margin-right: 0px;
     }
+    paper-toolbar {
+      height: 100px;
+    }
 
 
   </style>
   <template>
-    <paper-header-panel flex>
+    <paper-header-panel flex mode="waterfall">
       <paper-toolbar role="toolbar" elevation="1">
         <div class='back' on-click="goBack">
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
@@ -31,6 +34,12 @@
         <div class='search' on-click="goSearch">
           <paper-icon-button id="search" icon="search"></paper-icon-button>
         </div>
+
+        <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" selected="{{pageSelected}}">
+          <paper-tab>Libri già catalogati</paper-tab>
+          <paper-tab>Libri da GoodReads</paper-tab>
+        </paper-tabs>
+
       </paper-toolbar>
 
       <div class='container'>
@@ -39,10 +48,6 @@
             <liste-list-item-element></liste-list-item-element>
           </div> -->
           <div class='col-xs-12'>
-            <paper-tabs selected="{{pageSelected}}">
-      	      <paper-tab>Libri già catalogati</paper-tab>
-      	      <paper-tab>Libri da GoodReads</paper-tab>
-      	    </paper-tabs>
             <iron-pages selected="{{pageSelected}}">
       				<div id='myCatalog'>
                 <book-checkbox-item-element></book-checkbox-item-element>

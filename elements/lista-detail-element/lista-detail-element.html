@@ -1,25 +1,35 @@
 
 <dom-module id="lista-detail-element">
   <style>
+    .container {
+      padding-bottom: 30px;
+    }
     .stream .list-item  {
       display: inline-block;
       width: 100%;
     }
-
     .header-profile p {
       margin-left:10px;
       display: inline-block;
       font-size: 120%;
     }
-
     .header-profile * {
       vertical-align: middle;
     }
-
     paper-toolbar {
       vertical-align: middle;
     }
-
+    .lista-props-value {
+      font-weight: 400;
+    }
+    .title {
+      padding-top: 20px;
+      padding-bottom: 15px;
+    }
+    .title > p {
+      font-size: 170%;
+      font-weight: 400;
+    }
     paper-toolbar p {
       margin: 0;
       padding: 0;
@@ -38,15 +48,27 @@
         <!-- BOOK COVER -->
         <div class='row'>
           <!-- BOOK INFO -->
-          <div class='col-xs-12'>
-            <h3 class='title'>Romanzi preferiti</h3>
+          <div class='col-xs-12 title'>
+            <p>Romanzi preferiti</p>
+          </div>
+          <div class='col-xs-4 legend'>
+            Descrizione
+          </div>
+          <div class='col-xs-8 lista-props-value'>
             <p>Lista dei romanzi preferiti del 2015 suggeriti da Marco</p>
-            <p>Visibilità: privata</p>
+          </div>
+          <div class='col-xs-4 legend'>
+            Visibilità
+          </div>
+          <div class='col-xs-8 lista-props-value'>
+            <p>Lista privata</p>
           </div>
         </div>
-        <hr />
+        <div class='space-2'></div>
         <box-books-element></box-books-element>
+
         <hr />
+
         <remove-list-button-element></remove-list-button-element>
       </div>
       <paper-fab icon="create" on-click='editList'></paper-fab>
