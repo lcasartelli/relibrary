@@ -10,14 +10,13 @@
     }
     paper-toolbar p, paper-toolbar a {
       color: black;
-      font-weight: bold;
     }
 
     .container-detail {
       padding: 0px 10px;
     }
     .container-detail .header-detail {
-      font-weight: bold;
+      font-weight: 400;
       margin: 0px;
     }
     .container-detail .content-detail {
@@ -25,6 +24,10 @@
     }
     #navicon {
       color: black;
+    }
+    .title {
+      font-weight: 400;
+      font-size: 120%;
     }
   </style>
   <template>
@@ -40,7 +43,7 @@
         <!-- TRAMA -->
         <div class='row'>
           <div class='col-xs-12'>
-            <h4>Trama</h4>
+            <p class='title'>Trama</p>
           </div>
         </div>
         <div class='row'>
@@ -84,7 +87,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "read-more-element",
 
