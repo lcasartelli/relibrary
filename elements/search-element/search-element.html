@@ -79,10 +79,10 @@
         </div>
         <div class='row'>
           <div class='col-xs-12'>
-            <div class='col-xs-4'>
+            <div class='col-xs-4' on-click='goList'>
               <single-list-element></single-list-element>
             </div>
-            <div class='col-xs-4'>
+            <div class='col-xs-4' on-click='goList'>
               <single-list-element></single-list-element>
             </div>
           </div>
@@ -97,10 +97,10 @@
         </div>
         <div class='row'>
           <div class='col-xs-12'>
-            <div class='col-xs-4'>
+            <div class='col-xs-4' on-click='goLibrary'>
               <single-library-element></single-library-element>
             </div>
-            <div class='col-xs-4'>
+            <div class='col-xs-4' on-click='goLibrary'>
               <single-library-element></single-library-element>
             </div>
           </div>
@@ -126,6 +126,16 @@
     goBack: function() {
       this.async(function () {
         window.history.back();
+      }, 100);
+    },
+    goLibrary: function() {
+      this.async(function () {
+        page('/library/detail');
+      }, 100);
+    },
+    goList: function() {
+      this.async(function () {
+        page('/lista/detail');
       }, 100);
     },
     onChangeSearchField: function() {

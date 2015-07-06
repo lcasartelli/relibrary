@@ -35,6 +35,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     var queryStringValue = window.getQueryStringValue('toast', queryString);
     if(queryStringValue !== undefined) {
       window.showToast(document.querySelector('#' + queryStringValue));
+    }
+    if(queryString !== undefined) {
       window.setGloablQueryString(queryString);
     }
   };
