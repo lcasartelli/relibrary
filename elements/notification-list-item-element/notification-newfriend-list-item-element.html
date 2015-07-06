@@ -1,5 +1,5 @@
 
-<dom-module id="notification-list-item-element">
+<dom-module id="notification-newfriend-list-item-element">
   <style>
     /* CSS rules for your element */
     a.notification-item-container {
@@ -18,7 +18,7 @@
         </div>
         <div class='col-xs-8'>
           <div class='col-xs-12'>
-            <p><span>{{person}}</span> ti consiglia: <strong>{{book}}</strong></p>
+            <p><strong>{{person}}</strong> ti ha aggiunto agli amici</p>
           </div>
         </div>
         <paper-ripple class='recenteringTouch' fit></paper-ripple>
@@ -31,20 +31,17 @@
 <script>
 
   Polymer({
-    is: "notification-list-item-element",
+    is: "notification-newfriend-list-item-element",
 
     properties: {
       person: {
-        type: String
-      },
-      book: {
         type: String
       }
     },
 
     openNotificationDetail: function () {
       this.async(function () {
-        page('/book/1234');
+        page('/profile/marta');
       }, 100);
     }
   });
