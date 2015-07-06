@@ -2,7 +2,7 @@
 <dom-module id="library-creation-element">
   <style>
   .container {
-      margin-top: 30px;
+      margin-top: 20px;
       padding-right: 40px;
       padding-bottom: 30px;
     }
@@ -16,11 +16,11 @@
       margin: 0;
       padding: 0;
     }
-    .add-books-label {
-      position: fixed;
-      z-index: 110;
-      bottom: 42px;
-      right: 107px;
+    .info-section-icon, .position-section-icon {
+      padding-top: 27px;
+    }
+    .visibility-section-icon {
+      padding-top: 10px;
     }
   </style>
   <template>
@@ -34,13 +34,10 @@
 
       <div class='container'>
         <div class='row'>
-          <div class='col-xs-2'>
+          <div class='col-xs-2 info-section-icon'>
             <i class="material-icons">info</i>
           </div>
           <div class='col-xs-10'>
-            <p>
-              Inserisci le informazioni necessarie per identificare e riconoscere la tua nuova lista
-            </p>
             <div>
               <paper-input label="Nome della libreria" value='{{ name }}'></paper-input>
             </div>
@@ -50,9 +47,8 @@
           </div>
           <div class='col-xs-12'>
             <div class='space-2'></div>
-            <div class='space-2'></div>
           </div>
-          <div class='col-xs-2'>
+          <div class='col-xs-2 position-section-icon'>
             <i class="material-icons">pin_drop</i>
           </div>
           <div class='col-xs-10'>
@@ -69,7 +65,7 @@
             <div class='space-2'></div>
             <div class='space-2'></div>
           </div>
-          <div class='col-xs-2'>
+          <div class='col-xs-2 visibility-section-icon'>
             <i class="material-icons">lock</i>
           </div>
           <div class='col-xs-10'>
