@@ -8,6 +8,10 @@
     .wrapper {
       margin-top: 10px;
     }
+    .title {
+      font-weight: 400;
+      font-size: 120%;
+    }
   </style>
   <template>
     <paper-header-panel flex>
@@ -72,10 +76,10 @@
       </div>
 
       <paper-dialog id='archiveAlert' style='height: auto; max-height: 500px;'>
-        <h2>{{ dialogTitle }}</h2>
+        <p class='title'>{{ dialogTitle }}</p>
         <div>{{ dialogMessage }}</div>
         <div class="buttons">
-          <paper-button dialog-dismiss>Indietro</paper-button>
+          <paper-button dialog-dismiss>Annulla</paper-button>
           <paper-button dialog-confirm on-click='end'>Archivia</paper-button>
         </div>
       </paper-dialog>
