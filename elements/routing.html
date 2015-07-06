@@ -48,19 +48,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 			_showRoute('readmore');
     });
 
-		page('/library/:code', function () {
+		page('/library/:code', function (cxt) {
 			_showRoute('library');
-			window.showToastFromRedirect();
+			window.showToastFromRedirect(cxt.querystring);
     });
 
-		page('/loan/:code', function () {
+		page('/loan/:code', function (cxt) {
 			_showRoute('loan');
-			window.showToastFromRedirect();
+			window.showToastFromRedirect(cxt.querystring);
 		});
 
-		page('/lista/:code', function () {
+		page('/lista/:code', function (cxt) {
 			_showRoute('lista-detail');
-			window.showToastFromRedirect();
+			window.showToastFromRedirect(cxt.querystring);
     });
 
 		page('/new/lista', function () {

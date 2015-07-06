@@ -8,21 +8,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 */
 (function(window) {
   'use strict';
-  window.getQueryStringValue = function(key) {
-    var search = window.location.href.split('?')[1];
+  window.getQueryStringValue = function(key, querystring) {
     var _r_val;
-    if(search !== undefined) {
-      var eachVariables = search.split('&');
-      var pairs = null;
-      eachVariables.forEach(function(variables) {
-        pairs = variables.split('=');
-        pairs.forEach(function(val, index) {
-          if(index % 2 === 0 && val === key) {
-            _r_val = pairs[index + 1];
-          }
-        });
-      });
-    }
+    var pairs = querystring.split('=');
+    pairs.forEach(function(val, index) {
+      if(index % 2 === 0 && val === key) {
+        _r_val = pairs[index + 1];
+      }
+    });
     return _r_val;
   };
 
