@@ -43,5 +43,22 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       window.setGloablQueryString(queryString);
     }
   };
+  // remove fab when keyboard up
+  var body = window.document.getElementsByTagName('body')[0];
+  body.onresize = (function() {
+    return function() {
+      var allFab = window.document.querySelectorAll('paper-fab');
+      var display = '';
+      if(body.clientHeight > 400) {
+        display = 'block';
+      } else {
+        display = 'none';
+      }
+      for(var i = 0; i < allFab.length; i++) {
+        allFab[i].style.display = display;
+      }
+    };
+  })();
+  console.log(body.onresize);
 
 })(window);
