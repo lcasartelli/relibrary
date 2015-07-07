@@ -1,18 +1,39 @@
 
 <dom-module id="remove-book-button-element">
   <style>
+    .container {
+      margin-bottom: 30px;
+    }
+    paper-dialog {
+      background-color: #fff;
+    }
+    paper-dialog paper-button {
+      background-color: #fff;
+      color: #E64A19;
+    }
   </style>
   <template>
-    <div class='row'>
-      <div class='col-xs-12 text-right'>
-        <u class='text-right'>Rimuovi dai miei libri</u>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-xs-12 text-right'>
+          <u class='' on-click='openDialog'>Rimuovi dai miei libri</u>
+        </div>
       </div>
     </div>
+    <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
+      <p class='title'>{{ dialogTitle }}</p>
+      <div>Sei sicuro di voler rimuovere libro?</div>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Annulla</paper-button>
+        <paper-button dialog-confirm>Elimina</paper-button>
+      </div>
+    </paper-dialog>
+
   </template>
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "remove-book-button-element",
 
@@ -25,5 +46,8 @@
     //     value: "0"
     //   }
     // }
+    openDialog: function () {
+      this.$.remove.open();
+    }
   });
 </script>
