@@ -1,14 +1,16 @@
 
 <dom-module id="edit-button-element">
   <style>
-    .edit-button {
-      /* TO DO: style the button*/
+    paper-button {
+      font-size: 10px;
+    }
+    .container-button {
+      padding-bottom: 5px;
     }
   </style>
   <template>
-    <div class='row'>
+    <div class='row container-button'>
       <div class='col-xs-12 text-right'>
-        <!-- TO DO: look for core-icon -->
         <paper-button raised class='edit-button'>
           <iron-icon icon="create"></iron-icon>
           Modifica
@@ -19,7 +21,7 @@
 </dom-module>
 
 <script>
-  
+
   Polymer({
     is: "edit-button-element",
 

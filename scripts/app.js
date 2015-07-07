@@ -25,16 +25,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     return _r_val;
   };
 
-  window.showToast = function(toast) {
+  window.showToast = function(toast, ritardo) {
+    if(ritardo === null) {
+      ritardo = 0;
+    }
     if(toast !== undefined) {
-      toast.show();
+      setTimeout(function() {toast.show();}, ritardo);
     }
   };
 
   window.showToastFromRedirect = function(queryString) {
     var queryStringValue = window.getQueryStringValue('toast', queryString);
     if(queryStringValue !== undefined) {
-      window.showToast(document.querySelector('#' + queryStringValue));
+      window.showToast(document.querySelector('#' + queryStringValue), 500);
     }
     if(queryString !== undefined) {
       window.setGloablQueryString(queryString);
