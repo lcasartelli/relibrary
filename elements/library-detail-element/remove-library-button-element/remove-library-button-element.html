@@ -1,0 +1,41 @@
+
+<dom-module id="remove-library-button-element">
+  <style>
+    .container {
+      margin-bottom: 30px;
+    }
+    paper-dialog {
+      background-color: #fff;
+    }
+    paper-dialog paper-button {
+      background-color: #fff;
+      color: #E64A19;
+    }
+  </style>
+  <template>
+    <div class='row container'>
+      <div class='col-xs-12'>
+        <u class='' on-click='openDialog'>Rimuovi dalle mie libreria</u>
+      </div>
+    </div>
+    <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
+      <p class='title'>{{ dialogTitle }}</p>
+      <div>Sei sicuro di voler rimuovere la libreria?</div>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Annulla</paper-button>
+        <paper-button dialog-confirm>Elimina</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: "remove-library-button-element",
+
+    openDialog: function () {
+      this.$.remove.open();
+    }
+  });
+</script>
