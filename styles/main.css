@@ -89,3 +89,9 @@ div#offRadio {
   width: 16px !important;
   height: 16px !important;
 }
+
+#selectionBar {
+  background-color: #03A9F4 !important;
+  height: 5px !important;
+}
+
