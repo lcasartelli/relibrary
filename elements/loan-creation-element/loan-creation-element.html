@@ -129,7 +129,11 @@
 
     goBack: function () {
       this.async(function () {
-        page('/new/loan/books');
+        if(window.queryString !== '') {
+          window.history.back();
+        } else {
+          page('/book/detail');
+        }
       }, 100);
     },
 

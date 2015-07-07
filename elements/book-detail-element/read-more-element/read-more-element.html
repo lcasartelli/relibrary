@@ -29,6 +29,9 @@
       font-weight: 400;
       font-size: 120%;
     }
+    .wrapper {
+      margin-top: 10px;
+    }
   </style>
   <template>
     <paper-header-panel flex>
@@ -39,7 +42,7 @@
         <p>Harry Potter e la pietra filosofale</p>
       </paper-toolbar>
 
-      <div class='container'>
+      <div class='container wrapper'>
         <!-- TRAMA -->
         <div class='row'>
           <div class='col-xs-12'>
@@ -93,7 +96,7 @@
 
     openBookDetail: function () {
       this.async(function () {
-        page('/book/detail');
+        page('/book/detail?q=q');
       }, 100);
     }
   });

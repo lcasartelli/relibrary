@@ -20,7 +20,7 @@
     is: "loan-button-element",
     loanThisBook: function() {
       this.async(function () {
-        page.redirect('/new/loan');
+        page('/new/loan?q=q');
       }, 100);
     }
 
