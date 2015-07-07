@@ -21,9 +21,25 @@
     .container-input {
       width: 100%;
     }
+    .container-fab {
+      position: relative;
+      text-align: center;
+    }
+    paper-fab {
+      position: relative;
+      bottom: auto;
+      right: auto;
+    }
     hr {
       margin-top: 10px;
       margin-bottom: 10px;
+    }
+    p.indication {
+      color: grey;
+      font-size: 15px;
+    }
+    .container-indication {
+      margin-top: 120px;
     }
   </style>
   <template>
@@ -33,75 +49,87 @@
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
         <div class='container-input'>
-          <paper-input label="Ricerca..." value='{{query}}' no-label-float on-keyup='onChangeSearchField'></paper-input>
+          <paper-input label=" Parole chiave, ISBN o scansione..." value='{{query}}' no-label-float on-keyup='onChangeSearchField'></paper-input>
         </div>
       </paper-toolbar>
-      <div class='container wrapper' hidden$="{{isHidden}}">
-        <div class='row row-title'>
-          <div class='col-xs-8'>
-            <h4>Libri</h4>
-          </div>
-          <div class='col-xs-4 text-right'>
-            <more-button-element></more-button-element>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-4'>
-            <single-book-element></single-book-element>
-          </div>
-          <div class='col-xs-4'>
-            <single-book-element></single-book-element>
-          </div>
-          <div class='col-xs-4'>
-            <single-book-element></single-book-element>
-          </div>
-        </div>
-        <hr />
-        <div class='row row-title'>
-          <div class='col-xs-8'>
-            <h4>Autori</h4>
-          </div>
-          <div class='col-xs-4 text-right'>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12'>
-            <box-author-element></box-author-element>
-          </div>
-        </div>
-        <hr />
-        <div class='row row-title'>
-          <div class='col-xs-8'>
-            <h4>Liste</h4>
-          </div>
-          <div class='col-xs-4 text-right'>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12'>
-            <div class='col-xs-4' on-click='goList'>
-              <single-list-element></single-list-element>
+      <div class='container wrapper'>
+        <div class='container-indication' hidden$="{{!showSearch}}">
+          <div class='row'>
+            <div class='col-xs-12'>
+              <p class='indication'>Usa la tua fotocamera per scannerizzare un codice a barre</p>
             </div>
-            <div class='col-xs-4' on-click='goList'>
-              <single-list-element></single-list-element>
+            <div class='col-xs-12 container-fab'>
+              <paper-fab icon="add" on-click="goCamera"></paper-fab>
             </div>
           </div>
         </div>
-        <hr />
-        <div class='row row-title'>
-          <div class='col-xs-8'>
-            <h4>Librerie</h4>
-          </div>
-          <div class='col-xs-4 text-right'>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12'>
-            <div class='col-xs-4' on-click='goLibrary'>
-              <single-library-element></single-library-element>
+        <div class='container-search' hidden$="{{showSearch}}">
+          <div class='row row-title'>
+            <div class='col-xs-8'>
+              <h4>Libri</h4>
             </div>
-            <div class='col-xs-4' on-click='goLibrary'>
-              <single-library-element></single-library-element>
+            <div class='col-xs-4 text-right'>
+              <more-button-element></more-button-element>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-4'>
+              <single-book-element></single-book-element>
+            </div>
+            <div class='col-xs-4'>
+              <single-book-element></single-book-element>
+            </div>
+            <div class='col-xs-4'>
+              <single-book-element></single-book-element>
+            </div>
+          </div>
+          <hr />
+          <div class='row row-title'>
+            <div class='col-xs-8'>
+              <h4>Autori</h4>
+            </div>
+            <div class='col-xs-4 text-right'>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <box-author-element></box-author-element>
+            </div>
+          </div>
+          <hr />
+          <div class='row row-title'>
+            <div class='col-xs-8'>
+              <h4>Liste</h4>
+            </div>
+            <div class='col-xs-4 text-right'>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class='col-xs-4' on-click='goList'>
+                <single-list-element></single-list-element>
+              </div>
+              <div class='col-xs-4' on-click='goList'>
+                <single-list-element></single-list-element>
+              </div>
+            </div>
+          </div>
+          <hr />
+          <div class='row row-title'>
+            <div class='col-xs-8'>
+              <h4>Librerie</h4>
+            </div>
+            <div class='col-xs-4 text-right'>
+            </div>
+          </div>
+          <div class='row'>
+            <div class='col-xs-12'>
+              <div class='col-xs-4' on-click='goLibrary'>
+                <single-library-element></single-library-element>
+              </div>
+              <div class='col-xs-4' on-click='goLibrary'>
+                <single-library-element></single-library-element>
+              </div>
             </div>
           </div>
         </div>
@@ -115,7 +143,7 @@
   Polymer({
     is: "search-element",
     properties: {
-      isHidden: {
+      showSearch: {
         type: Boolean,
         value: true
       },
@@ -140,9 +168,9 @@
     },
     onChangeSearchField: function() {
       if(this.query.length > 0) {
-        this.isHidden = false;
+        this.showSearch = false;
       } else {
-        this.isHidden = true;
+        this.showSearch = true;
       }
     }
   });
