@@ -91,7 +91,11 @@ div#offRadio {
 }
 
 #selectionBar {
-  background-color: #03A9F4 !important;
   height: 5px !important;
 }
 
+
+.wrapper .list-item:last-child hr {
+  border: 0px;
+  margin: 0px;
+}
