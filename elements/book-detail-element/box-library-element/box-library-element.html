@@ -6,10 +6,12 @@
     }
   </style>
   <template>
-    <edit-button-element></edit-button-element>
     <div class='row'>
-      <div class='col-xs-12'>
+      <div class='col-xs-8'>
         <p>È nella libreria: <span class='library-value'>Libreria grande</span></p>
+      </div>
+      <div class='col-xs-4'>
+        <edit-button-element></edit-button-element>
       </div>
     </div>
   </template>
@@ -18,16 +20,6 @@
 <script>
 
   Polymer({
-    is: "box-library-element",
-
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
+    is: "box-library-element"
   });
 </script>
