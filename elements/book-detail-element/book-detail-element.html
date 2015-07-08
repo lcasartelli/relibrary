@@ -90,7 +90,7 @@
             <div class='col-xs-9'>
               <p class='no-margin' style='margin-top: 10px'>
                 <span style='margin-right: 10px;'>Stato del libro</span> <span class='book-props-value'>Letto</span>
-            </p>
+              </p>
             </div>
             <div class='col-xs-3 container-create-icon'>
               <paper-button raised class='edit-button' on-click='openStatusBookDialog'>
@@ -125,30 +125,37 @@
         </div>
         <div class='row'>
           <div class='col-xs-12'>
-            <p class='trama-content'>1º novembre 1981. A Little Whinging, in Inghilterra, è il giorno in cui uno strano e anziano signore di nome Albus Silente (preside della scuola di magia e stregoneria di Hogwarts) lascia un neonato di un anno, di nome Harry Potter, sulla porta di casa degli zii Vernon e Petunia Dursley. Silente lascia anche...
+            <p class='trama-content'>Harry Potter è un predestinato: ha una cicatrice a forma di saetta sulla fronte e provoca strani fenomeni, come quello di farsi ricrescere in una notte i capelli inesorabilemte tagliati dai perfidi zii. Ma solo in occasione del suo undicesimo compleanno gli si rivelano la sua natura e il suo destino, e il mondo misterioso cui di diritto appartiene. Un mondo dove regna la magia; un universo popolato da gufi portalettere, scope volanti, caramelle al gusto di cavolini di Bruxelles, ritratti che scappano... Letto da Giorgio Scaramuzzino. Età di lettura: da 8 anni.
             </p>
           </div>
         </div>
-        <div class='row readmore'>
-          <a href='/readmore/1234'>
-            <div class='col-xs-12' style='text-align: center;'>
-              <paper-button class='read-more'>Leggi di più</paper-button>
-            </div>
-          </a>
+        <div class='row readmore' on-click='toggleReadMore'>
+          <div class='col-xs-9'>
+            <p class='no-margin' style='margin-top: 10px'>
+              Maggiori informazione
+            </p>
+          </div>
+          <div class='col-xs-3 container-create-icon'>
+            <paper-icon-button id="navicon" icon="arrow-drop-down"></paper-icon-button>
+          </div>
+        </div>
+        <div class='container container-more-datil' hidden$='{{readMore}}'>
+          <read-more-element></read-more-element>
         </div>
         <hr />
-        <loan-button-element></loan-button-element>
+        <add-my-book-button-element toast='addBook' toastRemove='removeBook'></add-my-book-button-element>
+        <hr />
+        <!-- <loan-button-element></loan-button-element>
         <hr />
         <box-list-element></box-list-element>
         <hr />
         <box-library-element></box-library-element/>
-        <hr />
-        <remove-book-button-element></remove-book-button-element>
+        <hr /> -->
       </div>
       <paper-dialog id='bookStatus'>
         <div class='container' id='radioForStatus'>
           <template is="dom-repeat" items="{{radioForStatus}}">
-            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForStatus")}}' text='{{item.text}}'></radio-status-book-element>
+            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForStatus")}}' text='{{item.text}}' checked='{{item.checked}}'></radio-status-book-element>
           </template>
         </div>
         <div class="buttons">
@@ -159,7 +166,7 @@
       <paper-dialog id='boughtStatus'>
         <div class='container' id='radioForAcquistato'>
           <template is="dom-repeat" items="{{radioForAcquistato}}">
-            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForAcquistato")}}' text='{{item.text}}'></radio-status-book-element>
+            <radio-status-book-element id='{{item.id}}' radiohandler='{{radioHandler(item.id, "radioForAcquistato")}}' text='{{item.text}}' checked='{{item.checked}}'></radio-status-book-element>
           </template>
         </div>
         <div class="buttons">
@@ -168,6 +175,7 @@
         </div>
       </paper-dialog>
       <paper-toast id="addBook" text="Libro aggiunto con successo." class="" aria-hidden="true"></paper-toast>
+      <paper-toast id="removeBook" text="Hai rimosso il libro." class="" aria-hidden="true"></paper-toast>
       <paper-toast id="ratingDone" text="Hai aggiunto la tua votazione!" class="" aria-hidden="true"></paper-toast>
     </paper-header-panel>
   </template>
@@ -178,19 +186,23 @@
   Polymer({
     is: "book-detail-element",
     properties: {
+      readMore: {
+        type: Boolean,
+        value: true
+      },
       radioForStatus: {
         type: Array,
         value: [
-          {id: 's1', text: 'Letto'},
-          {id: 's2', text: 'Da leggere'},
-          {id: 's3', text: 'Leggendo attualmente'}
+          {id: 's1', text: 'Letto', checked: true},
+          {id: 's2', text: 'Da leggere', checked: false},
+          {id: 's3', text: 'Leggendo attualmente', checked: false}
         ]
       },
       radioForAcquistato: {
         type: Array,
         value: [
-          {id: 'b1', text: 'Acquistato'},
-          {id: 'b2', text: 'Non acquistato'}
+          {id: 'b1', text: 'Acquistato', checked: true},
+          {id: 'b2', text: 'Non acquistato', checked: false}
         ]
       }
     },
@@ -208,6 +220,9 @@
     },
     openStatusBoughtDialog: function() {
       this.$.boughtStatus.open();
+    },
+    toggleReadMore: function() {
+      this.readMore = !this.readMore;
     },
     radioHandler: function(id, dataSet) {
       var that = this;

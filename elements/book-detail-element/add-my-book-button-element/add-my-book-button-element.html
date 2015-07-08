@@ -1,0 +1,64 @@
+
+<dom-module id="add-my-book-button-element">
+  <style>
+    paper-dialog paper-button {
+      background-color: #fff;
+      color: #E64A19;
+    }
+  </style>
+  <template>
+    <div class='row'>
+      <div id='containerAddButton' class='col-xs-12 text-center' hidden$='{{isAdded}}'>
+        <paper-button raised class='edit-button' on-click='addMyBook'>
+          <iron-icon icon="add"></iron-icon>
+          Aggiungi ai miei libri
+        </paper-button>
+      </div>
+      <div id='containerRemoveBookButton' hidden$='{{!isAdded}}'>
+        <div class='col-xs-12 text-left'>
+          <u class='' on-click='openDialog'>Rimuovi dai miei libri</u>
+        </div>
+      </div>
+    </div>
+    <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
+      <p class='title'>{{ dialogTitle }}</p>
+      <div>Sei sicuro di voler rimuovere libro?</div>
+      <div class="buttons">
+        <paper-button dialog-dismiss>Annulla</paper-button>
+        <paper-button dialog-confirm on-click='removeBook'>Rimuovi</paper-button>
+      </div>
+    </paper-dialog>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: "add-my-book-button-element",
+    properties: {
+      toast: {
+        type: String
+      },
+      toastRemove: {
+        type: String
+      },
+      isAdded: {
+        type: Boolean,
+        value: false
+      }
+    },
+    addMyBook: function(event) {
+      window.showToast(document.querySelector('#' + this.toast));
+      this.isAdded = true;
+    },
+    removeBook: function(event) {
+      window.showToast(document.querySelector('#' + this.toast));
+      this.async(function() {
+        this.isAdded = false;
+      }, 3000);
+    },
+    openDialog: function () {
+      this.$.remove.open();
+    }
+  });
+</script>

@@ -8,7 +8,7 @@
   <template>
     <div class='row row-radio-status-book' on-click='radiohandler'>
       <div class='col-xs-12'>
-        <paper-radio-button id='radio'>{{text}}</paper-radio-button>
+        <paper-radio-button id='radio' checked={{checked}}>{{text}}</paper-radio-button>
       </div>
     </div>
   </template>
@@ -25,6 +25,9 @@
       },
       text: {
         type: String
+      },
+      checked: {
+        type: Boolean
       }
     },
     removeSelection: function () {

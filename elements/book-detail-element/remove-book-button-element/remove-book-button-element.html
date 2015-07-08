@@ -15,7 +15,7 @@
   <template>
     <div class='container'>
       <div class='row'>
-        <div class='col-xs-12 text-right'>
+        <div class='col-xs-12 text-left'>
           <u class='' on-click='openDialog'>Rimuovi dai miei libri</u>
         </div>
       </div>
@@ -36,16 +36,6 @@
 
   Polymer({
     is: "remove-book-button-element",
-
-    // // add properties and methods on the element's prototype
-    //
-    // properties: {
-    //   // declare properties for the element's public API
-    //   pageSelected: {
-    //     type: String,
-    //     value: "0"
-    //   }
-    // }
     openDialog: function () {
       this.$.remove.open();
     }
