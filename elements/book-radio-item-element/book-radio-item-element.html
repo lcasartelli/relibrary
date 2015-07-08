@@ -29,23 +29,31 @@
       padding-top: 10px;
       padding-bottom: 10px;
     }
+    .source {
+      width: 100%;
+      text-align: right;
+    }
+
+    .container-radio, .container-detail {
+      padding: 0px;
+    }
 
   </style>
   <template>
     <div class='container'>
       <div class='book-item row'>
-        <div class='col-xs-1'>
+        <div class='col-xs-1 container-radio'>
           <paper-radio-button id='radio'></paper-radio-button>
         </div>
-        <div class='col-xs-3'>
+        <div class='col-xs-4'>
           <img src="http://lorempixel.com/130/200" class='img-responsive'/>
         </div>
-        <div class='col-xs-7'>
+        <div class='col-xs-7 container-detail'>
           <p class='title'>Orgoglio e pregiudizio</p>
           <div class='space-05'></div>
           <p>Jane Austen</p>
           <div class='space-1'></div>
-          <rating-element></rating-element>
+          <p class='source'>Da GoogReads</p>
         </div>
         <paper-ripple class='recenteringTouch' fit on-click='selectedItem'></paper-ripple>
       </div>

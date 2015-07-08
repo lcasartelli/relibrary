@@ -18,9 +18,6 @@
       margin: auto;
       margin-right: 0px;
     }
-    paper-toolbar {
-      height: 100px;
-    }
 
     #noBooksAlert {
       z-index: 200;
@@ -41,38 +38,15 @@
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
         <p>Scelta libri per "<span>{{contentTitle}}</span>"</p>
-        <div class='search' on-click="goSearch">
-          <paper-icon-button id="search" icon="search"></paper-icon-button>
-        </div>
-
-        <paper-tabs class="flex bottom horizontal self-end" alignBottom="true" selected="{{pageSelected}}">
-          <paper-tab>Libri già catalogati</paper-tab>
-          <paper-tab>Libri da GoodReads</paper-tab>
-        </paper-tabs>
-
       </paper-toolbar>
-
       <div class='container'>
+        <search-book-element></search-book-element>
         <div class='row'>
-          <!-- <div class='col-xs-12'>
-            <liste-list-item-element></liste-list-item-element>
-          </div> -->
-          <div class='col-xs-12'>
-            <iron-pages selected="{{pageSelected}}">
-      				<div id='myCatalog'>
-                <book-checkbox-item-element></book-checkbox-item-element>
-                <book-checkbox-item-element></book-checkbox-item-element>
-              </div>
-              <div id='goodreadsCatalog'>
-                <book-checkbox-item-element></book-checkbox-item-element>
-                <book-checkbox-item-element></book-checkbox-item-element>
-                <book-checkbox-item-element></book-checkbox-item-element>
-                <book-checkbox-item-element></book-checkbox-item-element>
-              </div>
-            </iron-pages>
+          <div id='myCatalog' class='col-xs-12'>
+            <book-checkbox-item-element></book-checkbox-item-element>
+            <book-checkbox-item-element></book-checkbox-item-element>
           </div>
         </div>
-
       </div>
 
       <paper-fab icon="done" on-click='saveBooks'></paper-fab>
