@@ -13,10 +13,6 @@
     .big {
       font-size: 120%;
     }
-
-    .readmore a {
-      color:#000;
-    }
     .wrapper {
       margin-top: 10px;
     }
@@ -32,9 +28,10 @@
     .row-badges.last {
       border-bottom: 1px solid grey;
     }
-    .container-create-icon {
+    .container-create-icon, .container-drop-down-icon {
       padding: 0px;
       text-align: right;
+      color: #FF5722;
     }
     .container-create-icon paper-button {
       min-width: 3em;
@@ -60,6 +57,14 @@
       background-color: #fff;
       color: #E64A19;
     }
+    p.more-info {
+      margin: 0;
+      margin-top: 10px;
+      color: #FF5722;
+    }
+    .trama-content {
+      text-align: justify;
+    }
   </style>
   <template>
     <paper-header-panel flex>
@@ -75,17 +80,14 @@
           <div class='col-xs-4'>
             <img src="http://lorempixel.com/130/200" class="img-responsive"/>
           </div>
-          <!-- BOOK INFO -->
           <div class='col-xs-8'>
             <p class='title'>Harry Potter e la pietra Filosofale</p>
             <p class='author'>J.K. Rowling</p>
             <rating-element toast='ratingDone'></rating-element>
-            <!-- <p class='rating' style='color: red'> TODO Valutazione</p> -->
           </div>
         </div>
         <hr class='transparent-divider'/>
         <div class='row row-badges'>
-          <!--BADGES -->
           <div class='col-xs-12'>
             <div class='col-xs-9'>
               <p class='no-margin' style='margin-top: 10px'>
@@ -98,12 +100,9 @@
               </paper-button>
             </div>
           </div>
-
-
         </div>
         <div class='row row-badges last'>
           <div class='col-xs-12'>
-
             <div class='col-xs-9'>
               <p class='no-margin'>
                 <i class="material-icons done-icon">done</i> <span>Hai acquistato questo libro</span>
@@ -117,7 +116,6 @@
           </div>
         </div>
         <hr class='transparent-divider'/>
-        <!-- TRAMA -->
         <div class='row'>
           <div class='col-xs-12'>
             <p class='bolder big'>Sinossi</p>
@@ -130,27 +128,20 @@
           </div>
         </div>
         <div class='row readmore' on-click='toggleReadMore'>
-          <div class='col-xs-9'>
-            <p class='no-margin' style='margin-top: 10px'>
+          <div class='col-xs-12 text-center'>
+            <p class='more-info text-uppercase'>
               Maggiori informazioni
+              <paper-icon-button id="navicon" icon="arrow-drop-down" hidden$="{{!readMore}}"></paper-icon-button>
+              <paper-icon-button id="navicon" icon="arrow-drop-up" hidden$="{{readMore}}"></paper-icon-button>
             </p>
           </div>
-          <div class='col-xs-3 container-create-icon'>
-            <paper-icon-button id="navicon" icon="arrow-drop-down"></paper-icon-button>
-          </div>
         </div>
-        <div class='container container-more-datil' hidden$='{{readMore}}'>
+        <div class='container container-more-datil text-center' hidden$='{{readMore}}'>
           <read-more-element></read-more-element>
         </div>
         <hr />
         <add-my-book-button-element toast='addBook' toastRemove='removeBook'></add-my-book-button-element>
         <hr />
-        <!-- <loan-button-element></loan-button-element>
-        <hr />
-        <box-list-element></box-list-element>
-        <hr />
-        <box-library-element></box-library-element/>
-        <hr /> -->
       </div>
       <paper-dialog id='bookStatus'>
         <div class='container' id='radioForStatus'>
@@ -182,7 +173,6 @@
 </dom-module>
 
 <script>
-
   Polymer({
     is: "book-detail-element",
     properties: {
