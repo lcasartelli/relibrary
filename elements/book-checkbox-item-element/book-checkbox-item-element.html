@@ -29,22 +29,31 @@
       color: #000;
     }
 
+    .container-checkbox, .container-detail {
+      padding: 0px;
+    }
+
+    .source {
+      width: 100%;
+      text-align: right;
+    }
+
   </style>
   <template>
     <div class='container'>
       <div class='book-item row'>
-        <div class='col-xs-1'>
+        <div class='col-xs-1 container-checkbox'>
           <paper-checkbox id='checkbox'></paper-checkbox>
         </div>
-        <div class='col-xs-3'>
+        <div class='col-xs-4'>
           <img src="http://lorempixel.com/130/200" class='img-responsive'/>
         </div>
-        <div class='col-xs-7'>
+        <div class='col-xs-7 container-detail'>
           <p class='title'>Orgoglio e pregiudizio</p>
           <div class='space-05'></div>
           <p>Jane Austen</p>
           <div class='space-1'></div>
-          <rating-element></rating-element>
+          <p class='source'>{{source}}</p>
         </div>
         <paper-ripple class='recenteringTouch' fit on-click='selectedItem'></paper-ripple>
       </div>
@@ -61,6 +70,9 @@
       selected: {
         type: Boolean,
         value: false
+      },
+      source: {
+        type: String
       },
       checked: {
         type: Boolean

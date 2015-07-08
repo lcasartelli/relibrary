@@ -27,7 +27,7 @@
         <div class='row'>
           <div id='myCatalog' class='col-xs-12'>
             <template is="dom-repeat" items="{{booksFromMyCatalog}}">
-              <book-radio-item-element id='{{item.id}}' radiohandler='{{radioHandler(item.id)}}'></book-radio-item-element>
+              <book-radio-item-element id='{{item.id}}' source='{{source}}' radiohandler='{{radioHandler(item.id)}}'></book-radio-item-element>
             </template>
           </div>
         </div>
@@ -63,22 +63,15 @@
       type: {
         type: String
       },
+      source: {
+        type: String
+      },
       booksFromMyCatalog: {
         type: Array,
         value: [
-          { id: 'b1', name: 'Orgoglio e Pregiudizio' },
-          { id: 'b2', name: 'Orgoglio e Pregiudizio' },
-          { id: 'b3', name: 'Orgoglio e Pregiudizio' }
-        ]
-      },
-      booksFromGoodreads: {
-        type: Array,
-        value: [
-          { id: 'g1', name: 'Orgoglio e Pregiudizio' },
-          { id: 'g2', name: 'Orgoglio e Pregiudizio' },
-          { id: 'g3', name: 'Orgoglio e Pregiudizio' },
-          { id: 'g4', name: 'Orgoglio e Pregiudizio' },
-          { id: 'g5', name: 'Orgoglio e Pregiudizio' }
+          { id: 'b1', name: 'Orgoglio e Pregiudizio'},
+          { id: 'b2', name: 'Orgoglio e Pregiudizio'},
+          { id: 'b3', name: 'Orgoglio e Pregiudizio'}
         ]
       }
     },
@@ -147,6 +140,9 @@
     ready: function () {
       if (this.type === 'loan') {
         this.contentTitle = "Nuovo prestito";
+        this.source = 'Dal mio catalogo';
+      } else {
+        this.source = 'Da GoodReads';
       }
     },
     onChangeSearchField: function() {

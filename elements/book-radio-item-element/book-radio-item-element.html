@@ -53,7 +53,7 @@
           <div class='space-05'></div>
           <p>Jane Austen</p>
           <div class='space-1'></div>
-          <p class='source'>Da GoogReads</p>
+          <p class='source'>{{source}}</p>
         </div>
         <paper-ripple class='recenteringTouch' fit on-click='selectedItem'></paper-ripple>
       </div>
@@ -74,6 +74,9 @@
       },
       radiohandler: {
         type: Function
+      },
+      source: {
+        type: String
       }
     },
 
