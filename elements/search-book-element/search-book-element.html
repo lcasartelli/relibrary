@@ -1,0 +1,32 @@
+
+<dom-module id="search-book-element">
+  <style>
+
+  .search {
+    margin: auto;
+    margin-right: 0;
+    padding-left: 0px;
+  }
+  .container-input {
+    padding-right: 0px;
+  }
+  </style>
+  <template>
+    <hr class='transparent-divider'/>
+    <div class='row'>
+      <div class='back col-xs-2'>
+        <paper-icon-button id="navicon" icon="image:camera-alt"></paper-icon-button>
+      </div>
+      <div class='col-xs-9 container-input'>
+        <paper-input label="Ricerca un libro..." no-label-float></paper-input>
+      </div>
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "search-book-element"
+
+  });
+</script>

@@ -21,14 +21,9 @@
     .container-input {
       width: 100%;
     }
-    .container-fab {
-      position: relative;
-      text-align: center;
-    }
-    paper-fab {
-      position: relative;
-      bottom: auto;
-      right: auto;
+    .container-image img {
+      width: 50%;
+      margin: 0px auto;
     }
     hr {
       margin-top: 10px;
@@ -55,11 +50,11 @@
       <div class='container wrapper'>
         <div class='container-indication' hidden$="{{!showSearch}}">
           <div class='row'>
-            <div class='col-xs-12'>
+            <div class='col-xs-12 text-center'>
               <p class='indication'>Usa la tua fotocamera per scannerizzare un codice a barre</p>
             </div>
-            <div class='col-xs-12 container-fab'>
-              <paper-fab icon="add" on-click="goCamera"></paper-fab>
+            <div class='col-xs-12 container-image'>
+              <img class='img-responsive img-cirular' src='media/camera-icon.png' />
             </div>
           </div>
         </div>
