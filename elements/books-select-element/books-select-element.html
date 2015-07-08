@@ -22,6 +22,13 @@
     #noBooksAlert {
       z-index: 200;
     }
+
+    .dialog-title {
+      font-weight: 400;
+      font-size: 120%;
+    }
+
+
     paper-dialog {
       background-color: #fff;
     }
@@ -55,12 +62,12 @@
     </paper-header-panel>
 
     <paper-dialog id='noBooksAlert' style='height: auto; max-height: 500px; z-index: 200 !important;'>
+        <p class='dialog-title'>Nessun libro selezionato</p>
         <p>
-          Ops, non hai selezionato nessun libro.
+          Seleziona uno o più libri da aggiungere alla tua <span>{{displayNameForType}}</span>
         </p>
       <div class="buttons">
-        <paper-button dialog-dismiss>Annulla</paper-button>
-        <paper-button dialog-dismiss>Riprova</paper-button>
+        <paper-button dialog-dismiss>Torna indietro</paper-button>
       </div>
     </paper-dialog>
 
@@ -142,8 +149,10 @@
 
     ready: function () {
       if (this.type === 'library') {
+        this.displayNameForType = 'libreria';
         this.contentTitle = "Libreria Grande";
       } else {
+        this.displayNameForType = 'lista';
         this.contentTitle = "Romanzi preferiti";
       }
     }
