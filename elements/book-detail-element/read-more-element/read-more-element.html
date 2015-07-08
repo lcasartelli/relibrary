@@ -1,17 +1,5 @@
 <dom-module id="read-more-element">
   <style>
-    paper-toolbar {
-      vertical-align: middle;
-      background: white;
-    }
-    paper-toolbar p {
-      margin: 0;
-      padding: 0;
-    }
-    paper-toolbar p, paper-toolbar a {
-      color: black;
-    }
-
     .container-detail {
       padding: 0px 10px;
     }
@@ -22,82 +10,44 @@
     .container-detail .content-detail {
       color: darkgrey;
     }
-    #navicon {
-      color: black;
-    }
-    .title {
-      font-weight: 400;
-      font-size: 120%;
-    }
-    .wrapper {
-      margin-top: 10px;
-    }
   </style>
   <template>
-    <paper-header-panel flex>
-      <paper-toolbar role="toolbar" elevation="1">
-        <div class='back' on-click="openBookDetail">
-          <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
-        </div>
-        <p>Harry Potter e la pietra filosofale</p>
-      </paper-toolbar>
-
-      <div class='container wrapper'>
-        <!-- TRAMA -->
-        <div class='row'>
-          <div class='col-xs-12'>
-            <p class='title'>Sinossi</p>
-          </div>
-        </div>
-        <div class='row'>
-          <div class='col-xs-12'>
-            <p class='trama-content'>1º novembre 1981. A Little Whinging, in Inghilterra, è il giorno in cui uno strano e anziano signore di nome Albus Silente (preside della scuola di magia e stregoneria di Hogwarts) lascia un neonato di un anno, di nome Harry Potter, sulla porta di casa degli zii Vernon e Petunia Dursley. Silente lascia anche una lettera in cui spiega che i genitori del bambino sono morti e in cui chiede di prendersi cura del piccolo.Harry cresce infelice in casa Dursley, tormentato dalle angherie del cugino Dudley e degli zii, che non perdono occasione per punirlo e mortificarlo: lo fanno dormire nel ripostiglio pieno di ragni sotto le scale, lo vestono solo con gli enormi vestiti smessi di Dudley, lo privano dei giochi e non gli permettono mai di divertirsi o di essere felice in qualsiasi modo... Harry inoltre è talvolta protagonista di alcuni strani episodi di cui afferma non essere responsabile, come il fatto di essere saltato fin sul tetto della scuola per sfuggire a Dudley e ai suoi amici bulli, il fatto di aver fatto sparire il vetro di una teca contenente un serpente allo zoo, permettendo al serpente stesso di spaventare a morte il cugino, o il fatto di essersi fatto ricrescere i capelli in una notte, dopo che la zia Petunia li aveva tagliati in malo modo perché crescevano in modo disordinato.
-            </p>
-          </div>
-        </div>
-        <hr />
-        <div class='row container-detail'>
-          <div class='col-xs-4'>
-            <p class='header-detail'>Editore</p>
-            <p class='content-detail'>Mondadori</p>
-          </div>
-          <div class='col-xs-4'>
-            <p class='header-detail'>Pubblicato il</p>
-            <p class='content-detail'>15 Luglio 1999</p>
-          </div>
-          <div class='col-xs-4'>
-            <p class='header-detail'>Pagine</p>
-            <p class='content-detail'>990</p>
-          </div>
-        </div>
-        <div class='row container-detail'>
-          <div class='col-xs-4'>
-            <p class='header-detail'>ISBN</p>
-            <p class='content-detail'>1234567890</p>
-          </div>
-          <div class='col-xs-4'>
-            <p class='header-detail'>Lingua</p>
-            <p class='content-detail'>Italiano</p>
-          </div>
-          <div class='col-xs-4'>
-            <p class='header-detail'>Genere</p>
-            <p class='content-detail'>Classico</p>
-          </div>
-        </div>
+    <div class='row container-detail'>
+      <div class='col-xs-6'>
+        <p class='header-detail'>Editore</p>
+        <p class='content-detail'>Mondadori</p>
       </div>
-    </paper-header-panel>
+      <div class='col-xs-6'>
+        <p class='header-detail'>Genere</p>
+        <p class='content-detail'>classico</p>
+      </div>
+    </div>
+    <div class='row container-detail'>
+      <div class='col-xs-6'>
+        <p class='header-detail'>Pubblicato il</p>
+        <p class='content-detail'>15 Luglio 1999</p>
+      </div>
+      <div class='col-xs-6'>
+        <p class='header-detail'>Pagine</p>
+        <p class='content-detail'>990</p>
+      </div>
+    </div>
+    <div class='row container-detail'>
+      <div class='col-xs-6'>
+        <p class='header-detail'>ISBN</p>
+        <p class='content-detail'>1234567890</p>
+      </div>
+      <div class='col-xs-6'>
+        <p class='header-detail'>Lingua</p>
+        <p class='content-detail'>Italiano</p>
+      </div>
+    </div>
   </template>
 </dom-module>
 
 <script>
 
   Polymer({
-    is: "read-more-element",
-
-    openBookDetail: function () {
-      this.async(function () {
-        page('/book/detail?q=q');
-      }, 100);
-    }
+    is: "read-more-element"
   });
 </script>
