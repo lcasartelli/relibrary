@@ -1,6 +1,9 @@
 
 <dom-module id="add-my-book-button-element">
   <style>
+    paper-dialog {
+      background-color: #fff;
+    }
     paper-dialog paper-button {
       background-color: #fff;
       color: #E64A19;
@@ -40,7 +43,8 @@
         type: String
       },
       toastRemove: {
-        type: String
+        type: String,
+        value: 'removeBook'
       },
       isAdded: {
         type: Boolean,
@@ -51,11 +55,14 @@
       window.showToast(document.querySelector('#' + this.toast));
       this.isAdded = true;
     },
-    removeBook: function(event) {
-      window.showToast(document.querySelector('#' + this.toast));
+    removeBook: function() {
+      var toast = document.querySelector('#' + this.toastRemove);
       this.async(function() {
-        this.isAdded = false;
-      }, 3000);
+        page('/');
+        this.async(function() {
+          window.showToast(toast);
+        }, 100);
+      }, 100);
     },
     openDialog: function () {
       this.$.remove.open();

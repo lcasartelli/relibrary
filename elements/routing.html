@@ -32,8 +32,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     // client-side router inspired by the Express router
     // More info: https://visionmedia.github.io/page.js/
 
-    page('/', function () {
+    page('/', function (cxt) {
 			_showRoute('main');
+			// window.showToastFromRedirect(cxt.querystring);
     });
 
     page('/book/:code', function (cxt) {

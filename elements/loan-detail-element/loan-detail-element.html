@@ -80,6 +80,8 @@
             <paper-button raised class='loan-button' on-click='archiveLoan'>Archivia prestito</button>
           </div>
         </div>
+        <hr />
+        <remove-loan-button-element></remove-loan-button-element>
         <paper-fab icon="create" on-click='editLoan'></paper-fab>
       </div>
 
@@ -88,7 +90,7 @@
         <div>{{ dialogMessage }}</div>
         <div class="buttons">
           <paper-button dialog-dismiss>Annulla</paper-button>
-          <paper-button dialog-confirm on-click='end'>Archivia</paper-button>
+          <paper-button dialog-confirm on-click='archiveLoanConfirm'>Archivia</paper-button>
         </div>
       </paper-dialog>
       <paper-toast id="addLoan" text="Hai registrato un nuovo prestito." class="" aria-hidden="true"></paper-toast>
@@ -132,6 +134,16 @@
 
     archiveLoan: function () {
       this.$.archiveAlert.open();
+    },
+
+    archiveLoanConfirm: function() {
+      var toast = document.querySelector('#archiveLoan');
+      this.async(function() {
+        page('/');
+        this.async(function() {
+          window.showToast(toast);
+        }, 100);
+      }, 100);
     },
 
     ready: function () {

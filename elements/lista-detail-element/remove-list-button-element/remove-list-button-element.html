@@ -14,8 +14,8 @@
   </style>
   <template>
     <div class='row container'>
-      <div class='col-xs-12'>
-        <u class='' on-click='openDialog'>Rimuovi dalle mie liste</u>
+      <div class='col-xs-12' on-click='openDialog'>
+        <u>Rimuovi dalle mie liste</u>
       </div>
     </div>
     <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
@@ -23,7 +23,7 @@
       <div>Sei sicuro di voler rimuovere la lista?</div>
       <div class="buttons">
         <paper-button dialog-dismiss>Annulla</paper-button>
-        <paper-button dialog-confirm>Elimina</paper-button>
+        <paper-button dialog-confirm on-click='removeList'>Elimina</paper-button>
       </div>
     </paper-dialog>
   </template>
@@ -36,6 +36,15 @@
 
     openDialog: function () {
       this.$.remove.open();
+    },
+    removeList: function() {
+      var toast = document.querySelector('#removeList');
+      this.async(function() {
+        page('/');
+        this.async(function() {
+          window.showToast(toast);
+        }, 100);
+      }, 100);
     }
   });
 </script>

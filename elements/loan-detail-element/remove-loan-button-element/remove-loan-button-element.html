@@ -1,5 +1,5 @@
 
-<dom-module id="remove-library-button-element">
+<dom-module id="remove-loan-button-element">
   <style>
     .container {
       margin-bottom: 30px;
@@ -15,15 +15,15 @@
   <template>
     <div class='row container'>
       <div class='col-xs-12' on-click='openDialog'>
-        <u>Rimuovi dalle mie libreria</u>
+        <u>Rimuovi prestito</u>
       </div>
     </div>
     <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
-      <p class='title'>{{ dialogTitle }}</p>
-      <div>Sei sicuro di voler rimuovere la libreria?</div>
+      <p class='title'></p>
+      <div>Sei sicuro di voler rimuovere il prestito?</div>
       <div class="buttons">
         <paper-button dialog-dismiss>Annulla</paper-button>
-        <paper-button dialog-confirm on-click='removeLibrary'>Elimina</paper-button>
+        <paper-button dialog-confirm on-click='removeList'>Rimuovi</paper-button>
       </div>
     </paper-dialog>
   </template>
@@ -32,13 +32,13 @@
 <script>
 
   Polymer({
-    is: "remove-library-button-element",
+    is: "remove-loan-button-element",
 
     openDialog: function () {
       this.$.remove.open();
     },
-    removeLibrary: function() {
-      var toast = document.querySelector('#removeLibrary');
+    removeList: function() {
+      var toast = document.querySelector('#removeLoan');
       this.async(function() {
         page('/');
         this.async(function() {
