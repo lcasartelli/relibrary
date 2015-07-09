@@ -15,12 +15,12 @@
   <template>
     <div class='row container'>
       <div class='col-xs-12' on-click='openDialog'>
-        <u>Rimuovi dalle mie libreria</u>
+        <u>Elimina libreria</u>
       </div>
     </div>
     <paper-dialog id='remove' style='height: auto; max-height: 500px;'>
       <p class='title'>{{ dialogTitle }}</p>
-      <div>Sei sicuro di voler rimuovere la libreria?</div>
+      <div>Sei sicuro di voler eliminare la libreria?</div>
       <div class="buttons">
         <paper-button dialog-dismiss>Annulla</paper-button>
         <paper-button dialog-confirm on-click='removeLibrary'>Elimina</paper-button>
