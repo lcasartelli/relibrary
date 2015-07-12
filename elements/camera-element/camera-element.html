@@ -1,0 +1,33 @@
+
+<dom-module id="camera-element">
+  <style>
+  .container {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .container > img {
+      width: 100%;
+    }
+
+  </style>
+  <template>
+    <div class='container' on-click='goBookDetail'>
+      <img src='/img/camera.png' />
+    </div>
+  </template>
+</dom-module>
+
+<script>
+  Polymer({
+    is: "camera-element",
+
+    goBookDetail: function () {
+      this.async(function () {
+        page('/book/detail');
+      }, 100);
+    }
+
+  });
+</script>
