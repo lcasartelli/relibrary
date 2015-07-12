@@ -7,14 +7,20 @@
   </style>
   <template>
     <div on-click="openBookDetail">
-      <img src="http://lorempixel.com/130/200" class="img-responsive"/>
-      <p class='text-center book-name'>Orgoglio e pregiudizio</p>
+      <img src="/img/book-cover-hp.jpg" class="img-responsive"/>
+      <p class='text-center book-name'>{{ title }}</p>
     </div>
   </template>
 </dom-module>
 
 <script>
   Polymer({
-    is: "single-book-element"
+    is: "single-book-element",
+    properties: {
+      title: {
+        type: String,
+        value: 'Harry Potter e la Pietra Filosofale'
+      }
+    }
   });
 </script>
