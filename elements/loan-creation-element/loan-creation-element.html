@@ -57,9 +57,9 @@
           </div>
           <div class='col-xs-10'>
             <paper-input label="Amico di lettura" value='{{ user }}'></paper-input>
-            <paper-radio-group>
-              <paper-radio-button name='da' class='col-xs-12' checked='true'>Ti ha prestato un libro</paper-radio-button>
-              <paper-radio-button name='a' class='col-xs-12'>Ti deve restituire un libro</paper-radio-button>
+            <paper-radio-group id='from-to' name='from-to'>
+              <paper-radio-button name='from' id='from' class='col-xs-12'>Ti ha prestato un libro</paper-radio-button>
+              <paper-radio-button name='to' id='to' class='col-xs-12'>Ti deve restituire un libro</paper-radio-button>
             </paper-radio-group>
           </div>
 
@@ -82,7 +82,7 @@
             <p>Imposta un promemoria per ricordare la data di <strong>scadenza</strong> del prestito</p>
             <paper-radio-group>
               <paper-radio-button name='1sett' class='col-xs-12'>1 settimana</paper-radio-button>
-              <paper-radio-button name='2sett' class='col-xs-12' checked='true'>2 settimane</paper-radio-button>
+              <paper-radio-button name='2sett' id='twosett' class='col-xs-12' checked='true'>2 settimane</paper-radio-button>
               <paper-radio-button name='1mese' class='col-xs-12'>1 mese</paper-radio-button>
             </paper-radio-group>
             <paper-button class='reminder-button'>Personalizzato</paper-button>
@@ -148,8 +148,12 @@
 
       if (this.type === 'new') {
         this.contentTitle = 'Creazione nuovo prestito';
+        this.$.from.click();
+        this.$.twosett.click();
       } else if (this.type === 'edit') {
         this.contentTitle = 'Modifica prestito ';
+        this.$.from.click();
+        this.$.twosett.click();
       }
     }
 
