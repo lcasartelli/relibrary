@@ -21,6 +21,11 @@
         type: String,
         value: 'Harry Potter e la Pietra Filosofale'
       }
+    },
+    openBookDetail: function () {
+      this.async(function () {
+        page('/book/detail');
+      }, 100);
     }
   });
 </script>
