@@ -4,12 +4,17 @@
     a .book-name {
       color: #000;
     }
+    paper-ripple {
+      z-index: 100;
+    }
   </style>
   <template>
-    <div on-click="openBookDetail">
+    <div>
       <img src="/img/book-cover-hp.jpg" class="img-responsive"/>
       <p class='text-center book-name'>{{ title }}</p>
+      <paper-ripple class='recenteringTouch' fit on-click='openBookDetail'></paper-ripple>
     </div>
+
   </template>
 </dom-module>
 
