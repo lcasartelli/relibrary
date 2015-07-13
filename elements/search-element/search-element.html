@@ -46,7 +46,7 @@
           <paper-icon-button id="navicon" icon="arrow-back"></paper-icon-button>
         </div>
         <div class='container-input'>
-          <paper-input label="Inserisci parola chiave, ISBN..." value='{{query}}' no-label-float on-keyup='onChangeSearchField'></paper-input>
+          <paper-input label="Inserisci parola chiave, ISBN..." value='{{query}}' no-label-float on-keyup='onChangeSearchField' id='searchInput'></paper-input>
         </div>
       </paper-toolbar>
       <div class='container wrapper'>
@@ -150,7 +150,11 @@
       }
     },
     goBack: function() {
+      var that = this;
+
       this.async(function () {
+        that.query = '';
+        that.showSearch = true;
         window.history.back();
       }, 100);
     },
