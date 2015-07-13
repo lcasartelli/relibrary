@@ -1,11 +1,16 @@
 
 <dom-module id="single-library-element">
   <style>
-
+    paper-ripple {
+      z-index: 100;
+    }
   </style>
   <template>
-    <img src="/img/books.jpg" class="img-responsive"/>
-    <p class='text-center'>Libreria grande</p>
+    <div>
+      <img src="/img/books.jpg" class="img-responsive"/>
+      <p class='text-center'>Libreria grande</p>
+      <paper-ripple class='recenteringTouch' fit on-click='openLibraryDetail'></paper-ripple>
+    </div>
   </template>
 </dom-module>
 
@@ -23,5 +28,11 @@
     //     value: "0"
     //   }
     // }
+
+    openLibraryDetail: function () {
+      this.async(function () {
+        page('/library/detail');
+      }, 100);
+    },
   });
 </script>
