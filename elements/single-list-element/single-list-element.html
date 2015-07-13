@@ -1,17 +1,28 @@
 
 <dom-module id="single-list-element">
   <style>
-
+    paper-ripple {
+      z-index: 100;
+    }
   </style>
   <template>
-    <img src="/img/open-book.jpg" class="img-responsive"/>
-    <p class='text-center'>Romanzi preferiti</p>
+    <div>
+      <img src="/img/open-book.jpg" class="img-responsive"/>
+      <p class='text-center'>Romanzi preferiti</p>
+      <paper-ripple class='recenteringTouch' fit on-click='openLibraryDetail'></paper-ripple>
+    </div>
   </template>
 </dom-module>
 
 <script>
 
   Polymer({
-    is: "single-list-element"
+    is: "single-list-element",
+
+    openListaDetail: function () {
+      this.async(function () {
+        page('/lista/detail');
+      }, 100);
+    },
   });
 </script>
